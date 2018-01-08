@@ -1,0 +1,67 @@
+// // // // // // // // // //
+//
+//      Burger 
+//
+// // // // // // // // // //
+
+
+// * * * * * * * * * * * * * * * * * * * *
+// burger BUTTON
+// * * * * * * * * * * * * * * * * * * * *
+
+.burger-btn {
+    @include middleR(30px);
+    background: rgba(0,0,0,0.2);
+    background: transparent;
+    width: 38px; 
+    height: 33px;
+    border: none;
+    z-index: 7;
+    cursor: pointer;
+}
+
+// * * * * * * * * * * * * * * * * * * * *
+// burger ICON
+// * * * * * * * * * * * * * * * * * * * *
+.burger-icon,
+.burger-icon::after,
+.burger-icon::before {
+    @include transitions(background-color 1s ease-in-out, 
+                         transform 0.3s ease-in-out, 
+                         top 0.8s ease-in-out);
+    background-color: $offwhite;
+    width: 35px;
+    height: 3px;
+}
+
+.burger-icon {
+    @extend %abs-middle;
+    opacity: 1;
+    &.open {
+        @include transition(0.2s);
+        background-color: transparent;
+
+        &:before, &:after {
+            @include transitions(background-color 0.3s ease-in-out, 
+                                 transform 0.3s ease-in-out, 
+                                 top 0.3s ease-in-out);
+            background-color: $offwhite;
+            top: 0;
+        }
+        &:before {
+            transform: rotate(225deg);
+        }
+        &:after {
+            transform: rotate(-225deg);
+        }
+    }
+
+    &:before {
+        @include middleL (0, -10px, 0);
+        content: '';
+    }
+    &:after {
+        @include middleL(0, 10px, 0);
+        content: '';
+    }
+}

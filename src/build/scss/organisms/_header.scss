@@ -1,0 +1,66 @@
+// // // // // // // // // //
+//
+//      Header
+//
+// // // // // // // // // //
+
+header {
+    position: relative;
+    background-color: rgb(25, 25, 100);
+    background-image: url('../assets/images/st-francis-medical-building.jpg');
+    background-image: url('../assets/images/BSU-Cobe-1.jpg');
+    background-image: url('../assets/images/theridge-clubhouse.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+    min-height: 100vh;
+}
+
+.banner {
+    position: relative;
+    height: 80px;
+}
+
+.logo-wrap {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    height: 80px;
+}
+.logo-img {
+    @extend %abs-middle;
+    width: 100%;
+    height: auto;
+}
+
+.main-nav {
+    @include transition(0.5s);
+    background-color: rgba(#555, 0.9);
+    position: absolute;
+    top: -500px;
+    left: 0;
+    font-size: 22px;
+    width: 100%;
+    height: 350px;
+    text-align: center;
+    &.open {
+        top: 0;
+    }
+    ul {
+        display: inline-block;
+        width: auto;
+        text-align: left;
+        margin-top: 100px;
+    }
+    li {
+        display: block;
+        margin-bottom: 15px;
+        a {
+            @extend %transition;
+            &:hover {
+                background-color: grey;
+            }
+        }
+    }
+}
