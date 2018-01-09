@@ -6,7 +6,9 @@
 
 .container {
     position: relative;
-    // background-color: lightblue;
-    // height: 200px;
     z-index: 0;
+    overflow: auto;
+    div {
+        // height: 500px;
+    }
 }

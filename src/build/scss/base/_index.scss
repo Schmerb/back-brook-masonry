@@ -19,8 +19,10 @@ html {
 
 
 body {  
+    font-family: 'Raleway', sans-serif;
     position: relative;
     background: $offwhite;
+    background: #ccc;
     min-height: 100vh;
     min-width: 320px;
     padding-bottom: 300px;
@@ -47,7 +49,7 @@ body {
 header,
 main,
 footer {
-    border: 1px solid black;
+    // border: 1px solid black;
 }
 
 // * * * * * * * * * * * * * * * * * * * *

@@ -178,6 +178,39 @@ function smoothScroll(target, duration = 1200, offset = 0) {
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// checks current scrolling position 
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+function checkScrollPos() {
+    $(window).scroll(e => {
+        // Need to collapse nav items and logo to a fixed banner as header
+        // leaves the window
+        let offset = $('header').height() - $(window).scrollTop();
+        if(offset <= 125) {
+            // fix banner
+            $('.banner').add('.main-nav').addClass('fixed');
+            if(offset < 0) {
+                // shrink banner
+                $('header').css('z-index', 1);
+                $('.banner').add('.main-nav')
+                            .add('.logo-wrap')
+                            .addClass('shrink');
+            } else {
+                $('header').css('z-index', '');
+                $('.banner').add('.main-nav')
+                            .add('.logo-wrap')
+                            .removeClass('shrink');
+            }
+        } else {
+            $('header').css('z-index', '');
+            $('.banner').add('.main-nav')
+                        .add('.logo-wrap')
+                        .removeClass('fixed')
+                        .removeClass('shrink');
+        } 
+    });
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 // Check screen size to determine Mobile Vs. Desktop
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 function checkSizeHandler() {
@@ -237,6 +270,7 @@ function footerClicks() {
 
 function utils() {
     checkSizeHandler();
+    checkScrollPos();
 }
 
 function init() {

@@ -1,0 +1,50 @@
+// // // // // // // // // //
+//
+//      Overview
+//
+// // // // // // // // // //
+
+.overview {
+    padding-top: 140px;
+    padding-bottom: 140px;
+    overflow: auto;
+    article {
+        height: 400px;
+        > div {
+            border: 1px solid black;
+            height: 100%;
+            float: left;
+        }
+        &:nth-of-type(2) {
+            .lg-img {
+                float: right;
+                h2 {
+                    float: right;
+                }
+            }
+            .action {
+                float: left;
+            }
+        }
+    }
+    .lg-img {
+        width: 100%;
+        @include mediaMin($tablet) {
+            width: 65%;
+        }
+    }
+    .action {
+        position: relative;
+        width: 100%;
+        // text-align: center;
+        @include mediaMax($tablet - 1) {
+            height: 200px;
+        }
+        @include mediaMin($tablet) {
+            width: 35%;
+        }
+        button {
+            @extend %abs-middle;
+        }
+    }
+}

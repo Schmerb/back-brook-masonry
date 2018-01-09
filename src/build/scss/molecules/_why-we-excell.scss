@@ -1,0 +1,51 @@
+// // // // // // // // // //
+//
+//      Why We Excell
+//
+// // // // // // // // // //
+
+.why-we-excell {
+    position: relative;
+    background-color: #555;
+    color: white;
+    margin-top: 140px;
+    margin-bottom: 40px;
+    min-height: 400px;
+    text-align: center;
+    h2 {
+        padding: 20px 0;
+    }
+    ul {
+        width: 100%;
+        overflow: auto;
+    }
+    li {
+        display: block;
+        width: 100%;
+        min-height: 150px;
+        padding: 20px 0 30px;
+        border: 1px solid black;
+    }
+    .excell-icon {
+        background-color: $offwhite;
+        display: inline-block;
+        width: 140px;
+        height: 140px;
+        border: 1px solid black;
+    }
+    label {
+        display: block;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    @include mediaMin($tablet) {
+        ul {
+            @include middle;
+        }
+        li {
+            width: 33.33%;
+            height: 240px;
+            float: left;
+        }
+    }
+}
