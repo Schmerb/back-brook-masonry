@@ -1,0 +1,23 @@
+// // // // // // // // // //
+//
+//      Trowel Outline
+//
+// // // // // // // // // //
+
+.icon-trowel-outline {
+    @extend %center;
+    @extend %transition;
+    @include transform(rotate(-30deg));
+    bottom: 40px;
+    width: 45px;
+    height: 45px;
+    fill: white;
+    cursor: pointer;
+    z-index: 1;
+    @include mediaMax($tablet) {
+        left: 45%;
+    }
+    &:hover {
+        fill: silver;
+    }
+}

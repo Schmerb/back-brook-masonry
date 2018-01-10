@@ -44,11 +44,14 @@
             width: 35%;
         }
         button {
+            @extend %transition;
             @extend %abs-middle;
             border: 1px solid white;
+            background-color: transparent;
             &:hover {
                 background-color: darkcyan;
                 color: white;
+                border-color: transparent;
             }
         }
     }

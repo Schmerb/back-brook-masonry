@@ -45,48 +45,6 @@ header {
 }
 
 
-// LOGO
-.logo-wrap {
-    @include transition(0.5s);
-    position: relative;
-    display: inline-block;
-    width: 150px;
-    height: 60px;
-    z-index: 2;
-    @include mediaMin($collapse) {
-        position: fixed;
-        width: 350px;
-        height: 100px;
-        left: 40px;
-        top: 10px;
-        &.shrink {
-            top: 0px;
-            width: 160px;
-            height: 80px;
-        }
-    }
-}
-.logo-img {
-    @extend %abs-middle;
-    width: 100%;
-    height: auto;
-}
-
-// TROWEL outline icon
-.icon-trowel-outline {
-    @extend %center;
-    @extend %transition;
-    @include transform(rotate(-30deg));
-    bottom: 40px;
-    width: 45px;
-    height: 45px;
-    fill: white;
-    cursor: pointer;
-    z-index: 1;
-    @include mediaMax($tablet) {
-        left: 45%;
-    }
-}
 
 
 // .sidebar {
