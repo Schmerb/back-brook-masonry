@@ -45,6 +45,18 @@
         }
         button {
             @extend %abs-middle;
+            border: 1px solid white;
+            &:hover {
+                background-color: darkcyan;
+                color: white;
+            }
+        }
+    }
+    .lg-img,
+    .action {
+        @include transition;
+        &:hover {
+            background-color: grey;
         }
     }
 }

@@ -1,0 +1,46 @@
+// // // // // // // // // //
+//
+//      BANNER
+//
+// // // // // // // // // //
+
+.banner {
+    background-color: rgba(black, 0.8);
+    background-color: rgba(#0B2C41, 0.99);
+    height: 60px;
+    z-index: 2;
+    > a {
+        display: inline-block;
+    }
+    @include mediaMax($collapse - 1) {
+        position: fixed;
+        width: 100%;
+    }
+    @include mediaMin($collapse) {
+        background-color: transparent;
+        // &.fixed {
+        //     width: 100%;
+        //     height: 130px;
+        // }
+        &.shrink {
+            &::after {
+                @include transition(0.45s);
+                height: 80px;
+            }
+        }
+    }
+    &::after {
+        @include transition(0.2s);
+        background-color: rgba(#0B2C41, 0.99);
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 130px;
+        z-index: -1;
+        @include mediaMax($collapse - 1) {
+            display: none;
+        }
+    }
+}

@@ -32,6 +32,10 @@
         width: 140px;
         height: 140px;
         border: 1px solid black;
+        &:hover {
+            background-color: aqua;
+            
+        }
     }
     label {
         display: block;

@@ -178,36 +178,68 @@ function smoothScroll(target, duration = 1200, offset = 0) {
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-// checks current scrolling position 
+// Fires on user scroll event
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 function checkScrollPos() {
     $(window).scroll(e => {
-        // Need to collapse nav items and logo to a fixed banner as header
-        // leaves the window
-        let offset = $('header').height() - $(window).scrollTop();
-        if(offset <= 125) {
-            // fix banner
-            $('.banner').add('.main-nav').addClass('fixed');
-            if(offset < 0) {
-                // shrink banner
-                $('header').css('z-index', 1);
-                $('.banner').add('.main-nav')
-                            .add('.logo-wrap')
-                            .addClass('shrink');
-            } else {
-                $('header').css('z-index', '');
-                $('.banner').add('.main-nav')
-                            .add('.logo-wrap')
-                            .removeClass('shrink');
-            }
-        } else {
-            $('header').css('z-index', '');
-            $('.banner').add('.main-nav')
-                        .add('.logo-wrap')
-                        .removeClass('fixed')
-                        .removeClass('shrink');
-        } 
+        toggleHeaderBgImg();
+        fixBanner();
     });
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Hides/Shows header psuedo-el
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+function toggleHeaderBgImg() {
+    let winToTop = $(window).scrollTop(),
+        headerHt = $('header').height();
+    if(winToTop > headerHt * 2) {
+        $('header').addClass('remove');
+    } else {
+        $('header').removeClass('remove');
+    }
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// checks current scrolling position and fixes banner if
+// user scrolled down below header
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+function fixBanner() {
+    // Need to collapse nav items and logo to a fixed banner as header
+    // leaves the window
+    let winToTop = $(window).scrollTop(),
+        navToTop = $('.main-nav').offset().top;
+    let offset;
+
+    if(navToTop - winToTop <= 20) {
+        // menu-nav is in its proper position to be fixed
+        $('.main-nav').addClass('fixed');
+        offset = $('header').height() - $(window).scrollTop();
+        if(offset >= 178) {
+            // nav menu back in position to stick to bottom of window
+            $('.main-nav').removeClass('fixed');
+        }
+    }
+
+    let bigScreen = window.innerWidth >= 1060;
+    offset = $('header').height() - $(window).scrollTop();
+    if(offset <= 125) {
+        if(offset <= 0) {
+            // Fully collapse banner, nav, & logo
+            bigScreen ? $('header').css('z-index', 2) : null;
+            $('.main-nav').add('.banner')
+                          .add('.logo-wrap')
+                          .addClass('shrink');
+        } else {
+            bigScreen ? $('header').css('z-index', '') : null;
+        }
+    } else {
+        bigScreen ? $('header').css('z-index', '') : null;
+        $('.logo-wrap').removeClass('fixed');
+        $('.main-nav').add('.banner')
+                      .add('.logo-wrap')
+                      .removeClass('shrink');
+    }
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -224,7 +256,21 @@ function checkSizeHandler() {
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 function checkSize() {
     state.isMobile = window.innerWidth <= 414;
+    setBgImgHeight();
 }
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// sets background image height on page load to avoid
+// image jump when nav bar shows/hides on mobile
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+function setBgImgHeight() {
+    // trigger on 1) first touch
+    //            2) on window resize when state.hasTouch === true
+    let $bg = $('header');
+    $bg.css('height', ''); // clear height to handle resize and get default height
+    $bg.height($bg.css('height'));
+}
+
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 // Checks if a user has touched their device and
@@ -232,12 +278,13 @@ function checkSize() {
 // user has touched / can touch. 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 function checkForTouch() {
-    window.addEventListener('touchstart', function onFirstTouch() {
-        // or set your app's state however you normally would
+    $(window).on('touchstart', e => {
         state.hasTouch = true;
-        // we only need to know once that a human touched the screen, so we can stop listening now
-        window.removeEventListener('touchstart', onFirstTouch, false);
-    }, false);
+        setBgImgHeight();
+        // $('header').css('background-attachment','scroll');
+        // remove listener once fired
+        $(window).off('touchstart');
+    });
 }
 
 
@@ -271,11 +318,15 @@ function footerClicks() {
 function utils() {
     checkSizeHandler();
     checkScrollPos();
+    checkForTouch();
 }
 
 function init() {
     // displaySlider(); // initializes slick slider
     // responsiveReslick(); // tears down and reslicks slider on window resize
+    fixBanner();
+    toggleHeaderBgImg();
+    setBgImgHeight();
 }
 
 //================================================================================

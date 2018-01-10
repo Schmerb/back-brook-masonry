@@ -23,12 +23,20 @@
     }
     .check-more-btn {
         float: right;
+        &:hover {
+            background-color: rgb(69, 175, 175);
+            color: white;
+        }
     }
     @include mediaMin($tablet) {
         .sm-window,
         .md-window,
         .lg-window {
+            @include transition;
             display: inherit;
+            &:hover {
+                background-color: grey;
+            }
         }
         .top-row {
             overflow: auto;

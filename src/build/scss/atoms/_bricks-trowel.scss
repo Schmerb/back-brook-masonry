@@ -1,0 +1,77 @@
+// // // // // // // // // //
+//
+// TROWEL & BRICKS icon
+//
+// // // // // // // // // //
+
+.f-icon-wrap {
+    position: relative;
+    height: 70px;
+    @include mediaMin($tablet) {
+        display: inline-block;
+        position: absolute;
+        right: 100px;
+        top: 50px;
+    }
+    @include mediaMin($tablet + 200) {
+        right: 150px;
+    }
+    .inner-wrap {
+        width: 60px;
+        height: 60px;
+        @include mediaMax($tablet - 1) {
+            @include abs-middle;
+        }
+        // border: 1px solid white;
+    }
+    .icon-trowel-solid {
+        position: absolute;
+        top: 5px;
+        left: 40%;
+        width: 20px;
+        height: 20px;
+        fill: black;
+    }
+    .icon-brickwall {
+        @extend %center;
+        bottom: -10px;
+        width: 60px;
+        height: 60px;
+        fill: #a91018;
+    }
+    @include mediaMin($tablet) {
+        @include middle;
+        width: 140px;
+        height: 140px;
+        .inner-wrap {
+            position: relative;
+            width: 140px;
+            height: 140px;
+        }
+        .icon-trowel-solid {
+            width: 45px;
+            height: 45px;
+        }
+        .icon-brickwall {
+            width: 140px;
+            height: 140px;
+        }
+    }
+    @include mediaMin($desktop) {
+        // @include middle;
+        width: 200px;
+        height: 200px;
+        .inner-wrap {
+            width: 200px;
+            height: 200px;
+        }
+        .icon-trowel-solid {
+            width: 60px;
+            height: 60px;
+        }
+        .icon-brickwall {
+            width: 200px;
+            height: 200px;
+        }
+    }
+}

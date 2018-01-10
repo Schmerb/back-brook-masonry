@@ -17,7 +17,6 @@ html {
     box-sizing: inherit;
 }
 
-
 body {  
     font-family: 'Raleway', sans-serif;
     position: relative;
@@ -31,8 +30,6 @@ body {
         overflow-x: hidden;
     }
 }
-
-
 
 .no-scroll {
     overflow: hidden;
@@ -50,6 +47,11 @@ header,
 main,
 footer {
     // border: 1px solid black;
+}
+
+// svg symbol defs at top of body
+#symbol-defs {
+    display: none;
 }
 
 // * * * * * * * * * * * * * * * * * * * *
