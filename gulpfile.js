@@ -91,8 +91,8 @@ gulp.task('build_es6', () => {
 		.pipe(rename({basename: 'all'}))
 		.pipe(minify({
 			ext: {
-				src: '.min.js',
-				min: '.js'
+				src: '.js',
+				min: '.min.js'
 			}
 		}))
 		.pipe(gulp.dest(JS_DEST));

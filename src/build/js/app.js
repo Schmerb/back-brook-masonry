@@ -372,9 +372,6 @@ function burgerClick() {
         e.preventDefault();
         let burger = `.burger-btn, .burger-icon, ${MAIN_NAV}`;
         $(burger).toggleClass('open');
-        // if($('.burger-icon').hasClass('open')) {
-        //     $('.burger-icon').removeAttr('style');
-        // }
     });
 }
 
@@ -436,7 +433,7 @@ function init() {
     }
     toggleHeaderBgImg();
     state.hasTouch ? setBgImgHeight() : null;
-    
+    fadeOutLoadScreen();
 }
 
 //================================================================================
@@ -447,9 +444,8 @@ $(function () {
     utils();
     navClicks();
     init();
-    fadeOutLoadScreen();
 });
 
-$(window).on('load', e => {
-    e.preventDefault();
-});
+// $(window).on('load', e => {
+//     e.preventDefault();
+// });
