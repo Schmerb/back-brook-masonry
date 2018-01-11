@@ -128,7 +128,6 @@ function initSlider() {
     });
 }
 
-
 // * * * * * * * * * * * * * * * * * * * * * * * * * 
 // Intializes slider and sets height to zero
 // before and unsets height after it is 'slicked'
