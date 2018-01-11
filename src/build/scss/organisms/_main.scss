@@ -15,4 +15,7 @@ main {
         z-index: 0;
         overflow: auto;
     }
+    &.pages {
+        border: 1px solid white;
+    }
 }

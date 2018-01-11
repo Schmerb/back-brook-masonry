@@ -5,54 +5,49 @@
 // // // // // // // // // //
 
 header {
-    position: relative;
     color: white;
-    min-height: 100vh;
-    &.remove {
-        &::before {
-            display: none;
+    position: relative;
+    // Landing Page / Home
+    &.pages {
+        height: 80px;
+    }
+    &:not(.pages) {
+        height: 100vh;
+        &.remove {
+            &::before {
+                display: none;
+            }
         }
-    }
-    &::after {
-        @extend %cover;
-        content: '';
-        background-color: rgba(black, 0.3);
-    }
-    @include mediaMax($collapse - 1) {
-        // for smaller viewports using pseudo el to achieve 
-        // fixed positioning on touch devices
-        &::before {
-            @include cover;
+        &::after {
+            @extend %cover;
             content: '';
-            height: inherit; // allows js to target its height via parent
-            position: fixed;
+            background-color: rgba(black, 0.1);
+        }
+        @include mediaMax($collapse - 1) {
+            // for smaller viewports using pseudo el to achieve 
+            // fixed positioning on touch devices
+            &::before {
+                @include cover;
+                content: '';
+                height: inherit; // allows js to target its height via parent
+                position: fixed;
+                background-image: url('../assets/images/theridge-clubhouse.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+        }
+        @include mediaMin($collapse) {
+            // larger displays --> image is applied directly to header
+            min-height: 100vh;
+            background-color: rgb(31, 31, 56);
             background-image: url('../assets/images/theridge-clubhouse.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
+            background-attachment: fixed;
         }
     }
-    @include mediaMin($collapse) {
-        // larger displays --> image is applied directly to header
-        min-height: 100vh;
-        background-color: rgb(31, 31, 56);
-        background-image: url('../assets/images/theridge-clubhouse.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-attachment: fixed;
-    }
+
+    // Individual Pages styling
 }
-
-
-
-
-// .sidebar {
-//     background-color: black;
-//     position: fixed;
-//     right: 0;
-//     top: 0;
-//     height: 100%;
-//     width: 50px;
-//     z-index: 10;
-// }

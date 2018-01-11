@@ -1,6 +1,6 @@
 // // // // // // // // // //
 //
-//      MAIN NAV
+//      Main Nav
 //
 // // // // // // // // // //
 .main-nav {
@@ -10,11 +10,12 @@
     top: -600px;
     left: 0;
     font-size: 28px;
+    font-weight: bold;
     width: 100%;
     padding-bottom: 40px;
     text-align: center;
     z-index: 1;
-    // overflow: auto;
+    
     @include mediaMax($collapse - 1) {
         &.open {
             top: 0;
@@ -52,7 +53,8 @@
         a {
             @extend %transition;
             &:hover {
-                background-color: grey;
+                color: #49e8ce;
+                // background-color: grey;
             }
         }
     }

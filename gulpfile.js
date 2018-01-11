@@ -4,13 +4,14 @@
 const gulp        = require('gulp'),
       browserSync = require('browser-sync'),
       reload      = browserSync.reload,
-      nodemon     = require('gulp-nodemon'),
+	  nodemon     = require('gulp-nodemon'),
+	  sourcemaps  = require('gulp-sourcemaps'),
 	  sass        = require('gulp-sass'),
 	  sassGlob    = require('gulp-sass-glob'),
-	  minifyCSS   = require('gulp-clean-css'),
+	//   minifyCSS   = require('gulp-clean-css'),
 	  minify      = require('gulp-minify'),
 	  rename      = require('gulp-rename'),
-	  concat      = require('gulp-concat'),
+	//   concat      = require('gulp-concat'),
 	  browserify  = require('gulp-browserify'),
 	  babel       = require('gulp-babel');
 
@@ -36,7 +37,6 @@ gulp.task('nodemon', (cb) => {
 		script: 'server.js'
 	}).on('start', () => {
 		// to avoid nodemon being started multiple times
-		// thanks @matthisk
 		if (!started) {
 			cb();
 			started = true; 
@@ -58,10 +58,12 @@ const SCSS_DEST = 'public/css';
 
 gulp.task('build_scss', function() {
     return gulp.src(SCSS_SRC)
-        .pipe(sassGlob())
-        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-        .pipe(minifyCSS())
-        .pipe(rename({suffix: '.min'}))
+		.pipe(sourcemaps.init())
+			.pipe(sassGlob())
+			.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+			// .pipe(minifyCSS())
+			.pipe(rename({suffix: '.min'}))
+		.pipe(sourcemaps.write())
         .pipe(gulp.dest(SCSS_DEST));
 });
 

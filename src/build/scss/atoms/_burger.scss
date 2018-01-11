@@ -8,9 +8,9 @@
 // * * * * * * * * * * * * * * * * * * * *
 // burger BUTTON
 // * * * * * * * * * * * * * * * * * * * *
-
 .burger-btn {
     @include middleR(30px);
+    @extend %transition;
     background: rgba(0,0,0,0.2);
     background: transparent;
     width: 38px; 
@@ -20,6 +20,14 @@
     cursor: pointer;
     @include mediaMin($collapse) {
         display: none;        
+    }
+    &:hover {
+        .burger-icon:not(.open)::after {
+            @include transform(translateY(3px));
+        }
+        .burger-icon:not(.open)::before {
+            @include transform(translateY(-3px));
+        }
     }
 }
 
@@ -40,6 +48,11 @@
 .burger-icon {
     @extend %abs-middle;
     opacity: 1;
+    &.spin {
+        // @include transform(rotate(90deg) translateX(39%));
+        // top: 0;
+        // left: 0;
+    }
     &.open {
         @include transition(0.2s);
         background-color: transparent;
@@ -52,10 +65,10 @@
             top: 0;
         }
         &:before {
-            transform: rotate(225deg);
+            @include transform(rotate(225deg));
         }
         &:after {
-            transform: rotate(-225deg);
+            @include transform(rotate(-225deg));
         }
     }
 

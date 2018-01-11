@@ -10,6 +10,11 @@ const state = {
 // SELECTOR CONSTANTS
 const SLIDER = '.to-do';
 
+const MAIN_NAV   = '.main-nav';
+const BANNER     = '.banner';
+const LOGO_WRAP  = '.logo-wrap';
+
+const TROWEL_ICON = '.icon-trowel-outline';
 
 
 
@@ -183,7 +188,9 @@ function smoothScroll(target, duration = 1200, offset = 0) {
 function checkScrollPos() {
     $(window).scroll(e => {
         toggleHeaderBgImg();
-        fixBanner();
+        if(location.pathname === '/') {
+            fixBanner();
+        }
     });
 }
 
@@ -208,38 +215,53 @@ function fixBanner() {
     // Need to collapse nav items and logo to a fixed banner as header
     // leaves the window
     let winToTop = $(window).scrollTop(),
-        navToTop = $('.main-nav').offset().top;
+        navToTop = $(MAIN_NAV).offset().top;
     let offset;
 
     if(navToTop - winToTop <= 20) {
         // menu-nav is in its proper position to be fixed
-        $('.main-nav').addClass('fixed');
+        $(MAIN_NAV).addClass('fixed');
         offset = $('header').height() - $(window).scrollTop();
         if(offset >= 178) {
             // nav menu back in position to stick to bottom of window
-            $('.main-nav').removeClass('fixed');
+            $(MAIN_NAV).removeClass('fixed');
         }
     }
 
     let bigScreen = window.innerWidth >= 1060;
     offset = $('header').height() - $(window).scrollTop();
+    // offset is the # of px of the header that is visible
     if(offset <= 125) {
+        if(offset <= 30) {
+            $(BANNER).addClass('fixed');
+        } else {
+            $(BANNER).removeClass('fixed');
+        }
         if(offset <= 0) {
-            // Fully collapse banner, nav, & logo
             bigScreen ? $('header').css('z-index', 2) : null;
-            $('.main-nav').add('.banner')
-                          .add('.logo-wrap')
-                          .addClass('shrink');
+            // Fully collapse banner, nav, & logo
+            shrinkNav();
         } else {
             bigScreen ? $('header').css('z-index', '') : null;
         }
     } else {
         bigScreen ? $('header').css('z-index', '') : null;
-        $('.logo-wrap').removeClass('fixed');
-        $('.main-nav').add('.banner')
-                      .add('.logo-wrap')
-                      .removeClass('shrink');
+        $(BANNER).removeClass('fixed');
+        // Fully expand banner, nav, & logo
+        expandNav();
     }
+}
+// Fully collapses banner, nav, & logo
+function shrinkNav() {
+    $(MAIN_NAV).add(BANNER)
+               .add(LOGO_WRAP)
+               .addClass('shrink');
+}
+// Fully expands banner, nav, & logo
+function expandNav() {
+    $(MAIN_NAV).add(BANNER)
+               .add(LOGO_WRAP)
+               .removeClass('shrink');
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -255,8 +277,12 @@ function checkSizeHandler() {
 // or not (Portrait view)
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 function checkSize() {
-    state.isMobile = window.innerWidth <= 414;
-    setBgImgHeight();
+    let width = window.innerWidth;
+    state.isMobile = width <= 414;
+    state.hasTouch ? setBgImgHeight() : null;
+    if(width < 1060) {
+        $('header').css('z-index', '');
+    }
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -270,7 +296,6 @@ function setBgImgHeight() {
     $bg.css('height', ''); // clear height to handle resize and get default height
     $bg.height($bg.css('height'));
 }
-
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 // Checks if a user has touched their device and
@@ -287,16 +312,66 @@ function checkForTouch() {
     });
 }
 
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Fades out loading screen and removes it from DOM
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+function fadeOutLoadScreen() {
+    setTimeout(() => {
+        $('.loading-page, .loading-page svg').addClass('fade-out');
+        setTimeout(() => {
+            $('.loading-page').remove();
+            $('body').removeClass('no-scroll');
+        }, 2000);
+    }, 500);
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Checks endpoint to apply correct styles to view
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+function checkEndpoint() {
+    let path = location.pathname;
+    if(path !== '/') {
+        $('header,  main, .banner').addClass('pages');
+        $('.banner').addClass('fixed');
+        shrinkNav();
+    }
+}
 
 //================================================================================
 // Event Listeners
 //================================================================================
 
 function burgerClick() {
-    $('.burger-btn').on('click', e => {
+    $('.burger-btn').on('click', function(e) {
         e.preventDefault();
-        $('.burger-icon').add('.main-nav')
-                         .toggleClass('open');
+        let burger = `.burger-btn, .burger-icon, ${MAIN_NAV}`;
+        $(burger).toggleClass('open');
+        // if($('.burger-icon').hasClass('open')) {
+        //     $('.burger-icon').removeAttr('style');
+        // }
+    });
+}
+
+function burgerHover() {
+    // NOT FINISHED
+    let deg = 90;
+    $('.burger-btn').on('mouseenter', e => {
+        e.preventDefault();
+        if($('.burger-icon').hasClass('open')) {
+            $('.burger-icon').css({
+                'transform': `rotate(${deg}deg) translateX(50%)`, 
+                'top': 0,
+                'left': 0
+            });
+            deg += 90;
+        }
+    });
+}
+
+function trowelClick() {
+    $(TROWEL_ICON).on('click', e => {
+        e.preventDefault();
+        smoothScroll('#overview');
     });
 }
 
@@ -306,6 +381,8 @@ function burgerClick() {
 
 function navClicks() {
     burgerClick();
+    // burgerHover();
+    trowelClick();
 }
 
 function footerClicks() { 
@@ -316,6 +393,7 @@ function footerClicks() {
 //================================================================================
 
 function utils() {
+    checkEndpoint();
     checkSizeHandler();
     checkScrollPos();
     checkForTouch();
@@ -324,9 +402,12 @@ function utils() {
 function init() {
     // displaySlider(); // initializes slick slider
     // responsiveReslick(); // tears down and reslicks slider on window resize
-    fixBanner();
+    if(location.pathname === '/') {
+        fixBanner();
+    }
     toggleHeaderBgImg();
-    setBgImgHeight();
+    state.hasTouch ? setBgImgHeight() : null;
+    
 }
 
 //================================================================================
@@ -337,4 +418,9 @@ $(function () {
     utils();
     navClicks();
     init();
+    fadeOutLoadScreen();
+});
+
+$(window).on('load', e => {
+    e.preventDefault();
 });

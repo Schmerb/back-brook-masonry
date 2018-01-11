@@ -11,7 +11,7 @@
     article {
         height: 400px;
         > div {
-            border: 1px solid black;
+            // border: 1px solid black;
             height: 100%;
             float: left;
         }
@@ -26,9 +26,17 @@
                 float: left;
             }
         }
+        &:hover {
+            .lg-img {
+                filter: none;
+                -webkit-filter: none;
+            }
+        }
     }
     .lg-img {
         width: 100%;
+        filter: grayscale(100%);
+        -webkit-filter: grayscale(100%);
         @include mediaMin($tablet) {
             width: 65%;
         }
@@ -46,11 +54,12 @@
         button {
             @extend %transition;
             @extend %abs-middle;
+            padding: 10px 25px;
             border: 1px solid white;
             background-color: transparent;
             &:hover {
-                background-color: darkcyan;
-                color: white;
+                background-color: $brickred;
+                color: black;
                 border-color: transparent;
             }
         }
@@ -59,7 +68,42 @@
     .action {
         @include transition;
         &:hover {
-            background-color: grey;
+            background-color: $lightblue;
+            background-color: black;
         }
+    }
+}
+
+.meet-us {
+    .lg-img {
+        background-image: url('/assets/images/paul-bence-395888-compressor.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .action {
+        background-color: $brickred;
+    }
+}
+.hear-about-us {
+    .lg-img {
+        background-image: url('/assets/images/handshake-compressor.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .action {
+        background-color: $brickred;
+    }
+}
+.see-our-work {
+    .lg-img {
+        background-image: url('/assets/images/st-baranabus-west-expansion-compressor.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .action {
+        background-color: $brickred;
     }
 }

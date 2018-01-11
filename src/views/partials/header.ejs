@@ -13,17 +13,15 @@
 
     <nav class="main-nav" role="navigation">
         <ul>
-            <li><a href="">HOME</a></li>
-            <li><a href="">WHO WE ARE</a></li>
-            <li><a href="">PROJECTS</a></li>
-            <li><a href="">TRUST & RESPECT</a></li>
-            <li><a href="">CONTACT</a></li>
+            <li><a href="/">HOME</a></li>
+            <li><a href="/whoweare">WHO WE ARE</a></li>
+            <li><a href="/projects">PROJECTS</a></li>
+            <li><a href="/trust&respect">TRUST & RESPECT</a></li>
+            <li><a href="/contact-us">CONTACT</a></li>
         </ul>
     </nav>
 </div>
 
-<svg class="icon icon-trowel-outline"><use xlink:href="#icon-trowel-outline"></use></svg>
-
-<div class="sidebar">
-    
-</div>
+<% if (!pages) { %>
+    <svg class="icon icon-trowel-outline"><use xlink:href="#icon-trowel-outline"></use></svg>
+<% } %>

@@ -1,12 +1,11 @@
 // // // // // // // // // //
 //
-//      BANNER
+//      Banner
 //
 // // // // // // // // // //
 
 .banner {
-    background-color: rgba(black, 0.8);
-    background-color: rgba(#0B2C41, 0.99);
+    @extend %transition;
     height: 60px;
     z-index: 2;
     > a {
@@ -15,13 +14,13 @@
     @include mediaMax($collapse - 1) {
         position: fixed;
         width: 100%;
+        &.fixed {
+            background-color: rgba(#0B2C41, 0.99);
+            background-color: rgba(black, 0.9);
+        }
     }
     @include mediaMin($collapse) {
         background-color: transparent;
-        // &.fixed {
-        //     width: 100%;
-        //     height: 130px;
-        // }
         &.shrink {
             &::after {
                 @include transition(0.45s);
@@ -32,6 +31,7 @@
     &::after {
         @include transition(0.2s);
         background-color: rgba(#0B2C41, 0.99);
+        background-color: rgba(black, 0.9);
         content: '';
         position: fixed;
         top: 0;

@@ -1,0 +1,72 @@
+// // // // // // // // // //
+//
+//      Loading Page
+//
+// // // // // // // // // //
+
+.loading-page {
+    @extend %cover;
+    position: fixed; 
+    opacity: 1;
+    z-index: 20;
+    &::after {
+        @extend %cover;
+        @include transform(scale(1.1));
+        content: '';
+        background-image: url($loadBgImg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        filter: blur(20px);
+    }
+    &.fade-out {
+        @include transition(0.8s, all, ease-in-out, 0.8s);
+        pointer-events: none;
+        opacity: 0;
+    }
+    // SVG icons
+    .icon-brick-wall-stroke {
+        @extend %abs-middle;
+        width: 100px;
+        height: 100px;
+        fill: transparent;
+        stroke: red;
+        stroke-dasharray: 200px;
+        stroke-dashoffset: 200px;
+        animation-name: draw;
+        animation-duration: 5s;
+        animation-fill-mode: forwards; // Stay on the last frame
+        animation-iteration-count: infinite; 
+        animation-timing-function: linear;
+    }
+    .icon.icon-loading-icon {
+        @extend %abs-middle;
+        @include animation(spin 2s linear 0s infinite reverse);
+        fill: red;
+        width: 180px;
+        height: 180px;
+    }
+    svg {
+        @include transition(0.8s, all, ease-out, 0.8s);
+        // opacity: 0;
+        z-index: 1;
+        // &.fade-in {
+        //     opacity: 1;
+        // }
+        &.fade-out {
+            width: 60px;
+            height: 60px;
+            opacity: 0;
+        }
+    }
+}
+
+@include keyframes(draw) {
+    to { stroke-dashoffset: 0; }
+}
+
+@include keyframes(spin) {
+    0% {    @include transform(translate(-50%, -50%) rotate(0deg));     }
+    50% {   @include transform(translate(-50%, -50%) rotate(180deg));   }
+    100% {  @include transform(translate(-50%, -50%) rotate(359deg));   }
+}
