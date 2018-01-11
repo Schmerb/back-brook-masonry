@@ -279,10 +279,31 @@ function checkSizeHandler() {
 function checkSize() {
     let width = window.innerWidth;
     state.isMobile = width <= 414;
+    // if device has touch, fix bg img height to avoid page jump
     state.hasTouch ? setBgImgHeight() : null;
     if(width < 1060) {
+        // remove z-index on header for collapse nav views (<1060px)
         $('header').css('z-index', '');
+    } 
+    if(width >= 737) {
+        callToActionHeightFix();
+    } else {
+        $('.action').css('height', '');
     }
+    fixBanner();
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Keeps the overview img and call to action el the same 
+// height
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+function callToActionHeightFix() {
+    // 1) get height of img 
+    // 2) apply to action el's
+    $('.overview .lg-img').each((i, el) => {
+        let h = $(el).find('img').height();
+        $(el).siblings('.action').height(h);
+    });
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -319,8 +340,14 @@ function fadeOutLoadScreen() {
     setTimeout(() => {
         $('.loading-page, .loading-page svg').addClass('fade-out');
         setTimeout(() => {
-            $('.loading-page').remove();
             $('body').removeClass('no-scroll');
+            // need to recalculate when scroll bar appears 
+            // and screen jumps (resize not triggered)
+            // callToActionHeightFix();
+            window.innerWidth >= 737 ? callToActionHeightFix() : null;
+        }, 700);
+        setTimeout(() => {
+            $('.loading-page').remove();
         }, 2000);
     }, 500);
 }
@@ -372,6 +399,9 @@ function trowelClick() {
     $(TROWEL_ICON).on('click', e => {
         e.preventDefault();
         smoothScroll('#overview');
+        // Adjust timing on banner shrink to coincide with the
+        // initial smoothScroll --> avoids a delay
+        // smoothScroll('#overview', 1000, -60);
     });
 }
 

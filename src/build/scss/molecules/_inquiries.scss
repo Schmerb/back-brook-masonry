@@ -40,11 +40,11 @@
             color: white;
             border-color: transparent;
             .icon-email-icon {
-                fill: aqua;
+                fill: $aqua;
             }
         }
         &:active {
-            border-color: aqua;
+            border-color: $aqua;
         }
         @include mediaMin($tablet) {
             display: inline-block;

@@ -53,7 +53,7 @@
         a {
             @extend %transition;
             &:hover {
-                color: #49e8ce;
+                color: $aqua;
                 // background-color: grey;
             }
         }
