@@ -285,7 +285,11 @@ function checkSize() {
         // remove z-index on header for collapse nav views (<1060px)
         $('header').css('z-index', '');
     } 
-    callToActionHeightFix();
+    if(width >= 737) {
+        callToActionHeightFix();
+    } else {
+        $('.action').css('height', '');
+    }
     fixBanner();
 }
 
@@ -339,8 +343,8 @@ function fadeOutLoadScreen() {
             $('body').removeClass('no-scroll');
             // need to recalculate when scroll bar appears 
             // and screen jumps (resize not triggered)
-            callToActionHeightFix();
-            // window.innerWidth < 736 ? callToActionHeightFix() : null;
+            // callToActionHeightFix();
+            window.innerWidth >= 737 ? callToActionHeightFix() : null;
         }, 700);
         setTimeout(() => {
             $('.loading-page').remove();

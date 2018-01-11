@@ -5,7 +5,8 @@
 // // // // // // // // // //
 
 .banner {
-    @extend %transition;
+    // @extend %transition;
+    @include transition(0.6s);
     height: 60px;
     z-index: 2;
     > a {
