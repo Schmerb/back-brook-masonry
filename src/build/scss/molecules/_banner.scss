@@ -15,7 +15,7 @@
     @include mediaMax($collapse - 1) {
         position: fixed;
         width: 100%;
-        &.fixed {
+        &.fixed, &.shrink {
             background-color: rgba(#0B2C41, 0.99);
             background-color: rgba(black, 0.9);
         }

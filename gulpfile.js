@@ -8,12 +8,12 @@ const gulp        = require('gulp'),
 	  sourcemaps  = require('gulp-sourcemaps'),
 	  sass        = require('gulp-sass'),
 	  sassGlob    = require('gulp-sass-glob'),
-	//   minifyCSS   = require('gulp-clean-css'),
-	  minify      = require('gulp-minify'),
+	  uglify      = require('gulp-uglify'),
 	  rename      = require('gulp-rename'),
-	//   concat      = require('gulp-concat'),
-	  browserify  = require('gulp-browserify'),
-	  babel       = require('gulp-babel');
+	  browserify  = require('browserify'),
+	  babelify    = require('babelify'),
+	  source      = require('vinyl-source-stream'),
+	  buffer	  = require('vinyl-buffer');
 
 
 /////////////////////
@@ -61,7 +61,6 @@ gulp.task('build_scss', function() {
 		.pipe(sourcemaps.init())
 			.pipe(sassGlob())
 			.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-			// .pipe(minifyCSS())
 			.pipe(rename({suffix: '.min'}))
 		.pipe(sourcemaps.write())
         .pipe(gulp.dest(SCSS_DEST));
@@ -81,20 +80,14 @@ const JS_DEST = 'public/js/';
  
 gulp.task('build_es6', () => {
 	console.log('building js files');
-	return gulp.src(JS_SRC)
-		.pipe(babel({
-			presets: ['env']
-		}))
-		.pipe(browserify({
-			insertGlobals: true
-		}))
-		.pipe(rename({basename: 'all'}))
-		.pipe(minify({
-			ext: {
-				src: '.js',
-				min: '.min.js'
-			}
-		}))
+	return browserify({entries: 'src/build/js/app.js', debug: true})
+		.transform("babelify", { presets: ["env"] })
+		.bundle()
+		.pipe(source('bundle.min.js'))
+        .pipe(buffer())
+		.pipe(sourcemaps.init({loadMaps: true}))
+			.pipe(uglify())
+		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(JS_DEST));
 });
 
@@ -102,7 +95,6 @@ gulp.task('build_es6', () => {
 gulp.task('watch_es6', () => {
     gulp.watch(JS_SRC, ['build_es6']);
 })
-
 
 
 // - Reload browser on file save

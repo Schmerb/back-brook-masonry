@@ -27,6 +27,7 @@
         border: 1px solid black;
     }
     .excell-icon {
+        @extend %transition;
         background-color: $offwhite;
         display: inline-block;
         width: 140px;
@@ -34,6 +35,7 @@
         border: 1px solid black;
         &:hover {
             background-color: aqua;
+            background-color: cadetblue;
             
         }
     }

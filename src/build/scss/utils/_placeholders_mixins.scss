@@ -45,7 +45,7 @@
     } 
 }
 
-@mixin animation($animation) {
+@mixin animation($animation...) {
     -webkit-animation: $animation;
        -moz-animation: $animation;
          -o-animation: $animation;

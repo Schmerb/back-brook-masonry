@@ -25,23 +25,23 @@
         opacity: 0;
     }
     // SVG icons
-    .icon-brick-wall-stroke {
+    .icon-brick-wall-stroke,
+    .icon-bricks-3D,
+    .icon-five-bricks {
         @extend %abs-middle;
-        width: 100px;
-        height: 100px;
+        top: 49%;
+        width: 200px;
+        height: 200px;
         fill: transparent;
-        stroke: red;
-        stroke-dasharray: 200px;
-        stroke-dashoffset: 200px;
-        animation-name: draw;
-        animation-duration: 5s;
+        stroke: $brickred;
+        stroke-dasharray: 50px;
+        stroke-dashoffset: 50px;
+        @include animation(draw 5s linear 0s infinite, fillin 3s linear 1s 1); 
         animation-fill-mode: forwards; // Stay on the last frame
-        animation-iteration-count: infinite; 
-        animation-timing-function: linear;
     }
     .icon.icon-loading-icon {
         @extend %abs-middle;
-        @include animation(spin 2s linear 0s infinite reverse);
+        @include animation(spin 2s linear 0s infinite reverse, colorfill 3s linear 0s infinite);
         fill: red;
         width: 180px;
         height: 180px;
@@ -65,8 +65,18 @@
     to { stroke-dashoffset: 0; }
 }
 
+@include keyframes(fillin) {
+    to { fill: $brickred; }
+}
+
+@include keyframes(colorfill) {
+    0% {   fill: red;     }
+    50% {  fill: $brickred; }
+    100% { fill: red;     }
+}
+
 @include keyframes(spin) {
-    0% {    @include transform(translate(-50%, -50%) rotate(0deg));     }
-    50% {   @include transform(translate(-50%, -50%) rotate(180deg));   }
-    100% {  @include transform(translate(-50%, -50%) rotate(359deg));   }
+    0% {    @include transform(translate(-50%, -50%) rotate(0deg));   }
+    50% {   @include transform(translate(-50%, -50%) rotate(180deg)); }
+    100% {  @include transform(translate(-50%, -50%) rotate(359deg)); }
 }

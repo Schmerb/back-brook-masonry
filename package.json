@@ -18,18 +18,19 @@
     },
     "devDependencies": {
         "babel-preset-env": "^1.6.0",
+        "babelify": "^8.0.0",
         "browser-sync": "^2.18.13",
+        "browserify": "^15.1.0",
         "gulp": "^3.9.1",
-        "gulp-babel": "^7.0.0",
-        "gulp-browserify": "^0.5.1",
-        "gulp-clean-css": "^3.8.0",
         "gulp-concat": "^2.6.1",
-        "gulp-minify": "^1.0.0",
         "gulp-nodemon": "^2.2.1",
         "gulp-rename": "^1.2.2",
         "gulp-sass": "^3.1.0",
         "gulp-sass-glob": "^1.0.8",
         "gulp-sourcemaps": "^2.6.3",
-        "gulp-watch": "^4.3.11"
+        "gulp-uglify": "^3.0.0",
+        "gulp-watch": "^4.3.11",
+        "vinyl-buffer": "^1.0.1",
+        "vinyl-source-stream": "^2.0.0"
     }
 }

@@ -5,29 +5,13 @@ const state = {
     hasTouch: false
 };
 
-
-
 // SELECTOR CONSTANTS
-const SLIDER = '.to-do';
-
-const MAIN_NAV   = '.main-nav';
-const BANNER     = '.banner';
-const LOGO_WRAP  = '.logo-wrap';
-
-const TROWEL_ICON = '.icon-trowel-outline';
-
-
-
-//================================================================================
-// HTML Template literals
-//================================================================================
-
-function getTemplate(todo) {
-    return `<div>
-                ${todo}
-            </div>`;
-}
-
+const {
+    MAIN_NAV,
+    BANNER,
+    LOGO_WRAP,
+    TROWEL_ICON
+} = require('./selectors');
 
 //================================================================================
 // DOM / Display functions
@@ -73,103 +57,18 @@ function show() {
 // TODO
 
 
-
-// ================================================================================
-// Slick Carousel
-// ================================================================================
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * 
-// Drone banner carousel
-// * * * * * * * * * * * * * * * * * * * * * * * * * 
-function initSlider() {
-    $(SLIDER).slick({
-        dots: false,
-        arrows: true,
-        infinite: false,
-        speed: 2400,
-        slidesToShow: 4,
-        slidesToScroll: 4,
-        variableWidth: true,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 4,
-                    slidesToScroll: 4
-                }
-            },
-            {
-                breakpoint: 860,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3
-                }
-            },
-            {
-                breakpoint: 580,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2
-                }
-            },
-            {
-                breakpoint: 415,
-                settings: {
-                    speed: 2000,
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    cssEase: 'ease-in-out'
-                }
-            }
-            // You can unslick at a given breakpoint now by adding:
-            // settings: "unslick"
-            // instead of a settings object
-        ]
-    });
-}
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * 
-// Intializes slider and sets height to zero
-// before and unsets height after it is 'slicked'
-// to avoid FOUC
-// * * * * * * * * * * * * * * * * * * * * * * * * * 
-function displaySlider() {
-    $('.slick-slider').css('height', '0px');
-    initSlider();
-    $('.slick-slider').css('height', '');
-}
-
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * 
-//          Destroys slick carousels
-// @params   Slider element to be destroyed
-// * * * * * * * * * * * * * * * * * * * * * * * * * 
-function unslick(SLIDER) {
-    if ($(SLIDER).hasClass('slick-initialized')) {
-        $(SLIDER).slick('unslick');
-    }
-}
-
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * 
-//  Used to reslick sliders on window resize 
-//  inccrease. 
-//  Slick settings handles unslick for mobile 
-//  but does not reslick when window size increases
-// * * * * * * * * * * * * * * * * * * * * * * * * * 
-function responsiveReslick() {
-    $(window).resize(function () {
-        let width = parseInt($('body').css('width'));
-        if (!$(SLIDER).hasClass('slick-initialized')) {
-            initSlider();
-        }
-    });
-}
-
-
 //================================================================================
 // Utility functions
 //================================================================================
+
+const { 
+    fixBanner, 
+    expandNav,
+    shrinkNav, 
+    callToActionHeightFix, 
+    setBgImgHeight 
+} = require('./utils');
+
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 // Gives a smooth animation to page navigation bringing the 
@@ -194,7 +93,8 @@ function checkScrollPos() {
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-// Hides/Shows header psuedo-el
+// Hides/Shows header psuedo-el -- prevents bg image from
+// showing below footer on overscrolls
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 function toggleHeaderBgImg() {
     let winToTop = $(window).scrollTop(),
@@ -204,63 +104,6 @@ function toggleHeaderBgImg() {
     } else {
         $('header').removeClass('remove');
     }
-}
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-// checks current scrolling position and fixes banner if
-// user scrolled down below header
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-function fixBanner() {
-    // Need to collapse nav items and logo to a fixed banner as header
-    // leaves the window
-    let winToTop = $(window).scrollTop(),
-        navToTop = $(MAIN_NAV).offset().top;
-    let offset;
-
-    if(navToTop - winToTop <= 20) {
-        // menu-nav is in its proper position to be fixed
-        $(MAIN_NAV).addClass('fixed');
-        offset = $('header').height() - $(window).scrollTop();
-        if(offset >= 178) {
-            // nav menu back in position to stick to bottom of window
-            $(MAIN_NAV).removeClass('fixed');
-        }
-    }
-
-    let bigScreen = window.innerWidth >= 1060;
-    offset = $('header').height() - $(window).scrollTop();
-    // offset is the # of px of the header that is visible
-    if(offset <= 125) {
-        if(offset <= 30) {
-            $(BANNER).addClass('fixed');
-        } else {
-            $(BANNER).removeClass('fixed');
-        }
-        if(offset <= 0) {
-            bigScreen ? $('header').css('z-index', 2) : null;
-            // Fully collapse banner, nav, & logo
-            shrinkNav();
-        } else {
-            bigScreen ? $('header').css('z-index', '') : null;
-        }
-    } else {
-        bigScreen ? $('header').css('z-index', '') : null;
-        $(BANNER).removeClass('fixed');
-        // Fully expand banner, nav, & logo
-        expandNav();
-    }
-}
-// Fully collapses banner, nav, & logo
-function shrinkNav() {
-    $(MAIN_NAV).add(BANNER)
-               .add(LOGO_WRAP)
-               .addClass('shrink');
-}
-// Fully expands banner, nav, & logo
-function expandNav() {
-    $(MAIN_NAV).add(BANNER)
-               .add(LOGO_WRAP)
-               .removeClass('shrink');
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -293,31 +136,6 @@ function checkSize() {
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-// Keeps the overview img and call to action el the same 
-// height
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-function callToActionHeightFix() {
-    // 1) get height of img 
-    // 2) apply to action el's
-    $('.overview .lg-img').each((i, el) => {
-        let h = $(el).find('img').height();
-        $(el).siblings('.action').height(h);
-    });
-}
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-// sets background image height on page load to avoid
-// image jump when nav bar shows/hides on mobile
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-function setBgImgHeight() {
-    // trigger on 1) first touch
-    //            2) on window resize when state.hasTouch === true
-    let $bg = $('header');
-    $bg.css('height', ''); // clear height to handle resize and get default height
-    $bg.height($bg.css('height'));
-}
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 // Checks if a user has touched their device and
 // applies class to body and global var indicating whether
 // user has touched / can touch. 
@@ -326,7 +144,6 @@ function checkForTouch() {
     $(window).on('touchstart', e => {
         state.hasTouch = true;
         setBgImgHeight();
-        // $('header').css('background-attachment','scroll');
         // remove listener once fired
         $(window).off('touchstart');
     });
@@ -375,21 +192,21 @@ function burgerClick() {
     });
 }
 
-function burgerHover() {
-    // NOT FINISHED
-    let deg = 90;
-    $('.burger-btn').on('mouseenter', e => {
-        e.preventDefault();
-        if($('.burger-icon').hasClass('open')) {
-            $('.burger-icon').css({
-                'transform': `rotate(${deg}deg) translateX(50%)`, 
-                'top': 0,
-                'left': 0
-            });
-            deg += 90;
-        }
-    });
-}
+// function burgerHover() {
+//     // NOT FINISHED
+//     let deg = 90;
+//     $('.burger-btn').on('mouseenter', e => {
+//         e.preventDefault();
+//         if($('.burger-icon').hasClass('open')) {
+//             $('.burger-icon').css({
+//                 'transform': `rotate(${deg}deg) translateX(50%)`, 
+//                 'top': 0,
+//                 'left': 0
+//             });
+//             deg += 90;
+//         }
+//     });
+// }
 
 function trowelClick() {
     $(TROWEL_ICON).on('click', e => {
@@ -411,8 +228,6 @@ function navClicks() {
     trowelClick();
 }
 
-function footerClicks() { 
-}
 
 //================================================================================
 // Utility and Initialization handlers
