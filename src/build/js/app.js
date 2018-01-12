@@ -17,12 +17,12 @@ const {
 // DOM / Display functions
 //================================================================================
 
-
+const Obj_values = require('object.values');
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 // Adds hidden class to all classes passed in as args
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 function hide() {
-    Object.values(arguments).forEach((target) => {
+    Obj_values(arguments).forEach((target) => {
         $(target).addClass('hidden');
     });
 }
@@ -31,7 +31,7 @@ function hide() {
 // Removes hidden class from all classes passed in as args
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 function show() {
-    Object.values(arguments).forEach((target) => {
+    Obj_values(arguments).forEach((target) => {
         $(target).removeClass('hidden');
     });
 }
@@ -43,18 +43,9 @@ function show() {
 //================================================================================
 
 
-// TODO
-
-
-
-
-
 //================================================================================
 // API calls
 //================================================================================
-
-
-// TODO
 
 
 //================================================================================
