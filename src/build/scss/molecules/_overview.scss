@@ -25,6 +25,7 @@
                 }
             }
             .action {
+                background-color: $accent;
                 float: left;
             }
         }
@@ -91,7 +92,7 @@
                 &:hover {
                     background-color: $brickred;
                     background-color: $aqua;
-                    background-color: cadetblue;
+                    background-color: $accent;
                     color: $offwhite;
                     color: black;
                     border-color: transparent;

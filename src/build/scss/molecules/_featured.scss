@@ -41,6 +41,7 @@
         border: 1px solid white;
         &:hover {
             background-color: rgb(69, 175, 175);
+            background-color: $accent;
             color: white;
             border-color: transparent;
         }
