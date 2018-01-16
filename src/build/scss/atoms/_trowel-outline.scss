@@ -18,6 +18,13 @@
         left: 45%;
     }
     &:hover {
+        @include animation(bounce 3s infinite);
         fill: silver;
     }
+}
+
+@include keyframes(bounce) {
+    0% {   @include transform(rotate(-30deg) translate(0, 0)); }
+    50% {  @include transform(rotate(-34deg) translate(-10px, 8px)); }
+    100% { @include transform(rotate(-30deg) translate(0, 0)); }
 }
