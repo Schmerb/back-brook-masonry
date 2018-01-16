@@ -16,8 +16,18 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
-    height: $footer;
+    height: 1680px;
     padding-bottom: 100px;
+    @include mediaMin($tablet) {
+        height: 900px;
+        font-size: calc(0.8em + 0.8vw);
+    }
+    @include mediaMin($desktop) {
+        height: 800px;
+    }
+    @include mediaMin($desktop + 300) {
+        height: 900px;
+    }
     .f-top-wrap {
         background-color: #555;
         padding: 30px 0;
@@ -27,21 +37,48 @@ footer {
         > ul {
             margin-top: 30px;
             // border: 1px solid black;
+            @include mediaMin($tablet) {
+                padding: 0 15px;
+                overflow: auto;
+            }
         }
         .f-nav-col {
             display: block;
             width: 65%;
             margin: 0 auto 20px;
             > a {
+                @extend %transition;
                 display: block;
                 font-weight: bold;
                 font-size: 1.2em;
                 margin-bottom: 8px;
+                &:hover {
+                    color: lightgrey;
+                }
             }
             li {
                 display: block;
                 color: #bbb;
                 margin-bottom: 8px;
+                a {
+                    @extend %transition;
+                    &:hover {
+                        color: white;
+                    }
+                }
+            }
+            @include mediaMin(550px) {
+                width: 45%;
+                // border: 1px solid white;
+            }
+            @include mediaMin($tablet) {
+                display: inline-block;
+                width: 20%;
+                float: left;
+                // border: 1px solid white;
+                &:nth-of-type(3n) {
+                    padding-left: 20px;
+                }
             }
         }
     }
@@ -49,44 +86,42 @@ footer {
 
 .contact-info {
     padding-top: 50px;
-}
-
-// OFFICE INFO
-.office-info {
-    // border: 1px solid black;
-    // min-height: 140px;
-    height: calc(140px + 10vw);
-    .icon-location-marker {
-        @extend %abs-middle;
-        width: calc(30px + 4vw);
-        height: calc(30px + 4vw);
-    }
-    > div {
-        position: relative;
-        float: left;
-        // min-height: inherit;
-        padding-top: 30px;
-        height: inherit;
-        &:first-of-type {
-            width: 40%;
-            // border: 1px solid blue;
-        }
-        &:nth-of-type(2n) {
-            width: 60%;
-            // border: 1px solid red;
-        }
+    line-height: 1.5em;
+    @include mediaMin($desktop) {
+        // height: 280px;
+        // overflow: auto;
     }
 }
 
 // ADMIN INFO
 .admin-info {
-    // border: 1px solid black;
     padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow: auto;
+    // border: 1px solid blueviolet;
+    @include mediaMin($desktop) {
+        width: 75%;
+        // height: inherit;
+        float: left;
+    }
     > div {
-        width: 50%;
+        width: 70%;
         min-width: 180px;
         margin: 0 auto 20px;
         // border: 1px solid red;
+        @include mediaMin(600px) {
+            width: 50%;
+        }
+        @include mediaMin($tablet) {
+            display: inline-block;
+            width: 33.3%;
+            float: left;
+            &:first-of-type,
+            &:last-of-type {
+                padding-left: 20px;
+            }
+        }
         h3 {
             margin-bottom: 5px;
         }
@@ -98,6 +133,55 @@ footer {
         }
     }
 }
+
+// OFFICE INFO
+.office-info {
+    // border: 1px solid black;
+    // min-height: 140px;
+    height: calc(140px + 10vw);
+    @include mediaMin($desktop) {
+        width: 25%;
+        height: 200px;
+        float: right;
+        font-size: calc(0.6em + 0.3vw);
+    }
+    .icon-location-marker {
+        @extend %abs-middle;
+        width: calc(30px + 4vw);
+        height: calc(30px + 4vw);
+        @include mediaMin($desktop) {
+            width: calc(30px + 2vw);
+            height: calc(30px + 2vw);
+        }
+    }
+    > div {
+        position: relative;
+        float: left;
+        // min-height: inherit;
+        padding-top: 30px;
+        height: inherit;
+        @include mediaMin($desktop) {
+            padding-top: 20px;
+            line-height: 1.7em;
+        }
+        &:first-of-type {
+            width: 40%;
+            // border: 1px solid blue;
+            @include mediaMin($tablet) {
+                width: 45%;
+            }
+        }
+        &:nth-of-type(2n) {
+            width: 60%;
+            // border: 1px solid red;
+            @include mediaMin($tablet) {
+                width: 55%;
+            }
+        }
+    }
+}
+
+
 
 
 

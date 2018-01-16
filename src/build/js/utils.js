@@ -109,6 +109,19 @@ function stickyFooterSet() {
     $('body').css('padding-bottom', `${h}px`);
 }
 
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Keeps office address height in sync with admin
+// contact info
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+function keepContactHeightInSync() {
+    if(window.innerWidth >= 1040) {
+        let h = $('.admin-info').height();
+        $('.office-info').height(h + 20);
+    } else {
+        $('.office-info').height('');
+    }
+}
+
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 // sets background image height on page load to avoid
@@ -118,8 +131,9 @@ const setBgImgHeight = () => {
     // trigger on 1) first touch
     //            2) on window resize when state.hasTouch === true
     let $bg = $('header');
-    $bg.css('height', ''); // clear height to handle resize and get default height
-    $bg.height($bg.css('height'));
+    $bg.css('max-height', ''); // clear max-height to handle resize and get default height
+    let h = $bg.height();
+    $bg.css('max-height', h);
 }
 
 module.exports = {
@@ -129,5 +143,6 @@ module.exports = {
     toggleHeaderBgImg,
     callToActionHeightFix,
     stickyFooterSet,
+    keepContactHeightInSync,
     setBgImgHeight
 };

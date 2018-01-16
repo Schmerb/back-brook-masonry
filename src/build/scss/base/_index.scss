@@ -23,10 +23,21 @@ body {
     background: $offwhite;
     min-height: 100vh;
     min-width: 320px;
-    padding-bottom: $footer;
     margin: 0;
     @include mediaMin(500px) {
         overflow-x: hidden;
+    }
+    
+    // Sticky Footer
+    padding-bottom: 1680px;
+    @include mediaMin($tablet) {
+        padding-bottom: 1300px;
+    }
+    @include mediaMin($desktop) {
+        padding-bottom: 800px;
+    }
+    @include mediaMin($desktop + 300) {
+        padding-bottom: 900px;
     }
 }
 
