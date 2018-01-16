@@ -5,8 +5,7 @@
 // // // // // // // // // //
 
 .banner {
-    // @extend %transition;
-    @include transition(0.6s);
+    
     height: 60px;
     z-index: 2;
     > a {
@@ -15,8 +14,7 @@
     @include mediaMax($collapse - 1) {
         position: fixed;
         width: 100%;
-        &.fixed, &.shrink {
-            background-color: rgba(#0B2C41, 0.99);
+        &.fixed::after, &.shrink::after {
             background-color: rgba(black, 0.9);
         }
     }
@@ -30,8 +28,7 @@
         }
     }
     &::after {
-        @include transition(0.2s);
-        background-color: rgba(#0B2C41, 0.99);
+        @include transitions(height 0.2s);
         background-color: rgba(black, 0.9);
         content: '';
         position: fixed;
@@ -39,9 +36,13 @@
         left: 0;
         width: 100%;
         height: 130px;
-        z-index: -1;
+        z-index: -1; // needed for scroll-to-reveal fixed banner animation
         @include mediaMax($collapse - 1) {
-            display: none;
+            @include transitions(height 0.6s ease-in-out, 
+                                 background-color 0.6s ease-in-out);
+            background-color: transparent;
+            height: 60px;
+            z-index: 1; // needed for fixed banner to stay above slide-down menu
         }
     }
 }

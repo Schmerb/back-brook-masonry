@@ -23,7 +23,7 @@ body {
     background: $offwhite;
     min-height: 100vh;
     min-width: 320px;
-    padding-bottom: 300px;
+    padding-bottom: $footer;
     margin: 0;
     @include mediaMin(500px) {
         overflow-x: hidden;

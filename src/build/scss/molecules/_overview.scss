@@ -29,7 +29,7 @@
                 float: left;
             }
         }
-        // HOVER styling
+        // row HOVER styling
         &:hover {
             .lg-img {
                 filter: none;
@@ -41,7 +41,8 @@
             .action {
                 background-color: $lightblue;
                 background-color: black;
-                button {
+                color: white;
+                .a-btn {
                     color: $brickred;
                 }
             }
@@ -67,9 +68,9 @@
                 height: auto;
             }
         }
-        // ACTION button
+        // ACTION Button
         .action {
-            @include transitions(background-color 0.3s ease-in-out);
+            @include transitions(background-color 0.3s ease-in-out, color 0.3s ease-in-out);
             background-color: $brickred;
             position: relative;
             width: 100%;
@@ -82,7 +83,7 @@
             @include mediaMin($tablet) {
                 width: 40%;
             }
-            button {
+            .a-btn {
                 @extend %transition;
                 @extend %abs-middle;
                 font-weight: bold;

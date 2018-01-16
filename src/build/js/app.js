@@ -56,7 +56,9 @@ const {
     fixBanner, 
     expandNav,
     shrinkNav, 
-    callToActionHeightFix, 
+    toggleHeaderBgImg,
+    callToActionHeightFix,
+    stickyFooterSet, 
     setBgImgHeight 
 } = require('./utils');
 
@@ -83,19 +85,7 @@ function checkScrollPos() {
     });
 }
 
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-// Hides/Shows header psuedo-el -- prevents bg image from
-// showing below footer on overscrolls
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-function toggleHeaderBgImg() {
-    let winToTop = $(window).scrollTop(),
-        headerHt = $('header').height();
-    if(winToTop > headerHt * 2) {
-        $('header').addClass('remove');
-    } else {
-        $('header').removeClass('remove');
-    }
-}
+
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 // Check screen size to determine Mobile Vs. Desktop
@@ -183,21 +173,6 @@ function burgerClick() {
     });
 }
 
-// function burgerHover() {
-//     // NOT FINISHED
-//     let deg = 90;
-//     $('.burger-btn').on('mouseenter', e => {
-//         e.preventDefault();
-//         if($('.burger-icon').hasClass('open')) {
-//             $('.burger-icon').css({
-//                 'transform': `rotate(${deg}deg) translateX(50%)`, 
-//                 'top': 0,
-//                 'left': 0
-//             });
-//             deg += 90;
-//         }
-//     });
-// }
 
 function trowelClick() {
     $(TROWEL_ICON).on('click', e => {
@@ -237,6 +212,7 @@ function init() {
     if(location.pathname === '/') {
         fixBanner();
     }
+    // stickyFooterSet();
     toggleHeaderBgImg();
     state.hasTouch ? setBgImgHeight() : null;
     fadeOutLoadScreen();

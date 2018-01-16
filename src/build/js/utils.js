@@ -1,6 +1,8 @@
-//================================================================================
-// Utility functions
-//================================================================================
+// // // // // // // // // //
+//
+//      Utility functions
+//
+// // // // // // // // // //
 
 // SELECTOR CONSTANTS
 const {
@@ -10,13 +12,17 @@ const {
     TROWEL_ICON
 } = require('./selectors');
 
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 // Fully collapses banner, nav, & logo
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 const shrinkNav = () => {
     $(MAIN_NAV).add(BANNER)
                .add(LOGO_WRAP)
                .addClass('shrink');
 }
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 // Fully expands banner, nav, & logo
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 const expandNav = () => {
     $(MAIN_NAV).add(BANNER)
                .add(LOGO_WRAP)
@@ -66,6 +72,19 @@ const fixBanner = () => {
     }
 }
 
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Hides/Shows header psuedo-el -- prevents bg image from
+// showing below footer on overscrolls
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+function toggleHeaderBgImg() {
+    let winToTop = $(window).scrollTop(),
+        headerHt = $('header').height();
+    if(winToTop > headerHt * 2) {
+        $('header').addClass('remove');
+    } else {
+        $('header').removeClass('remove');
+    }
+}
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 // Keeps the overview img and call to action el the same 
@@ -78,6 +97,16 @@ const callToActionHeightFix = () => {
         let h = $(el).find('img').height();
         $(el).siblings('.action').height(h);
     });
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Creates a "sticky" footer
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+function stickyFooterSet() {
+    // 1) get height of footer
+    // 2) set that height as body's padding-bottom
+    let h = $('footer').height();
+    $('body').css('padding-bottom', `${h}px`);
 }
 
 
@@ -94,9 +123,11 @@ const setBgImgHeight = () => {
 }
 
 module.exports = {
-    shrinkNav,
+    shrinkNav, 
     expandNav,
     fixBanner,
+    toggleHeaderBgImg,
     callToActionHeightFix,
+    stickyFooterSet,
     setBgImgHeight
 };
