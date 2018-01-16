@@ -7,10 +7,10 @@
 
 footer {
     
-    font-family: 'Abel', sans-serif;
-    font-family: 'Cutive Mono', monospace;
-    font-family: 'Roboto', sans-serif;
-    font-family: 'Fira Sans', sans-serif;
+    // font-family: 'Abel', sans-serif;
+    // font-family: 'Cutive Mono', monospace;
+    // font-family: 'Roboto', sans-serif;
+    // font-family: 'Fira Sans', sans-serif;
     font-size: calc(1em + 1vw);
     
     position: absolute;
@@ -20,8 +20,9 @@ footer {
     height: 1680px;
     padding-bottom: 100px;
     @include mediaMin($tablet) {
-        height: 900px;
+        height: 940px;
         font-size: calc(0.8em + 0.8vw);
+        padding-bottom: 150px;
     }
     @include mediaMin($desktop) {
         height: 800px;
@@ -88,22 +89,32 @@ footer {
 .contact-info {
     padding-top: 50px;
     line-height: 1.5em;
+    // border: 1px solid black;
     @include mediaMin($desktop) {
-        // height: 280px;
-        // overflow: auto;
+        padding-top: 0;
+        height: 300px;
+        font-size: calc(0.6em + 0.3vw);
     }
 }
 
+// // // // // //
+//
 // ADMIN INFO
+//
+// // // // // //
 .admin-info {
     padding-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
     overflow: auto;
     // border: 1px solid blueviolet;
+    @include mediaMin($tablet) {
+        font-size: calc(0.6em + 0.6vw);
+    }
     @include mediaMin($desktop) {
-        width: 75%;
-        // height: inherit;
+        width: 70%;
+        height: inherit;
+        padding-top: 100px;
         float: left;
     }
     > div {
@@ -135,16 +146,21 @@ footer {
     }
 }
 
+// // // // // //
+//
 // OFFICE INFO
+//
+// // // // // //
 .office-info {
     // border: 1px solid black;
-    // min-height: 140px;
+    background-color: coral;
     height: calc(140px + 10vw);
     @include mediaMin($desktop) {
-        width: 25%;
-        height: 200px;
+        width: 30%;
+        height: inherit;
         float: right;
-        font-size: calc(0.6em + 0.3vw);
+        font-size: calc(0.6em + 0.7vw);
+        
     }
     .icon-location-marker {
         @extend %abs-middle;
@@ -158,8 +174,7 @@ footer {
     > div {
         position: relative;
         float: left;
-        // min-height: inherit;
-        padding-top: 30px;
+        padding-top: 10px;
         height: inherit;
         @include mediaMin($desktop) {
             padding-top: 20px;
@@ -168,15 +183,21 @@ footer {
         &:first-of-type {
             width: 40%;
             // border: 1px solid blue;
-            @include mediaMin($tablet) {
-                width: 45%;
+            @include mediaMinMax($tablet, $desktop) {
+                width: 50%;
             }
         }
         &:nth-of-type(2n) {
             width: 60%;
             // border: 1px solid red;
             @include mediaMin($tablet) {
-                width: 55%;
+                padding-top: 40px;
+            }
+            @include mediaMinMax($tablet, $desktop) {
+                width: 50%;
+            }
+            @include mediaMin($desktop) {
+                padding-top: 80px;
             }
         }
     }

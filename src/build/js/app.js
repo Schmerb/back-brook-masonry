@@ -59,7 +59,7 @@ const {
     toggleHeaderBgImg,
     callToActionHeightFix,
     stickyFooterSet, 
-    keepContactHeightInSync,
+    // keepContactHeightInSync,
     setBgImgHeight 
 } = require('./utils');
 
@@ -115,7 +115,7 @@ function checkSize() {
         $('.action').css('height', '');
     }
     fixBanner();
-    keepContactHeightInSync();
+    // keepContactHeightInSync();
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -215,7 +215,7 @@ function init() {
         fixBanner();
     }
     // stickyFooterSet();
-    keepContactHeightInSync();
+    // keepContactHeightInSync();
     toggleHeaderBgImg();
     state.hasTouch ? setBgImgHeight() : null;
     fadeOutLoadScreen();

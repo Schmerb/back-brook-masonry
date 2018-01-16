@@ -18,8 +18,13 @@ html {
 }
 
 body {  
-    @include transitions(font-size 0.3s ease-in-out);
+    @include transitions(font-size 0.3s ease-in-out); // avoids text flickering due to dynamic sizing
     font-family: 'Raleway', sans-serif;
+    font-family: 'Abel', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Fira Sans', sans-serif;
+    font-family: 'Cutive Mono', monospace;
+
     position: relative;
     background: $offwhite;
     min-height: 100vh;
@@ -32,7 +37,7 @@ body {
     // Sticky Footer
     padding-bottom: 1680px;
     @include mediaMin($tablet) {
-        padding-bottom: 1300px;
+        padding-bottom: 940px;
     }
     @include mediaMin($desktop) {
         padding-bottom: 800px;
