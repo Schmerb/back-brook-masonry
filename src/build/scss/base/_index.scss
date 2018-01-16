@@ -18,6 +18,7 @@ html {
 }
 
 body {  
+    @include transitions(font-size 0.3s ease-in-out);
     font-family: 'Raleway', sans-serif;
     position: relative;
     background: $offwhite;
