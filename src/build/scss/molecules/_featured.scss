@@ -9,7 +9,7 @@
     margin: 0 auto;
     padding-bottom: 80px;
     overflow: auto;
-    border: 1px solid yellowgreen;
+    // border: 1px solid yellowgreen;
     h2 {
         padding: 20px 0;
     }
@@ -53,6 +53,7 @@
         opacity: 0;
     }
     .check-more-btn {
+        @extend %transition;
         margin-top: 15px;
         margin-right: 15px;
         float: right;

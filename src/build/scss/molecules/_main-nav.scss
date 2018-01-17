@@ -78,6 +78,7 @@
                 margin: 0;
                 float: left;
                 a {
+                    word-spacing: -5px; // accounts for font-family: 'Cutive Mono', monospace;
                     padding: 0 10px;
                     height: 100%;
                     display: inline-block;

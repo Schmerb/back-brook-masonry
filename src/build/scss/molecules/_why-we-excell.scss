@@ -7,6 +7,8 @@
 .why-we-excell {
     position: relative;
     background-color: #555;
+    background-color: cornflowerblue;
+    background-color: $brickred;
     color: white;
     margin-top: 140px;
     margin-bottom: 40px;
@@ -24,7 +26,14 @@
         width: 100%;
         min-height: 150px;
         padding: 20px 0 30px;
-        border: 1px solid black;
+        // border: 1px solid black;
+        &:hover {
+            .excell-icon {
+                background-color: aqua;
+                background-color: $accent;
+                background-color: grey;
+            }
+        }
     }
     .excell-icon {
         @extend %transition;
@@ -32,12 +41,9 @@
         display: inline-block;
         width: 140px;
         height: 140px;
+        margin-bottom: 30px;
         border: 1px solid black;
-        &:hover {
-            background-color: aqua;
-            background-color: $accent;
-            
-        }
+        border-radius: 6px;
     }
     label {
         display: block;
@@ -45,6 +51,7 @@
         margin: 0 auto;
     }
     @include mediaMin($tablet) {
+        height: 60vh;
         ul {
             @include middle;
         }

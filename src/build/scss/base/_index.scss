@@ -35,15 +35,21 @@ body {
     }
     
     // Sticky Footer
-    padding-bottom: 1680px;
+    padding-bottom: 1600px;
+    @include mediaMin(460px) {
+        padding-bottom: 1700px;
+    }
+    @include mediaMin(680px) {
+        padding-bottom: 1750px;
+    }
     @include mediaMin($tablet) {
-        padding-bottom: 940px;
+        padding-bottom: 1000px;
     }
     @include mediaMin($desktop) {
-        padding-bottom: 800px;
+        padding-bottom: 900px;
     }
     @include mediaMin($desktop + 300) {
-        padding-bottom: 900px;
+        padding-bottom: calc(900px + 2vw);
     }
 }
 
