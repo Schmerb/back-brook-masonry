@@ -12,7 +12,7 @@
         width: 100%;
         height: auto;
         overflow: hidden;
-        border: 1px solid black;
+        border-bottom: 1px solid black;
         > div {
             height: 100%;
             float: left;
@@ -26,6 +26,7 @@
             }
             .action {
                 background-color: $accent;
+                background-color: #555;
                 float: left;
             }
         }
@@ -102,37 +103,3 @@
         }
     }
 }
-
-// .meet-us {
-//     .lg-img {
-//         // background-image: url('/assets/images/paul-bence-395888-compressor.jpg');
-//         // background-size: cover;
-//         // background-position: center;
-//         // background-repeat: no-repeat;
-//     }
-//     .action {
-//         // background-color: $brickred;
-//     }
-// }
-// .hear-about-us {
-//     .lg-img {
-//         // background-image: url('/assets/images/handshake-compressor.jpg');
-//         // background-size: cover;
-//         // background-position: center;
-//         // background-repeat: no-repeat;
-//     }
-//     .action {
-//         // background-color: $brickred;
-//     }
-// }
-// .see-our-work {
-//     .lg-img {
-//         // background-image: url('/assets/images/st-baranabus-west-expansion-compressor.jpg');
-//         // background-size: cover;
-//         // background-position: center;
-//         // background-repeat: no-repeat;
-//     }
-//     .action {
-//         // background-color: $brickred;
-//     }
-// }

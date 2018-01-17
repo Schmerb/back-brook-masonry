@@ -21,7 +21,7 @@ header {
         &::after {
             @extend %cover;
             content: '';
-            background-color: rgba(black, 0.1);
+            background-color: rgba(black, 0.3);
         }
         @include mediaMax($collapse - 1) {
             // for smaller viewports using pseudo el to achieve 
@@ -32,6 +32,7 @@ header {
                 height: inherit; // allows js to target its height via parent
                 position: fixed;
                 background-image: url('../assets/images/theridge-clubhouse.jpg');
+                background-image: url('../assets/images/office/conf-room-from-front-door-compressor.jpg');
                 background-size: cover;
                 background-repeat: no-repeat;
                 background-position: center;
@@ -42,6 +43,7 @@ header {
             min-height: 100vh;
             background-color: rgb(31, 31, 56);
             background-image: url('../assets/images/theridge-clubhouse.jpg');
+            background-image: url('../assets/images/office/conf-room-from-front-door-compressor.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
