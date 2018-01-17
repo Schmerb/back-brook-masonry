@@ -206,20 +206,26 @@ footer {
         }
         &:nth-of-type(2n) {
             width: 60%;
-            @include mediaMin($tablet) {
-                padding-top: 40px;
-            }
             @include mediaMinMax($tablet, $desktop) {
                 width: 50%;
             }
+        }
+        .office-info-wrap {
+            @extend %abs-middle;
+            width: 100%;
+            padding-left: 40px;
             @include mediaMin($desktop) {
-                padding-top: 80px;
+                padding-left: 0;
             }
+            // border: 1px solid white;
         }
     }
 }
 
 
+.at-sym {
+    color: $brickred;
+}
 
 
 
