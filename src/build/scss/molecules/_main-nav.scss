@@ -15,7 +15,6 @@
     padding-bottom: 40px;
     text-align: center;
     z-index: 1;
-    
     @include mediaMax($collapse - 1) {
         &.open {
             top: 0;
@@ -42,6 +41,8 @@
         }
     }
     li {
+        @extend %transition;
+        border-bottom: 5px solid transparent;
         @include mediaMax($collapse - 1) {
             display: block;
         }
@@ -59,6 +60,21 @@
             }
         }
     }
+    //
+    // Applies active nav link style to fixed/shrink nav only
+    //
+    &.shrink {
+        li {
+            &.active {
+                border-bottom-color: $brickred;
+            }
+        }
+    }
+    // // // // // // // // // //
+    //
+    // Larger viewports fixed nav 
+    //
+    // // // // // // // // // //
     @include mediaMin($collapse) {
         &.fixed {
             position: fixed;

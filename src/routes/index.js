@@ -24,7 +24,7 @@ router.get('/whoweare', mainController.getWhoWeAre);
 // Projects
 router.get('/projects', mainController.getProjects);
 // Trust & Respect
-router.get('/trust&respect', mainController.getTestimonials);
+router.get('/trust-respect', mainController.getTestimonials);
 // Contact Us
 router.get('/contact-us', mainController.getContactUs);
 

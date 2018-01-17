@@ -160,6 +160,9 @@ function checkEndpoint() {
         $('header,  main, .banner').addClass('pages');
         $('.banner').addClass('fixed');
         shrinkNav();
+        $('.' + path.slice(1)).addClass('active'); // Active nav link styles
+    } else {
+        $('.home').addClass('active'); // Active nav link styles
     }
 }
 
