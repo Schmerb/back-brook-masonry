@@ -115,6 +115,7 @@ function checkSize() {
         $('.action').css('height', '');
     }
     fixBanner();
+    // stickyFooterSet();
     // keepContactHeightInSync();
 }
 

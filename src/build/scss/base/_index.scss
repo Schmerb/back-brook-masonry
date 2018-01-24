@@ -30,26 +30,18 @@ body {
     min-height: 100vh;
     min-width: 320px;
     margin: 0;
-    @include mediaMin(500px) {
-        overflow-x: hidden;
-    }
-    
+    overflow-x: hidden;
+
     // Sticky Footer
-    padding-bottom: 1600px;
-    @include mediaMin(460px) {
-        padding-bottom: 1700px;
-    }
-    @include mediaMin(680px) {
-        padding-bottom: 1750px;
-    }
+    padding-bottom: 2000px;
     @include mediaMin($tablet) {
-        padding-bottom: 1000px;
+        padding-bottom: 1200px;
     }
     @include mediaMin($desktop) {
-        padding-bottom: 900px;
+        padding-bottom: 1000px;
     }
-    @include mediaMin($desktop + 300) {
-        padding-bottom: calc(900px + 2vw);
+    @include mediaMin(1600px) {
+        padding-bottom: calc(1000px + 5vw);
     }
 }
 
