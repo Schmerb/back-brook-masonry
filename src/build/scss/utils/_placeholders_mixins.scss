@@ -23,6 +23,11 @@
             transition: $trans;
 }
 
+@mixin benz-transition($time: 0.4s) {
+    @include transition($time, all, cubic-bezier(0.700, 0.110, 0.890, 0.605));
+}
+
+
 @mixin transform($type) {
         -ms-transform: $type;
     -webkit-transform: $type;

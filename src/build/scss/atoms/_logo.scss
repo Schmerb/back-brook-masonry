@@ -4,28 +4,26 @@
 //
 // // // // // // // // // //
 
-.logo-wrap {
-    @include transition(0.5s);
-    position: relative;
+.logo-a-wrap {
     display: inline-block;
-    width: 150px;
-    height: 60px;
-    z-index: 2;
-    @include mediaMin($collapse) {
-        position: fixed;
-        width: 350px;
-        height: 100px;
-        left: 40px;
-        top: 10px;
-        &.shrink {
-            top: 0px;
-            width: 160px;
-            height: 80px;
-        }
+    position: relative;
+    height: inherit;
+    width: 180px;
+    z-index: 1;
+    border: 1px solid white;
+}
+
+.logo-svg-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    svg {
+        height: 80%;
     }
 }
-.logo-img {
-    @extend %abs-middle;
-    width: 100%;
-    height: auto;
+// BACK BROOK MASONRY logo text
+#logo-text {
+    fill: white;
 }
+

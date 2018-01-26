@@ -48,11 +48,15 @@
 .burger-icon {
     @extend %abs-middle;
     opacity: 1;
-    &.spin {
-        // @include transform(rotate(90deg) translateX(39%));
-        // top: 0;
-        // left: 0;
+    &:before {
+        @include middleL (0, -10px, 0);
+        content: '';
     }
+    &:after {
+        @include middleL(0, 10px, 0);
+        content: '';
+    }
+    
     &.open {
         @include transition(0.2s);
         background-color: transparent;
@@ -70,14 +74,5 @@
         &:after {
             @include transform(rotate(-225deg));
         }
-    }
-
-    &:before {
-        @include middleL (0, -10px, 0);
-        content: '';
-    }
-    &:after {
-        @include middleL(0, 10px, 0);
-        content: '';
     }
 }

@@ -4,100 +4,36 @@
 //
 // // // // // // // // // //
 .main-nav {
-    @include transitions(top 0.5s ease-in-out);
-    background-color: rgba(#555, 0.9);
+    @include transitions(all 0.5s ease-in-out,
+                         font-size 0.5s ease-in-out);
+    background-color: rgba(85,85,85,0.9);;
     position: absolute;
-    top: -600px;
-    left: 0;
-    font-size: 28px;
-    font-weight: bold;
+    top: -500px;
     width: 100%;
-    padding-bottom: 40px;
-    text-align: center;
-    z-index: 1;
-    @include mediaMax($collapse - 1) {
-        &.open {
-            top: 0;
-        }
-    }
-    @include mediaMin($collapse) {
-        font-size: 20px;
-        background-color: transparent;
-        height: auto;
-        width: auto;
-        top: auto;
-        left: auto;
-        right: 0;
-        bottom: 50px;
+    padding-top: 60px; // must match banner height
+    font-size: calc(1.5em + 1vw);
+    // border: 1px solid blue;
+    &.open {
+        top: 0;
     }
     ul {
-        display: inline-block;
-        width: auto;
-        text-align: left;
-        height: 80px;
-        line-height: 80px;
-        @include mediaMax($collapse - 1) {
-            margin-top: 50px;
-        }
-    }
-    li {
-        @extend %transition;
-        border-bottom: 5px solid transparent;
-        @include mediaMax($collapse - 1) {
-            display: block;
-        }
-        @include mediaMin($collapse) {
-            margin-bottom: 15px;
-            margin-right: 15px;
-            display: inline-block;
-        }
-        a {
-            @extend %transition;
-            &:hover {
-                color: $aqua;
-                color: $accent;
-                // background-color: grey;
-            }
-        }
-    }
-    //
-    // Applies active nav link style to fixed/shrink nav only
-    //
-    &.shrink {
+        @include transition(0.5s);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: calc(250px + 7vw);
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin: 0 auto;
+        // border: 1px solid white;
         li {
-            &.active {
-                border-bottom-color: $brickred;
-            }
-        }
-    }
-    // // // // // // // // // //
-    //
-    // Larger viewports fixed nav 
-    //
-    // // // // // // // // // //
-    @include mediaMin($collapse) {
-        &.fixed {
-            position: fixed;
-            bottom: auto;
-            top: 10px;
-            height: 80px;
-        }
-        // NAV COLLAPSES / SHRINKS
-        &.shrink {
-            top: 0;
-            right: 5px;
-            ul {
-                float: right;
-            }
-            li {
-                height: 100%;
-                margin: 0;
-                float: left;
-                a {
-                    word-spacing: -5px; // accounts for font-family: 'Cutive Mono', monospace;
-                    padding: 0 10px;
-                    height: 100%;
-                    display: inline-block;
+            display: block;
+            line-height: 1.8em;
+            a {
+                @extend %transition;
+                &:hover {
+                    color: black;
+                    color: $accent;
                 }
             }
         }
