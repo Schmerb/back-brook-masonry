@@ -59,8 +59,6 @@ const {
     shrinkNav, 
     toggleHeaderBgImg,
     callToActionHeightFix,
-    stickyFooterSet, 
-    // keepContactHeightInSync,
     setBgImgHeight 
 } = require('./utils');
 
@@ -116,8 +114,6 @@ function checkSize() {
         $('.action').css('height', '');
     }
     fixBanner();
-    // stickyFooterSet();
-    // keepContactHeightInSync();
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -202,35 +198,27 @@ function navClicks() {
     trowelClick();
 }
 
-const { nextSlide } = require('./slideshow');
-
-setInterval(() => {
-    nextSlide();
-}, 6000);
-
 
 //================================================================================
 // Utility and Initialization handlers
 //================================================================================
+const { startSlideShow } = require('./slideshow');
 
 function utils() {
-    checkEndpoint();
-    checkSizeHandler();
-    checkScrollPos();
-    checkForTouch();
+    checkEndpoint();    // checks current endpoint to apply active styles
+    checkSizeHandler(); // checks width on resize
+    checkScrollPos();   // gets user scroll y-pos to animate banner nav
+    checkForTouch();    // checks if user has touch device by detecting first touch on screen
 }
 
 function init() {
-    // displaySlider(); // initializes slick slider
-    // responsiveReslick(); // tears down and reslicks slider on window resize
     if(location.pathname === '/') {
         fixBanner();
     }
-    // stickyFooterSet();
-    // keepContactHeightInSync();
     toggleHeaderBgImg();
     state.hasTouch ? setBgImgHeight() : null;
     fadeOutLoadScreen();
+    startSlideShow(4000); // starts bg image slideshow
 }
 
 //================================================================================

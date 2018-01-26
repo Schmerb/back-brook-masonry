@@ -6,20 +6,26 @@
 
 .slideshow {
     @extend %cover;
+    // position: fixed;
     background-color: black;
-    // border: 5px solid black;
+    z-index: 1;
+    // = = = = = = //
+    // Dim Overlay //
+    // = = = = = = //
+    &::after {
+        @extend %cover;
+        content: '';
+        background-color: rgba(black, 0.3);
+    }
 }
 
 .slide {
     @extend %cover;
     @include transitions(opacity 1.5s ease-in-out);
-    // background-color: black;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-
     opacity: 0;
-
     &.current {
         opacity: 1;
     }

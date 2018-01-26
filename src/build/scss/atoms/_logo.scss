@@ -5,19 +5,32 @@
 // // // // // // // // // //
 
 .logo-a-wrap {
+    @include transition(0.5s);
     display: inline-block;
     position: relative;
     height: inherit;
     width: 180px;
-    z-index: 1;
-    border: 1px solid white;
-}
+    z-index: 3;
+    // border: 1px solid white;
+    @include mediaMin($collapse) {
+        position: fixed;
+        top: 0;
+        left: 20px;
+        width: 250px;
+        height: 10vw;
 
+        &.shrink {
+            left: 30px;
+            width: 180px;
+            height: 80px;
+        }
+    }
+}
 .logo-svg-wrap {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: inherit;
     svg {
         height: 80%;
     }

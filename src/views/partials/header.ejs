@@ -1,16 +1,15 @@
-
 <div class="banner">
-
+    
     <a class="logo-a-wrap" href="/">
         <div class="logo-svg-wrap">
             <% include ../icons/bbm-icon %>
         </div>
     </a>
-
+    
     <div class="burger-btn">
         <div class="burger-icon"></div>
     </div>
-
+    
     
     <nav class="main-nav" role="navigation">
         <ul>
@@ -22,10 +21,11 @@
             <li class="contact-us"><a href="/contact-us">CONTACT</a></li>
         </ul>
     </nav>
+
 </div>
 
-<% include slideshow %>
-
+    
 <% if (landing) { %>
+    <% include slideshow %>
     <svg class="icon icon-trowel-outline"><use xlink:href="#icon-trowel-outline"></use></svg>
 <% } %>

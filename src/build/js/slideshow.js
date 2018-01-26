@@ -14,3 +14,9 @@ exports.nextSlide = () => {
     $current.removeClass('current');
     $(`.slide[data-slide-num="${nextSlide}"]`).addClass('current');
 }
+
+exports.startSlideShow = (delay = 6000) => {
+    setInterval(() => {
+        nextSlide();
+    }, delay);
+}

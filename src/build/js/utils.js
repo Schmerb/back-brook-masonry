@@ -12,11 +12,39 @@ const {
     TROWEL_ICON
 } = require('./selectors');
 
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// checks current scrolling position and fixes banner if
+// user scrolled down below header
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+const fixBanner = () => {
+    // Need to collapse nav items and logo to a fixed banner as header
+    // leaves the window
+    let winToTopDoc = $(window).scrollTop(),
+        navToTopDoc = $(MAIN_NAV).offset().top;
+        
+    let navToTopWin = navToTopDoc - winToTopDoc;
+    if(navToTopWin <= 40) {
+        // menu-nav is in its proper position to be fixed
+        $(MAIN_NAV).addClass('fixed');
+    } else {
+        $(MAIN_NAV).removeClass('fixed');
+    }
+    
+    let offset = $('header').height() - $(window).scrollTop();
+    // offset is the # of px of the header that is visible
+    if(offset <= 0) {
+        shrinkNav();
+    } else if(offset >= 100) {
+        expandNav();
+    }
+}
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 // Fully collapses banner, nav, & logo
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 const shrinkNav = () => {
     $(MAIN_NAV).add(BANNER)
+               .add('header')
                .add(LOGO_WRAP)
                .addClass('shrink');
 }
@@ -25,51 +53,9 @@ const shrinkNav = () => {
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 const expandNav = () => {
     $(MAIN_NAV).add(BANNER)
+               .add('header')
                .add(LOGO_WRAP)
                .removeClass('shrink');
-}
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-// checks current scrolling position and fixes banner if
-// user scrolled down below header
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-const fixBanner = () => {
-    // Need to collapse nav items and logo to a fixed banner as header
-    // leaves the window
-    let winToTop = $(window).scrollTop(),
-        navToTop = $(MAIN_NAV).offset().top;
-    let offset;
-
-    if(navToTop - winToTop <= 20) {
-        // menu-nav is in its proper position to be fixed
-        $(MAIN_NAV).addClass('fixed');
-        offset = $('header').height() - $(window).scrollTop();
-        if(offset >= 178) {
-            // nav menu back in position to stick to bottom of window
-            $(MAIN_NAV).removeClass('fixed');
-        }
-    } 
-    let bigScreen = window.innerWidth >= 1060;
-    offset = $('header').height() - $(window).scrollTop();
-    // offset is the # of px of the header that is visible
-    if(offset <= 125) {
-        if(offset <= 30) {
-            $(BANNER).addClass('fixed');
-        } else {
-            $(BANNER).removeClass('fixed');
-        }
-        if(offset <= 0) {
-            bigScreen ? $('header').css('z-index', 2) : null;
-            // Fully collapse banner, nav, & logo
-            shrinkNav();
-        } else {
-            bigScreen ? $('header').css('z-index', '') : null;
-        }
-    } else {
-        bigScreen ? $('header').css('z-index', '') : null;
-        $(BANNER).removeClass('fixed');
-        // Fully expand banner, nav, & logo
-        expandNav();
-    }
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -100,30 +86,6 @@ const callToActionHeightFix = () => {
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-// Creates a "sticky" footer
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-function stickyFooterSet() {
-    // 1) get height of footer
-    // 2) set that height as body's padding-bottom
-    let h = $('footer').height();
-    $('body').css('padding-bottom', `${h}px`);
-}
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-// Keeps office address height in sync with admin
-// contact info
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-function keepContactHeightInSync() {
-    if(window.innerWidth >= 1040) {
-        let h = $('.admin-info').height();
-        $('.office-info').height(h + 20);
-    } else {
-        $('.office-info').height('');
-    }
-}
-
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 // sets background image height on page load to avoid
 // image jump when nav bar shows/hides on mobile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -142,7 +104,5 @@ module.exports = {
     fixBanner,
     toggleHeaderBgImg,
     callToActionHeightFix,
-    stickyFooterSet,
-    keepContactHeightInSync,
     setBgImgHeight
 };
