@@ -99,8 +99,12 @@
     }
     .icon-location-marker {
         @extend %abs-middle;
-        width: 55px;
-        height: 55px;
+        width: calc(55px + 4vw);
+        height: calc(55px + 4vw);
+        @include mediaMin($desktop) {
+            width: calc(5px + 5vw);
+            height: calc(5px + 5vw);
+        }
     }
     .office-info-wrap {
         display: flex;
