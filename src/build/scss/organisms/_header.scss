@@ -11,7 +11,7 @@ header {
     &.pages {
         height: 80px;
     }
-    &:not(.pages) {
+    &.landing {
         height: 100vh;
         &.remove {
             &::before {
@@ -22,51 +22,6 @@ header {
             @extend %cover;
             content: '';
             background-color: rgba(black, 0.3);
-        }
-        @include mediaMax($collapse - 1) {
-            // for smaller viewports using pseudo el to achieve 
-            // fixed positioning on touch devices
-            &::before {
-                @include cover;
-                content: '';
-                height: inherit; // allows js to target its height via parent
-                position: fixed;
-                background-color: black;
-                background-image: url('/assets/images/theridge-clubhouse.jpg');
-                background-image: url('/assets/images/office/conf-room-from-front-door-compressor.jpg');
-                background-image: url('/assets/images/office/conf-room-facing-stairs-compressor.jpg');
-                background-image: url('/assets/images/office/conf-room-from-stairs-compressor.jpg');
-                background-image: url('/assets/images/office/wine-cellar-compressor.jpg');
-                background-image: url('/assets/images/office/ladies-room-compressor.jpg');
-                background-image: url('/assets/images/office/johnny-f-office-compressor.jpg');
-                background-image: url('/assets/images/office/johnny-f-office-reduced-compressor.jpg');
-                background-image: url('/assets/images/office/joe-a-office-compressor.jpg');
-                background-image: url('/assets/images/office/hallway-to-shop-reduced-compressor.jpg');
-                background-image: url('/assets/images/office/front-desk-area-compressor.jpg');
-                background-size: cover;
-                background-repeat: no-repeat;
-                background-position: center;
-            }
-        }
-        @include mediaMin($collapse) {
-            // larger displays --> image is applied directly to header
-            min-height: 100vh;
-            background-color: black;
-            background-image: url('/assets/images/theridge-clubhouse.jpg');
-            background-image: url('/assets/images/office/conf-room-from-front-door-compressor.jpg');
-            background-image: url('/assets/images/office/conf-room-facing-stairs-compressor.jpg');
-            background-image: url('/assets/images/office/conf-room-from-stairs-compressor.jpg');
-            background-image: url('/assets/images/office/wine-cellar-compressor.jpg');
-            background-image: url('/assets/images/office/ladies-room-compressor.jpg');
-            background-image: url('/assets/images/office/johnny-f-office-compressor.jpg');
-            background-image: url('/assets/images/office/johnny-f-office-reduced-compressor.jpg');
-            background-image: url('/assets/images/office/joe-a-office-compressor.jpg');
-            background-image: url('/assets/images/office/hallway-to-shop-reduced-compressor.jpg');
-            background-image: url('/assets/images/office/front-desk-area-compressor.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-attachment: fixed;
         }
     }
 

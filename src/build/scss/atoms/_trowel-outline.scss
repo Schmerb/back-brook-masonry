@@ -12,6 +12,7 @@
     width: 45px;
     height: 45px;
     fill: white;
+    outline: none;
     cursor: pointer;
     z-index: 1;
     @include mediaMax($tablet) {
@@ -21,6 +22,13 @@
         @include animation(bounce 3s infinite);
         fill: silver;
     }
+    path {
+        outline: none;
+    }
+}
+
+.trowel-path {
+    outline: none;
 }
 
 @include keyframes(bounce) {

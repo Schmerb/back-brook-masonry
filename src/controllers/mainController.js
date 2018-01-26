@@ -8,30 +8,30 @@
 
 exports.getIndex = (req, res) => {
     res.status(200).render('index', {
-        pages: false
+        landing: true
     });
 };
 
 exports.getWhoWeAre = (req, res) => {
     res.status(200).render('pages/who-we-are', {
-        pages: true
+        landing: false
     });
 };
 
 exports.getProjects = (req, res) => {
     res.status(200).render('pages/projects', {
-        pages: true
+        landing: false
     });
 };
 
 exports.getTestimonials = (req, res) => {
     res.status(200).render('pages/trust-respect', {
-        pages: true
+        landing: false
     });
 };
 
 exports.getContactUs = (req, res) => {
     res.status(200).render('pages/contact-us', {
-        pages: true
+        landing: false
     });
 };

@@ -1,0 +1,54 @@
+// // // // // // // // // //
+//
+//      Slideshow
+//
+// // // // // // // // // //
+
+.slideshow {
+    @extend %cover;
+    background-color: black;
+    // border: 5px solid black;
+}
+
+.slide {
+    @extend %cover;
+    @include transitions(opacity 1.5s ease-in-out);
+    // background-color: black;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    opacity: 0;
+
+    &.current {
+        opacity: 1;
+    }
+}
+
+.slide-1 {
+    background-image: url('/assets/images/office/conf-room-from-front-door-compressor.jpg');
+}
+.slide-2 {
+    background-image: url('/assets/images/office/conf-room-facing-stairs-compressor.jpg');
+}
+.slide-3 {
+    background-image: url('/assets/images/office/conf-room-from-stairs-compressor.jpg');
+}
+.slide-4 {
+    background-image: url('/assets/images/office/wine-cellar-compressor.jpg');
+}
+.slide-5 {
+    background-image: url('/assets/images/office/ladies-room-compressor.jpg');
+}
+.slide-6 {
+    background-image: url('/assets/images/office/johnny-f-office-reduced-compressor.jpg');
+}
+.slide-7 {
+    background-image: url('/assets/images/office/joe-a-office-compressor.jpg');
+}
+.slide-8 {
+    background-image: url('/assets/images/office/hallway-to-shop-reduced-compressor.jpg');
+}
+.slide-9 {
+    background-image: url('/assets/images/office/front-desk-area-compressor.jpg');
+}

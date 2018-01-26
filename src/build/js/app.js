@@ -38,6 +38,7 @@ function show() {
 
 
 
+
 //================================================================================
 // API handlers / Display handlers
 //================================================================================
@@ -163,6 +164,7 @@ function checkEndpoint() {
         shrinkNav();
         $('.' + path.slice(1)).addClass('active'); // Active nav link styles
     } else {
+        $('header,  main, .banner').addClass('landing');
         $('.home').addClass('active'); // Active nav link styles
     }
 }
@@ -199,6 +201,12 @@ function navClicks() {
     // burgerHover();
     trowelClick();
 }
+
+const { nextSlide } = require('./slideshow');
+
+setInterval(() => {
+    nextSlide();
+}, 6000);
 
 
 //================================================================================

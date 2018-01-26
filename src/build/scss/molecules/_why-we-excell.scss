@@ -6,8 +6,6 @@
 
 .why-we-excell {
     position: relative;
-    background-color: #555;
-    background-color: cornflowerblue;
     background-color: $brickred;
     color: white;
     margin-top: 140px;
@@ -29,8 +27,6 @@
         // border: 1px solid black;
         &:hover {
             .excell-icon {
-                background-color: aqua;
-                background-color: $accent;
                 background-color: grey;
             }
         }
