@@ -7,7 +7,8 @@ const browserSync = require('browser-sync'),
 
 // // // // // // //
 //
-// hot reloads DOM
+// Starts Server 
+// - Hot reloads DOM
 //
 // // // // // // //
 function browser_sync() {
