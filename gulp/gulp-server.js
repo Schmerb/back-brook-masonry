@@ -2,7 +2,6 @@
 
 // Module dependencies
 const browserSync = require('browser-sync'),
-      reload      = browserSync.reload,
 	  nodemon     = require('gulp-nodemon');
 
 
@@ -39,7 +38,7 @@ function node_mon(cb) {
     })
     .on('restart', () => {
         setTimeout(function() {
-			reload({stream: false});
+			browserSync.reload({stream: false});
 		}, 2000);
     })
 };
