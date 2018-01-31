@@ -30,30 +30,30 @@
     }
     .lg-window {
         .img {
-            background-image: url('/assets/images/projects/stbarn/bbm-stbarn1-compressor.jpg');
+            background-image: url('/assets/images/compressed/projects/bbm-stbarn1.jpg');
         }
     }
     .md-window {
         &:first-of-type {
             .img {
-                background-image: url('/assets/images/projects/stbarn/bbm-stbarn2-compressor.jpg');
+                background-image: url('/assets/images/compressed/projects/bbm-stbarn2.jpg');
             }
         }
         &:last-of-type {
             .img {
-                background-image: url('/assets/images/projects/stbarn/bbm-stbarn3-compressor.jpg');
+                background-image: url('/assets/images/compressed/projects/bbm-stbarn3.jpg');
             }
         }
     }
     .sm-window {
         &:first-of-type {
             .img {
-                background-image: url('/assets/images/projects/stbarn/bbm-stbarn4-compressor.jpg');
+                background-image: url('/assets/images/compressed/projects/bbm-stbarn4.jpg');
             }
         }
         &:last-of-type {
             .img {
-                background-image: url('/assets/images/projects/bbm-1-compressor.jpg');
+                background-image: url('/assets/images/compressed/projects/bbm-1.jpg');
             }
         }
     }

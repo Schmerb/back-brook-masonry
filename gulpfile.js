@@ -2,7 +2,7 @@
 
 const gulp = require('gulp');
 
-const { browser_sync, node_mon 		} = require('./gulp/gulp-server'),
+const { browser_sync, node_mon      } = require('./gulp/gulp-server'),
       { watch_es6,    build_es6     } = require('./gulp/gulp-js'),
       { watch_scss,   build_scss    } = require('./gulp/gulp-scss'),
       { watch_images, minify_images } = require('./gulp/gulp-images');

@@ -3,6 +3,7 @@
 // Module dependencies
 const gulp        = require('gulp'),
 	  watch       = require('gulp-watch'),
+	  changed     = require('gulp-changed'),
 	  image       = require('gulp-image'),
 	  imageResize = require('gulp-image-resize');
       
@@ -17,6 +18,7 @@ const IMG_DEST = './public/assets/images/compressed';
 function minify_images() {
 	console.log('Compressing / Optimizing Images');
 	gulp.src(IMG_SRC)
+		.pipe(changed(IMG_DEST))
 		.pipe(image()) 	    // compresses
 		.pipe(imageResize({ // resizes to max width
 			width: 1800,
