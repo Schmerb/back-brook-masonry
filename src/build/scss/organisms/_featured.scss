@@ -13,7 +13,7 @@
         font-size: 28px;
         width: 70%;
         padding: 20px 0;
-        margin: 0 auto;
+        margin: 0 auto 50px;
         // border: 1px solid $brickred;
         @include mediaMin($tablet) {
             font-size: 42px;
@@ -68,6 +68,9 @@
         color: white;
         border: 1px solid white;
         opacity: 0;
+        &:hover {
+            background-color: rgba(white, 0.9);
+        }
     }
     .check-more-btn {
         @extend %transition;

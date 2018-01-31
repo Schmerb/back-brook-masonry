@@ -34,7 +34,10 @@ body {
     overflow-x: hidden;
 
     // Sticky Footer
-    padding-bottom: 2000px;
+    padding-bottom: 1900px;
+    @include mediaMin(440px) {
+        padding-bottom: 2000px;
+    }
     @include mediaMin($tablet) {
         padding-bottom: 1200px;
     }

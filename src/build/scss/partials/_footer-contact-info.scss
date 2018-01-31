@@ -41,10 +41,13 @@
         align-items: flex-start;
         width: 100%;
         height: 500px;
-        margin-left: 20%;
+        margin-left: 10%;
         margin-top: 50px;
         margin-bottom: 50px;
         // border: 1px solid black;
+        @include mediaMin($iphone7) {
+            margin-left: 17%;
+        }
         @include mediaMin(500px) {
             margin-left: 25%;
         }
