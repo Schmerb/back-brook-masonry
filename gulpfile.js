@@ -1,124 +1,42 @@
 'use strict';
 
-// Module dependencies
-const gulp        = require('gulp'),
-	  watch       = require('gulp-watch'),
-      browserSync = require('browser-sync'),
-      reload      = browserSync.reload,
-	  nodemon     = require('gulp-nodemon'),
-	  sourcemaps  = require('gulp-sourcemaps'),
-	  sass        = require('gulp-sass'),
-	  sassGlob    = require('gulp-sass-glob'),
-	  uglify      = require('gulp-uglify'),
-	  rename      = require('gulp-rename'),
-	  image       = require('gulp-image'),
-	  imageResize = require('gulp-image-resize'),
-	  browserify  = require('browserify'),
-	  babelify    = require('babelify'),
-	  source      = require('vinyl-source-stream'),
-	  buffer	  = require('vinyl-buffer');
+const gulp = require('gulp');
+
+const { browser_sync, node_mon 		} = require('./gulp/');
+const { watch_es6,    build_es6     } = require('./gulp/gulp-js');
+const { watch_scss,   build_scss    } = require('./gulp/gulp-scss');
+const { watch_images, minify_images } = require('./gulp/gulp-images');
 
 
-/////////////////////
+
+// ----------------------
 // - BrowserSync
-/////////////////////
-gulp.task('browser-sync', ['nodemon'], () =>  {
-	browserSync.init(null, {
-		proxy: "http://localhost:8080",
-        files: ["public/**/*.js", "public/**/*.css", "src/views/**/*.ejs"],
-        browser: "google chrome",
-        port: 7000,
-	});
-});
-
+// ----------------------
+gulp.task('browser-sync', ['nodemon'], browser_sync);
 // Restart server
-gulp.task('nodemon', (cb) => {
-	
-	var started = false;
-	
-	return nodemon({
-		script: 'server.js'
-	})
-	.on('start', () => {
-		// to avoid nodemon being started multiple times
-		if (!started) {
-			cb();
-			started = true; 
-		} 
-    })
-    .on('restart', () => {
-        setTimeout(function() {
-			reload({stream: false});
-		}, 2000);
-    })
-});
+gulp.task('nodemon', node_mon);
 
 
-/////////////////
-// - SCSS/CSS
-/////////////////
-const SCSS_SRC  = 'src/build/scss/**/*.scss';
-const SCSS_DEST = 'public/css';
-
-gulp.task('build_scss', function() {
-    return gulp.src(SCSS_SRC)
-		.pipe(sourcemaps.init())
-			.pipe(sassGlob())
-			.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-			.pipe(rename({suffix: '.min'}))
-		.pipe(sourcemaps.write())
-        .pipe(gulp.dest(SCSS_DEST));
-});
-// Detect changes in SCSS
-gulp.task('watch_scss', () => {
-	return watch(SCSS_SRC, () => gulp.start('build_scss'));
-})
-
-
-/////////////////////////
+// ----------------------
 // - BABEL + Browserify
-/////////////////////////
-const JS_SRC  = 'src/build/js/**/*.js';
-const JS_DEST = 'public/js/';
- 
-gulp.task('build_es6', () => {
-	console.log('building js files');
-	return browserify({entries: 'src/build/js/app.js', debug: true})
-		.transform("babelify", { presets: ["env"] })
-		.bundle()
-		.pipe(source('bundle.min.js'))
-        .pipe(buffer())
-		.pipe(sourcemaps.init({loadMaps: true}))
-			.pipe(uglify())
-		.pipe(sourcemaps.write())
-		.pipe(gulp.dest(JS_DEST));
-});
+// ----------------------
+gulp.task('build_es6', build_es6); // transpiles es6 -> es5
 // Detect changes in JS
-gulp.task('watch_es6', () => {
-    return watch(JS_SRC, () => gulp.start('build_es6'));
-})
+gulp.task('watch_es6', watch_es6)
 
-/////////////////////////
+// ----------------------
+// - SCSS/CSS
+// ----------------------
+gulp.task('build_scss', build_scss);
+// Detect changes in SCSS
+gulp.task('watch_scss', watch_scss);
+
+// ----------------------
 // - Compress Images
-/////////////////////////
-const IMG_SRC  = './public/assets/images/original/**/*.*';
-const IMG_DEST = './public/assets/images/compressed';
-gulp.task('minify_images', () => {
-	console.log('Compressing / Optimizing Images');
-	gulp.src(IMG_SRC)
-		.pipe(image()) 	    // compresses
-		.pipe(imageResize({ // resizes to max width
-			width: 1800,
-			height: 1800,
-			upscaled: false,
-			imageMagick: true,
-			background: 'none'
-		}))
-		.pipe(gulp.dest(IMG_DEST));
-})
-gulp.task('watch_images', () => {
-	return watch(IMG_SRC, () => gulp.start('minify_images'));
-})
+// ----------------------
+gulp.task('minify_images', minify_images);
+gulp.task('watch_images', watch_images); // detects new images
+
 
 // - Reload browser on file save
 gulp.task('default', ['browser-sync','build_scss', 'watch_scss', 'build_es6', 'watch_es6']);
