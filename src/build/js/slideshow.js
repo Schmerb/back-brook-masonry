@@ -3,7 +3,7 @@
 const SLIDESHOW = '.slideshow';
 const SLIDE = '.slide';
 
-exports.nextSlide = () => {
+function nextSlide() {
     // get current slide number
     // increment
     // set current to new slide number
@@ -15,8 +15,10 @@ exports.nextSlide = () => {
     $(`.slide[data-slide-num="${nextSlide}"]`).addClass('current');
 }
 
-exports.startSlideShow = (delay = 6000) => {
+function startSlideShow(delay = 6000) {
     setInterval(() => {
         nextSlide();
     }, delay);
 }
+
+module.exports = { nextSlide, startSlideShow };

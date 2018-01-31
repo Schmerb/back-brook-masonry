@@ -1,0 +1,17 @@
+// // // // // // // // // //
+//
+//      Main
+//
+// // // // // // // // // //
+
+main {
+    position: relative;
+    .container {
+        position: relative;
+        z-index: 0;
+        overflow: auto;
+    }
+    &.pages {
+        border: 3px solid greenyellow;
+    }
+}

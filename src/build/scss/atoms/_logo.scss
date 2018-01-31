@@ -11,6 +11,11 @@
     height: inherit;
     width: 180px;
     z-index: 3;
+    // BACK BROOK MASONRY logo text
+    #logo-text {
+        @extend %transition;
+        fill: white;
+    }
     // border: 1px solid white;
     @include mediaMin($collapse) {
         position: fixed;
@@ -23,6 +28,9 @@
             left: 30px;
             width: 180px;
             height: 80px;
+            #logo-text {
+                fill: grey;
+            }
         }
     }
 }
@@ -35,8 +43,5 @@
         height: 80%;
     }
 }
-// BACK BROOK MASONRY logo text
-#logo-text {
-    fill: white;
-}
+
 
