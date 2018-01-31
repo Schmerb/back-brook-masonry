@@ -2,6 +2,7 @@
 
 // Module dependencies
 const gulp        = require('gulp'),
+	  watch       = require('gulp-watch'),
       browserSync = require('browser-sync'),
       reload      = browserSync.reload,
 	  nodemon     = require('gulp-nodemon'),
@@ -10,6 +11,8 @@ const gulp        = require('gulp'),
 	  sassGlob    = require('gulp-sass-glob'),
 	  uglify      = require('gulp-uglify'),
 	  rename      = require('gulp-rename'),
+	  image       = require('gulp-image'),
+	  imageResize = require('gulp-image-resize'),
 	  browserify  = require('browserify'),
 	  babelify    = require('babelify'),
 	  source      = require('vinyl-source-stream'),
@@ -66,10 +69,9 @@ gulp.task('build_scss', function() {
 		.pipe(sourcemaps.write())
         .pipe(gulp.dest(SCSS_DEST));
 });
-
 // Detect changes in SCSS
 gulp.task('watch_scss', () => {
-    gulp.watch(SCSS_SRC, ['build_scss']);
+	return watch(SCSS_SRC, () => gulp.start('build_scss'));
 })
 
 
@@ -91,12 +93,32 @@ gulp.task('build_es6', () => {
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(JS_DEST));
 });
-
 // Detect changes in JS
 gulp.task('watch_es6', () => {
-    gulp.watch(JS_SRC, ['build_es6']);
+    return watch(JS_SRC, () => gulp.start('build_es6'));
 })
 
+/////////////////////////
+// - Compress Images
+/////////////////////////
+const IMG_SRC  = './public/assets/images/original/**/*.*';
+const IMG_DEST = './public/assets/images/compressed';
+gulp.task('minify_images', () => {
+	console.log('Compressing / Optimizing Images');
+	gulp.src(IMG_SRC)
+		.pipe(image()) 	    // compresses
+		.pipe(imageResize({ // resizes to max width
+			width: 1800,
+			height: 1800,
+			upscaled: false,
+			imageMagick: true,
+			background: 'none'
+		}))
+		.pipe(gulp.dest(IMG_DEST));
+})
+gulp.task('watch_images', () => {
+	return watch(IMG_SRC, () => gulp.start('minify_images'));
+})
 
 // - Reload browser on file save
 gulp.task('default', ['browser-sync','build_scss', 'watch_scss', 'build_es6', 'watch_es6']);
