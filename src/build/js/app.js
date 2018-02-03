@@ -94,8 +94,8 @@ function smoothScroll(target, duration = 1200, offset = 0) {
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 function checkScrollPos() {
     $(window).scroll(e => {
-        toggleHeaderBgImg();
         if(location.pathname === '/') {
+            toggleHeaderBgImg();
             fixBanner();
         }
     });
@@ -173,7 +173,7 @@ function checkEndpoint() {
     if(path !== '/') {
         $('header,  main, .banner').addClass('pages');
         $('.banner').addClass('fixed');
-        shrinkNav();
+        // shrinkNav();
         $('.' + path.slice(1)).addClass('active'); // Active nav link styles
     } else {
         $('header,  main, .banner').addClass('landing');
@@ -229,9 +229,9 @@ function utils() {
 
 function init() {
     if(location.pathname === '/') {
+        toggleHeaderBgImg();
         fixBanner();
     }
-    toggleHeaderBgImg();
     state.hasTouch ? setBgImgHeight() : null;
     fadeOutLoadScreen();
     startSlideShow(4000); // starts bg image slideshow

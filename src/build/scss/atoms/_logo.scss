@@ -35,7 +35,7 @@
     }
 }
 .logo-svg-wrap {
-    @extend %flex;
+    @extend %flexbox;
     justify-content: center;
     align-items: center;
     height: inherit;

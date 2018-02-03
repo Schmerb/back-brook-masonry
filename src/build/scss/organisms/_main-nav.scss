@@ -67,7 +67,7 @@
     }
     ul {
         @include transitions(top 0.5s ease-in-out);
-        @extend %flex;
+        @extend %flexbox;
         flex-direction: column;
         justify-content: space-between;
         width: calc(250px + 7vw);
@@ -85,7 +85,7 @@
             line-height: 1.8em;
             @include mediaMin($collapse) {
                 // Centers nev items vertically
-                @include flex;
+                @include flexbox;
                 flex-direction: column;
                 justify-content: center;
             }

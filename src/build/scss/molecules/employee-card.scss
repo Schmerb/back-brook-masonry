@@ -15,6 +15,9 @@
         }
     }
 }
+// - - - - - - - -
+// Wraps the image
+// - - - - - - - - 
 .content {
     width: 240px;
     height: 240px;
@@ -34,6 +37,9 @@
         filter: grayscale(100%);
     }
 }
+// - - - - - - - -
+// Name / Title
+// - - - - - - - - 
 .image-description {
     padding-top: 20px;
     border: 1px solid black;
