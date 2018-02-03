@@ -43,10 +43,26 @@ function show() {
 // API handlers / Display handlers
 //================================================================================
 
+function getImagesAndDisplay() {
+    $('.employee-card').each((index, el) => {
+        getRandomImg(res => {
+            $(el).find('.content .img')
+                 .css({"background-image": `url(${res.results[0].picture.medium})`});
+        });
+    });
+}
 
 //================================================================================
 // API calls
 //================================================================================
+
+function getRandomImg(cb) {
+    $.ajax({
+        url: 'https://randomuser.me/api/',
+        dataType: 'json',
+        success: cb
+    });
+}
 
 
 //================================================================================
@@ -219,6 +235,7 @@ function init() {
     state.hasTouch ? setBgImgHeight() : null;
     fadeOutLoadScreen();
     startSlideShow(4000); // starts bg image slideshow
+    // getImagesAndDisplay();
 }
 
 //================================================================================

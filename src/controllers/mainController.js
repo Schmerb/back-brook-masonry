@@ -6,17 +6,15 @@
 
 'use strict';
 
+const { request } = require('request')
+
 exports.getIndex = (req, res) => {
     res.status(200).render('index', {
         landing: true
     });
 };
 
-exports.getWhoWeAre = (req, res) => {
-    res.status(200).render('pages/who-we-are', {
-        landing: false
-    });
-};
+
 
 exports.getProjects = (req, res) => {
     res.status(200).render('pages/projects', {

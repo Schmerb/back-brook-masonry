@@ -9,8 +9,9 @@ const gulp        = require('gulp'),
 	  uglify      = require('gulp-uglify'),
 	  rename      = require('gulp-rename');
 
-const SCSS_SRC  = 'src/build/scss/**/*.scss';
-const SCSS_DEST = 'public/css';
+const SCSS_ENTRY = 'src/build/scss/screen.scss';
+const SCSS_SRC   = 'src/build/scss/**/*.scss';
+const SCSS_DEST  = 'public/css';
 
 // // // // // // // // //
 //
@@ -18,7 +19,7 @@ const SCSS_DEST = 'public/css';
 //
 // // // // // // // // //
 function build_scss() {
-    return gulp.src(SCSS_SRC)
+    return gulp.src(SCSS_ENTRY)
 		.pipe(sourcemaps.init())
 			.pipe(sassGlob())
 			.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))

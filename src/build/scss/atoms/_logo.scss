@@ -35,7 +35,7 @@
     }
 }
 .logo-svg-wrap {
-    display: flex;
+    @extend %flex;
     justify-content: center;
     align-items: center;
     height: inherit;

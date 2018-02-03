@@ -14,13 +14,14 @@ const router = express.Router();
 router.use(bodyParser.urlencoded({ extended: true }));
 
 // controllers
-const mainController = require('controllers/mainController');
+const mainController     = require('controllers/mainController');
+const whoWeAreController = require('controllers/whoWeAreController');
 
 // HOME
 router.get('/', mainController.getIndex);
 
 // Who We Are
-router.get('/whoweare', mainController.getWhoWeAre);
+router.get('/whoweare', whoWeAreController.getWhoWeAre);
 // Projects
 router.get('/projects', mainController.getProjects);
 // Trust & Respect

@@ -8,7 +8,7 @@
     line-height: 1.5em;
     // border: 1px solid black;
     @include mediaMin($desktop) {
-        display: flex;
+        @include flex;
         height: 300px;
     }
     @include mediaMin(1400px) {
@@ -27,7 +27,7 @@
         font-size: calc(0.6em + 0.5vw);
     }
     @include mediaMin($desktop) {
-        display: flex;
+        @include flex;
         justify-content: center;
         align-items: center;
         font-size: calc(0.5em + 0.4vw);
@@ -35,7 +35,7 @@
         border-bottom: 3px solid $brickred;
     }
     ul {
-        display: flex;
+        @extend %flex;
         flex-direction: column;
         justify-content: space-around;
         align-items: flex-start;
@@ -59,7 +59,7 @@
             margin-bottom: 70px;
         }
         li {
-            display: flex;
+            @extend %flex;
             flex-direction: column;
             
             // border: 1px solid black;
@@ -82,7 +82,7 @@
 .office-info {
     background-color: $brickred;
     color: white;
-    display: flex;
+    @extend %flex;
     justify-content: space-around;
     height: calc(140px + 10vw);
     @include mediaMin($desktop) {
@@ -110,7 +110,7 @@
         }
     }
     .office-info-wrap {
-        display: flex;
+        @extend %flex;
         flex-direction: column;
         justify-content: center;
         height: inherit;
