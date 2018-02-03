@@ -9,11 +9,7 @@
 const request = require('request');
 const async   = require('async');
 
-const { employees } = require('utils/employees')
-
-
-
-
+const { employees } = require('utils/employees');
 
 
 exports.getWhoWeAre = (req, res) => {
@@ -28,7 +24,7 @@ exports.getWhoWeAre = (req, res) => {
         request(url, (error, response, html) => {
             let obj = JSON.parse(html);
             let randomImgUrl = obj.results[0].picture.large;
-            employees[index] = Object.assign({}, employees[index], {imgUrl: randomImgUrl})
+            employees[index] = Object.assign({}, employees[index], {imgUrl: randomImgUrl});
             index++;
             callback(error, html);
         });

@@ -173,7 +173,7 @@ function checkEndpoint() {
     if(path !== '/') {
         $('header,  main, .banner').addClass('pages');
         $('.banner').addClass('fixed');
-        // shrinkNav();
+        shrinkNav();
         $('.' + path.slice(1)).addClass('active'); // Active nav link styles
     } else {
         $('header,  main, .banner').addClass('landing');

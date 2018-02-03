@@ -14,8 +14,6 @@ exports.getIndex = (req, res) => {
     });
 };
 
-
-
 exports.getProjects = (req, res) => {
     res.status(200).render('pages/projects', {
         landing: false

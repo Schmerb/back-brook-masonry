@@ -17,7 +17,7 @@ let employees = [
     },
     {
         name: "Laura",
-        jobTitle: "Model Designer"
+        jobTitle: "Director of BIM"
     },
     {
         name: "Joe Acchione",
@@ -34,6 +34,10 @@ let employees = [
     {
         name: "Isabelle Rodrigues",
         jobTitle: "Office Manager"
+    },
+    {
+        name: "Phyllis Schmerbeck",
+        jobTitle: "Receptionist"
     },
     {
         name: "Josh Benzel",
