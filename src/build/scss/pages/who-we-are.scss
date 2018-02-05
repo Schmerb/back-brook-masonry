@@ -8,95 +8,19 @@
 .who-we-are {
     min-height: 100vh;
     padding: 50px 0;
-    > h2 {
+    h2, h3 {
         font-size: 36px;
-        padding-top: 60px;
-        padding-bottom: 60px;
+        padding-top: 30px;
+        padding-bottom: 30px;
         text-align: center;
     }
-    .employees {
-        @extend %flexbox;
-        background-color: white;
-        flex-wrap: wrap;
-        width: 100%;
-        margin: 20px auto;
-        box-shadow: 0 0 10px rgba(black, 0.1);
-        @include mediaMin(400px) {
-            width: 400px;
-        }
-        @include mediaMin(700px) {
-            width: 700px;
-        }
-        @include mediaMin(900px) {
-            width: 900px;
-        }
-        @include mediaMin(1100px) {
-            width: 1100px;
-        }
-        li {
-            width: 100%;
-            border-bottom: 1px solid rgba(black, 0.1);
-            flex: 1 0 0;
-            
-            // apply right-borader to all cards
-            @include mediaMin(700px) {
-                border-right: 1px solid rgba(black, 0.1); // applies to all cards
-            }
-            // Remove right-border for end card of each row
-            // TWO columns wide
-            @include mediaMinMax(700px, 899px) {
-                &:nth-of-type(2n + 2) {
-                    border-right: none;
-                }
-            }
-            // THREE columns Wide
-            @include mediaMinMax(900px, 1099px) {
-                &:nth-last-of-type(3n + 1) {
-                    border-right: none;
-                }
-            }
-            // FOUR columns wide
-            @include mediaMin(1100px) {
-                // right-side end cards no border
-                &:nth-of-type(6), &:nth-of-type(10) {
-                    border-right: none;
-                }
-            }
-
-            // Handles the last card
-            &:last-of-type {
-                @include mediaMinMax(700px, 899px) {
-                    max-width: 350.5px;
-                    flex-basis: auto; /* default value */
-                    flex-grow: 1;
-                }
-                @include mediaMin(1100px) {
-                    max-width: 275px;
-                    flex-basis: auto; /* default value */
-                    flex-grow: 1;
-                }
-            }
-            @include mediaMin(700px) {
-            
-            }
-            // - - - - - - - - -
-            // First Two cards
-            // - - - - - - - - -
-            &:nth-of-type(1) {
-                border-right: 1px solid rgba(black, 0.1);
-            }
-            @include mediaMin(900px) {
-                &:nth-of-type(1) {
-                    flex-basis: 50%;
-                }
-                &:nth-of-type(2) {
-                    flex-basis: 50%;
-                    border-right: none;
-                }
-            }
-            @include mediaMin(1100px) {
-                
-            }
-        }
+    h3 {
+        font-size: 32px;
+    }
+    .about-bbm {
+        font-family: Arial, Helvetica, sans-serif;
+        max-width: 600px;
+        margin: 60px auto;
+        text-align: justify;
     }
 }
