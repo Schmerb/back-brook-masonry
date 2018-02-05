@@ -135,24 +135,6 @@ function checkForTouch() {
 }
 
 
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-// Checks endpoint to apply correct styles to view
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-function checkEndpoint() {
-    let path = location.pathname;
-    if(path === '/') {
-        // $('header,  main, .banner').addClass('landing');
-        // $('.home').addClass('active'); // Active nav link styles
-    } else {
-        // Any Page
-        // $('main').addClass('pages');
-        // $('.banner').addClass('fixed');
-        // shrinkNav();
-        $('.' + path.slice(1)).addClass('active'); // Active nav link styles
-    }
-}
-
 //================================================================================
 // Event Listeners
 //================================================================================
@@ -193,7 +175,6 @@ function navClicks() {
 const { startSlideShow } = require('./slideshow');
 
 function utils() {
-    checkEndpoint();    // checks current endpoint to apply active styles
     checkSizeHandler(); // checks width on resize
     checkScrollPos();   // gets user scroll y-pos to animate banner nav
     checkForTouch();    // checks if user has touch device by detecting first touch on screen
