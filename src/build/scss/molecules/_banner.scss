@@ -17,11 +17,13 @@
         height: 60px;
     }
     &.pages {
-        height: 80px;
+        @include mediaMin($collapse) {
+            height: 80px;
+        }
     }
     // Needed to overlay dropdown menu on smaller viewpoints
     .banner-backdrop {
-        // @include transitions(height 0.4s ease-in-out); 
+        @include transitions(height 0.4s ease-in-out, opacity 0.4s ease-in-out); 
         content: '';
         position: fixed;
         top: 0;
@@ -29,7 +31,6 @@
         background-color: black;
         width: 100vw;
         height: 80px;
-        z-index: 3;
         opacity: 0;
     }
 }

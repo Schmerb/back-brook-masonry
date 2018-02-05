@@ -49,11 +49,10 @@
 // - - - - - - - - - -
 .pages {
     .logo-a-wrap {
-        left: 30px;
-        width: 180px;
-        height: 80px;
-        #logo-text {
-            fill: grey;
+        @include mediaMin($collapse) {
+            left: 30px;
+            width: 180px;
+            height: 80px;
         }
     }
 }

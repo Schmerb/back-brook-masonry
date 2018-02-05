@@ -44,6 +44,7 @@ header {
         .banner-backdrop {
             height: 60px;
             @include mediaMax($collapse - 1) {
+                z-index: 3;
                 opacity: 1;
             }
         }
@@ -58,7 +59,9 @@ header {
     // Individual Pages
     // - - - - - - - - - -
     &.pages {
-        background-color: black;
-        height: 80px;
+        @include mediaMin($collapse) {
+            background-color: black;
+            height: 80px;
+        }
     }
 }
