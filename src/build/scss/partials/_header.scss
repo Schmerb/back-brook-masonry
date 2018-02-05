@@ -10,7 +10,7 @@ header {
     z-index: 2;
     // Needed for scroll animation to be behind header bg-image
     &::before {
-        @include transitions(height 0.4s ease-in-out, opacity 1s ease-in-out); 
+        @include transitions(height 0.4s ease-in-out); 
         content: '';
         position: fixed;
         top: 0;
@@ -20,7 +20,7 @@ header {
         height: 80px;
         z-index: 1;
         @include mediaMin($collapse) {
-            @include transitions(height 0.4s ease-in-out, opacity 0s ease-in-out); 
+            @include transitions(height 0.4s ease-in-out); 
         }
     }
     &.landing {
@@ -34,6 +34,7 @@ header {
         &::before {
             height: 60px;
             @include mediaMax($collapse - 1) {
+                @include transitions(height 0.4s ease-in-out, opacity 1s ease-in-out); 
                 opacity: 0;
             }
             @include mediaMin($collapse) {

@@ -24,11 +24,11 @@ exports.getWhoWeAre = (req, res) => {
         request(url, (error, response, html) => {
             let obj = JSON.parse(html);
             let randomImgUrl = obj.results[0].picture.large;
-            employees[index] = Object.assign({}, employees[index], {imgUrl: randomImgUrl});
+            employees[index] = {...employees[index], imgUrl: randomImgUrl};
             index++;
             callback(error, html);
         });
-    }, function (err, results) {
+    }, (err, results) => {
         res.status(200).render('pages/who-we-are', {
             employees,
             landing: false,

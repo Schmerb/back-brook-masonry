@@ -23,7 +23,6 @@
     }
     // Needed to overlay dropdown menu on smaller viewpoints
     .banner-backdrop {
-        @include transitions(height 0.4s ease-in-out, opacity 0.4s ease-in-out); 
         content: '';
         position: fixed;
         top: 0;

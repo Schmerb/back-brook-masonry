@@ -35,7 +35,10 @@ const fixBanner = () => {
     // offset is the # of px of the header that is visible
     if(offset <= 0) {
         shrinkNav();
-    } else if(offset >= 100) {
+    } else if(offset > 0 && window.innerWidth <= 899) {
+        $('header').removeClass('shrink'); // allows for header/banner-backdrop to switch to maintain image over backdrop effect
+    }
+    if(offset >= 100) {
         expandNav();
     }
 }
