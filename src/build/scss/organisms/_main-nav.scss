@@ -106,23 +106,25 @@
 .pages {
     .main-nav {
         // For fixing nav items to top of screen
-        ul {
-            position: fixed;
-            top: 0;
-            bottom: auto;
-            right: 0;
-            width: 75%;
-            height: 80px;
-            align-content: center;
-            @include mediaMin($collapse + 200) {
-                font-size: 26px;
-                width: 1000px;
-            }
-            li {
-                &.active {
-                    border-bottom: 6px solid $brickred;
-                    a {
-                        margin-top: 6px; // offsets the border-bottom
+     @include mediaMin($collapse) {
+            ul {
+                position: fixed;
+                top: 0;
+                bottom: auto;
+                right: 0;
+                width: 75%;
+                height: 80px;
+                align-content: center;
+                @include mediaMin($collapse + 200) {
+                    font-size: 26px;
+                    width: 1000px;
+                }
+                li {
+                    &.active {
+                        border-bottom: 6px solid $brickred;
+                        a {
+                            margin-top: 6px; // offsets the border-bottom
+                        }
                     }
                 }
             }
