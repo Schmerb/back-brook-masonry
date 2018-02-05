@@ -18,6 +18,7 @@ const {
 //================================================================================
 
 const Obj_values = require('object.values');
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 // Adds hidden class to all classes passed in as args
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -43,26 +44,12 @@ function show() {
 // API handlers / Display handlers
 //================================================================================
 
-function getImagesAndDisplay() {
-    $('.employee-card').each((index, el) => {
-        getRandomImg(res => {
-            $(el).find('.content .img')
-                 .css({"background-image": `url(${res.results[0].picture.medium})`});
-        });
-    });
-}
+
 
 //================================================================================
 // API calls
 //================================================================================
 
-function getRandomImg(cb) {
-    $.ajax({
-        url: 'https://randomuser.me/api/',
-        dataType: 'json',
-        success: cb
-    });
-}
 
 
 //================================================================================
@@ -75,7 +62,8 @@ const {
     shrinkNav, 
     toggleHeaderBgImg,
     callToActionHeightFix,
-    setBgImgHeight 
+    setBgImgHeight,
+    fadeOutLoadScreen
 } = require('./utils');
 
 
@@ -146,38 +134,22 @@ function checkForTouch() {
     });
 }
 
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-// Fades out loading screen and removes it from DOM
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-function fadeOutLoadScreen() {
-    setTimeout(() => {
-        $('.loading-page, .loading-page svg').addClass('fade-out');
-        setTimeout(() => {
-            $('body').removeClass('no-scroll');
-            // need to recalculate when scroll bar appears 
-            // and screen jumps (resize not triggered)
-            // callToActionHeightFix();
-            window.innerWidth >= 737 ? callToActionHeightFix() : null;
-        }, 700);
-        setTimeout(() => {
-            $('.loading-page').remove();
-        }, 2000);
-    }, 500);
-}
+
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 // Checks endpoint to apply correct styles to view
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 function checkEndpoint() {
     let path = location.pathname;
-    if(path !== '/') {
-        $('header,  main, .banner').addClass('pages');
-        $('.banner').addClass('fixed');
-        shrinkNav();
-        $('.' + path.slice(1)).addClass('active'); // Active nav link styles
-    } else {
+    if(path === '/') {
         $('header,  main, .banner').addClass('landing');
         $('.home').addClass('active'); // Active nav link styles
+    } else {
+        // Any Page
+        $('header,  main, .banner').addClass('pages');
+        // $('.banner').addClass('fixed');
+        // shrinkNav();
+        $('.' + path.slice(1)).addClass('active'); // Active nav link styles
     }
 }
 
@@ -248,6 +220,3 @@ $(function () {
     init();
 });
 
-// $(window).on('load', e => {
-//     e.preventDefault();
-// });

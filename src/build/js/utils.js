@@ -98,11 +98,32 @@ const setBgImgHeight = () => {
     $bg.css('max-height', h);
 }
 
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Fades out loading screen and removes it from DOM
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+function fadeOutLoadScreen() {
+    setTimeout(() => {
+        $('.loading-page, .loading-page svg').addClass('fade-out');
+        setTimeout(() => {
+            $('body').removeClass('no-scroll');
+            // need to recalculate when scroll bar appears 
+            // and screen jumps (resize not triggered)
+            // callToActionHeightFix();
+            window.innerWidth >= 737 ? callToActionHeightFix() : null;
+        }, 700);
+        setTimeout(() => {
+            $('.loading-page').remove();
+        }, 2000);
+    }, 500);
+}
+
+
 module.exports = {
     shrinkNav, 
     expandNav,
     fixBanner,
     toggleHeaderBgImg,
     callToActionHeightFix,
-    setBgImgHeight
+    setBgImgHeight,
+    fadeOutLoadScreen
 };

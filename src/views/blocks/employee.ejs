@@ -1,9 +1,11 @@
-<div class="employee-card">
-    <div class="content">
-        <div class="img" style="background-image:url('<%= user.imgUrl %>');"></div>
-    </div> 
-    <div class="image-description">
-        <h3 class="name"><%= user.name %></h3>
-        <p class="job-title"><%= user.jobTitle %></p>
+<a href="<%= user.url %>" target="_blank">
+    <div class="employee-card">
+        <div class="content">
+            <div class="img" style="background-image:url('<%= user.imgUrl %>');"></div>
+        </div> 
+        <div class="image-description">
+            <h3 class="name"><%= user.name %></h3>
+            <p class="job-title"><%= user.jobTitle %></p>
+        </div>
     </div>
-</div>
+</a>

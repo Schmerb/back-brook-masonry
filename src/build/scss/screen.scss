@@ -1,6 +1,7 @@
 @import "utils/*.scss"; // vars / functions
 
-@import "base/**/*.scss";
+@import "base/**/*.scss"; // baseline styling - html/body etc
+
 @import "atoms/**/*.scss";
 @import "molecules/**/*.scss";
 @import "organisms/**/*.scss";   
