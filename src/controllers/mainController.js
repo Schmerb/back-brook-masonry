@@ -10,24 +10,28 @@ const { request } = require('request')
 
 exports.getIndex = (req, res) => {
     res.status(200).render('index', {
-        landing: true
+        landing: true,
+        path: '/'
     });
 };
 
 exports.getProjects = (req, res) => {
     res.status(200).render('pages/projects', {
-        landing: false
+        landing: false,
+        path: 'projects'
     });
 };
 
 exports.getTestimonials = (req, res) => {
     res.status(200).render('pages/trust-respect', {
-        landing: false
+        landing: false,
+        path: 'trust-respect'
     });
 };
 
 exports.getContactUs = (req, res) => {
     res.status(200).render('pages/contact-us', {
-        landing: false
+        landing: false,
+        path: 'contact-us'
     });
 };

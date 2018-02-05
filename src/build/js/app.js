@@ -142,11 +142,11 @@ function checkForTouch() {
 function checkEndpoint() {
     let path = location.pathname;
     if(path === '/') {
-        $('header,  main, .banner').addClass('landing');
-        $('.home').addClass('active'); // Active nav link styles
+        // $('header,  main, .banner').addClass('landing');
+        // $('.home').addClass('active'); // Active nav link styles
     } else {
         // Any Page
-        $('header,  main, .banner').addClass('pages');
+        // $('main').addClass('pages');
         // $('.banner').addClass('fixed');
         // shrinkNav();
         $('.' + path.slice(1)).addClass('active'); // Active nav link styles

@@ -18,8 +18,12 @@ header {
         width: 100vw;
         height: 80px;
         z-index: 1;
-        @include mediaMin($collapse) {
-            height: 140px;
+    }
+    &.landing {
+        &::before {
+            @include mediaMin($collapse) {
+                height: 140px;
+            }
         }
     }
     &.shrink {
@@ -30,15 +34,15 @@ header {
             }
         }
     }
-    //
+    // - - - - - - - - - -
     // Homepage
-    //
+    // - - - - - - - - - -
     &.landing {
         height: 100vh;
     }
-    //
+    // - - - - - - - - - -
     // Individual Pages
-    //
+    // - - - - - - - - - -
     &.pages {
         background-color: black;
         height: 80px;

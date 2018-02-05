@@ -21,7 +21,7 @@ const whoWeAreController = require('controllers/whoWeAreController');
 router.get('/', mainController.getIndex);
 
 // Who We Are
-router.get('/whoweare', whoWeAreController.getWhoWeAre);
+router.get('/who-we-are', whoWeAreController.getWhoWeAre);
 // Projects
 router.get('/projects', mainController.getProjects);
 // Trust & Respect

@@ -1,4 +1,5 @@
-<div class="banner">
+
+<div class="banner <%= landing ? 'landing':'pages' %>">
     
     <a class="logo-a-wrap" href="/">
         <div class="logo-svg-wrap">
@@ -13,12 +14,24 @@
     
     <nav class="main-nav" role="navigation">
         <ul>
-            <li class="home"><a href="/">HOME</a></li>
-            <li class="whoweare"><a href="/whoweare">WHO WE ARE</a></li>
-            <li class="BIM"><a href="/BIM">BIM</a></li>
-            <li class="projects"><a href="/projects">PROJECTS</a></li>
-            <li class="trust-respect"><a href="/trust-respect">TRUST & RESPECT</a></li>
-            <li class="contact-us"><a href="/contact-us">CONTACT</a></li>
+            <li class="home <%= landing ? 'active':'' %>">
+                <a href="/">HOME</a>
+            </li>
+            <li class="who-we-are <%= path === 'who-we-are' ? 'active':'' %>">
+                <a href="/who-we-are">WHO WE ARE</a>
+            </li>
+            <li class="BIM <%= path === 'BIM' ? 'active':'' %>">
+                <a href="/BIM">BIM</a>
+            </li>
+            <li class="projects <%= path === 'projects' ? 'active':'' %>">
+                <a href="/projects">PROJECTS</a>
+            </li>
+            <li class="trust-respect <%= path === 'trust-respect' ? 'active':'' %>">
+                <a href="/trust-respect">TRUST & RESPECT</a>
+            </li>
+            <li class="contact-us <%= path === 'contact-us' ? 'active':'' %>">
+                <a href="/contact-us">CONTACT</a>
+            </li>
         </ul>
     </nav>
 

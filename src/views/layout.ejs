@@ -13,12 +13,12 @@
         </div> -->
 
         <!-- HEADER -->
-        <header role="banner">
+        <header role="banner" class="<%= landing ? 'landing':'pages' %>">
             <% include partials/header %>
         </header>
 
          <!-- MAIN -->
-        <main role="main">
+        <main role="main" class="<%= landing ? 'landing':'pages' %>">
             <%- body -%>
         </main>
 

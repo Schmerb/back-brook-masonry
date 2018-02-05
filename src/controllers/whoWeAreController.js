@@ -30,8 +30,9 @@ exports.getWhoWeAre = (req, res) => {
         });
     }, function (err, results) {
         res.status(200).render('pages/who-we-are', {
+            employees,
             landing: false,
-            employees
+            path: 'who-we-are'
         });
     });
 };

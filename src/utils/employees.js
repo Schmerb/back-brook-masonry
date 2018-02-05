@@ -2,57 +2,57 @@ let employees = [
     {
         name: "Mike Schmerbeck",
         jobTitle: "President",
-        url: "/whoweare/mike-schmerbeck"
+        url: "/who-we-are/mike-schmerbeck"
     },
     {
         name: "Mike Wojtowicz",
         jobTitle: "Vice President",
-        url: "/whoweare/mike-wojtowicz"
+        url: "/who-we-are/mike-wojtowicz"
     },
     {
         name: "Eric Schaffer",
         jobTitle: "Director Of Operations",
-        url: "/whoweare/eric-schaffer"
+        url: "/who-we-are/eric-schaffer"
     },
     {
         name: "John Fajnor",
         jobTitle: "Director Of Estimating",
-        url: "/whoweare/john-fajnor"
+        url: "/who-we-are/john-fajnor"
     },
     {
         name: "Laura",
         jobTitle: "Director of BIM",
-        url: "/whoweare/Laura"
+        url: "/who-we-are/Laura"
     },
     {
         name: "Joe Acchione",
         jobTitle: "Project Manager",
-        url: "/whoweare/joe-acchione"
+        url: "/who-we-are/joe-acchione"
     },
     {
         name: "Bobby Schmerbeck",
         jobTitle: "Project Expiditor",
-        url: "/whoweare/bobby-schmerbeck"
+        url: "/who-we-are/bobby-schmerbeck"
     },
     {
         name: "Charlie Shea",
         jobTitle: "Project Manager",
-        url: "/whoweare/charlie-shea"
+        url: "/who-we-are/charlie-shea"
     },
     {
         name: "Isabelle Rodrigues",
         jobTitle: "Office Manager",
-        url: "/whoweare/isabelle-rodrigues"
+        url: "/who-we-are/isabelle-rodrigues"
     },
     {
         name: "Phyllis Schmerbeck",
         jobTitle: "Receptionist",
-        url: "/whoweare/phyllis-schmerbeck"
+        url: "/who-we-are/phyllis-schmerbeck"
     },
     {
         name: "Josh Benzel",
         jobTitle: "Shop Manager",
-        url: "/whoweare/josh-benzel"
+        url: "/who-we-are/josh-benzel"
     },
 ];
 

@@ -6,41 +6,55 @@
 
 .logo-a-wrap {
     @include transition(0.5s);
-    display: inline-block;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 20px;
     height: inherit;
     width: 180px;
     z-index: 3;
-    // BACK BROOK MASONRY logo text
-    #logo-text {
-        @extend %transition;
-        fill: white;
-    }
-    // border: 1px solid white;
     @include mediaMin($collapse) {
-        position: fixed;
-        top: 0;
-        left: 20px;
         width: 250px;
         height: 10vw;
-
         &.shrink {
-            left: 30px;
-            width: 180px;
             height: 80px;
-            #logo-text {
-                fill: grey;
+        }
+    }
+    // SVG WRAP
+    .logo-svg-wrap {
+        @extend %flexbox;
+        justify-content: center;
+        align-items: center;
+        height: inherit;
+        svg { // .icon-bbm-logo
+            @include transition(0.5s);
+            width: 250px;
+            height: 100%;
+            @include mediaMin($collapse) {
+                height: 10vw;
             }
         }
     }
+    // Black background
+    &.shrink {
+        // SVG
+        .icon-bbm-logo {
+            width: 180px;
+            height: 80%;
+        }
+    }
 }
-.logo-svg-wrap {
-    @extend %flexbox;
-    justify-content: center;
-    align-items: center;
-    height: inherit;
-    svg {
-        height: 80%;
+
+// - - - - - - - - - -
+// Individual Pages
+// - - - - - - - - - -
+.pages {
+    .logo-a-wrap {
+        left: 30px;
+        width: 180px;
+        height: 80px;
+        #logo-text {
+            fill: grey;
+        }
     }
 }
 
