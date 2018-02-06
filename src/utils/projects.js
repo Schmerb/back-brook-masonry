@@ -31,6 +31,39 @@ let categories = [
     }
 ];
 
-let projects = {};
+let projects = [
+    {
+        name: 'Rutgers Dorms',
+        industry: 'Commercial',
+        client: 'Rutgers',
+        date_completed: new Date(),
+        url: '/projects/commercial/rutgers-dorms',
+        image: '/assets/images/compressed/projects/bbm-1.jpg'
+    },
+    {
+        name: 'Rutgers Dorms',
+        industry: 'Commercial',
+        client: 'Rutgers',
+        date_completed: new Date(),
+        url: '/projects/commercial/rutgers-dorms',
+        image: '/assets/images/compressed/projects/bbm-1.jpg'
+    },
+    {
+        name: 'Rutgers Dorms',
+        industry: 'Commercial',
+        client: 'Rutgers',
+        date_completed: new Date(),
+        url: '/projects/commercial/rutgers-dorms',
+        image: '/assets/images/compressed/projects/bbm-1.jpg'
+    },
+    {
+        name: 'Rutgers Dorms',
+        industry: 'Commercial',
+        client: 'Rutgers',
+        date_completed: new Date(),
+        url: '/projects/commercial/rutgers-dorms',
+        image: '/assets/images/compressed/projects/bbm-1.jpg'
+    },
+];
 
-module.exports = { categories };
+module.exports = { categories, projects };
