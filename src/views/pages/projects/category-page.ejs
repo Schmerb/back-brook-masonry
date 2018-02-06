@@ -1,7 +1,11 @@
 <% layout('layout') %>
 
 <section id="projects" class="projects-page">
-    <h2 class="projects-header"><%= categoryTitle %></h2>
+    <div class="category-banner">
+        <div class="category-title-container">
+            <h2 class="projects-header"><%= categoryTitle %></h2>
+        </div>
+    </div>
     <ul class="category-list">
         <% projects.forEach((project) => { %>
             <li>
