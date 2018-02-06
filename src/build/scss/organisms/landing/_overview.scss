@@ -68,6 +68,10 @@
                 display: block;
                 width: 100%;
                 height: auto;
+                @include mediaMin(900px) {
+                    position: relative;
+                    top: -20vh;
+                }
             }
         }
         // ACTION Button
