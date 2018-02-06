@@ -26,6 +26,7 @@ html {
 body {  
     @include transitions(font-size 0.3s ease-in-out); // avoids text flickering due to dynamic sizing
     font-family: 'Cutive Mono', monospace;
+    // font-family: 'Segoe UI', Tahoma, Geneva, Verdana, 'sans-serif';
     position: relative;
     background: $offwhite;
     background-color: white;
