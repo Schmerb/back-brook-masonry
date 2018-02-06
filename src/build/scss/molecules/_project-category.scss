@@ -6,33 +6,13 @@
 
 .category {
     @extend %transition;
-    color: white;
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-    height: 300px;
-    margin: 0 auto;
-    box-shadow: 0 0 20px 2px rgba(black,0.2);
-    &:hover {
-        color: lightgrey;
-        box-shadow: 2px 2px 20px 2px rgba(black,0.4);
-    }
+    @extend %project-category-card;
 }
 .category-img {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: calc(100% - 60px);
+    @extend %project-category-img;
 }
 .c-bottom {
-    background-color: cornflowerblue;
-    background-color: $brickred;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 60px;
+    @extend %project-category-bottom;
     .category-type {
         @include middleL(30px);
     }

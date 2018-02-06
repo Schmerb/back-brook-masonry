@@ -4,6 +4,34 @@
 //
 // // // // // // // // // //
 
+
 .project-card {
-    
+    @extend %transition;
+    @extend %project-category-card;
+    overflow: hidden;
+    .details {
+        @extend %transition;
+        @extend %cover;
+        color: white;
+        background-color: rgba(black, 0.4);
+        padding: 20px;
+        opacity: 0;
+        .project-name {
+            @extend %transition;
+            @include transform(translateX(100px));
+        }
+    }
+    &:hover {
+        // Show proj details
+        .details {
+            opacity: 1;
+            .project-name {
+                @include transform(translateY(0));
+            }
+        }
+    }
+}
+.proj-img {
+    @extend %project-category-img;
+    height: 100%; // overrides default card height
 }

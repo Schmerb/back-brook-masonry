@@ -13,16 +13,4 @@
         text-align: center;
         padding: 20px 0;
     }
-    .category-list {
-        @extend %flexbox;
-        flex-wrap: wrap;
-        max-width: 1300px;
-        padding: 5px;
-        margin: 0 auto;
-        li {
-            flex: 1;
-            flex-basis: 400px;
-            margin: 20px 0;
-        }
-    }
 }

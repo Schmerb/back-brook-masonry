@@ -1,0 +1,26 @@
+// // // // // // // // // //
+//
+//   Project Category List
+//
+// // // // // // // // // //
+
+.category-list {
+    @extend %flexbox;
+    flex-wrap: wrap;
+    max-width: 1300px;
+    padding: 5px;
+    margin: 0 auto;
+    li {
+        flex: 1;
+        flex-basis: 400px;
+        margin: 20px 0;
+        a {
+            @extend %project-category-card;
+            display: block;
+            box-shadow: none;
+            &:hover {
+                box-shadow: none;
+            }
+        }
+    }
+}
