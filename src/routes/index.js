@@ -17,13 +17,17 @@ router.use(bodyParser.urlencoded({ extended: true }));
 const mainController     = require('controllers/mainController');
 const whoWeAreController = require('controllers/whoWeAreController');
 
+const projectRouter = require('./projectRouter');
+
 // HOME
 router.get('/', mainController.getIndex);
 
 // Who We Are
 router.get('/who-we-are', whoWeAreController.getWhoWeAre);
+
 // Projects
-router.get('/projects', mainController.getProjects);
+router.use('/projects', projectRouter);
+
 // Trust & Respect
 router.get('/trust-respect', mainController.getTestimonials);
 // Contact Us

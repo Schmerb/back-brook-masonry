@@ -1,5 +1,14 @@
 <% layout('layout') %>
 
-<section id="projects" class="projects">
-    <h2>Our Work</h2>
+<section id="projects" class="projects-page">
+    <h2>Projects</h2>
+    <ul class="category-list">
+        <% categories.forEach((category) => { %>
+            <li>
+                <%- partial('../blocks/projectCategory', {category: category}) %>
+            </li>
+        <% }) %>
+    </ul>
 </section>
+
+
