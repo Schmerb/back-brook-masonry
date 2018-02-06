@@ -5,5 +5,25 @@
 // // // // // // // // // //
 
 .projects-page {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', 'sans-serif';
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, 'sans-serif';
     min-height: 100vh;
+    margin: 40px 10px;
+    .projects-header {
+        font-size: 36px;
+        text-align: center;
+        padding: 20px 0;
+    }
+    .category-list {
+        @extend %flexbox;
+        flex-wrap: wrap;
+        max-width: 1300px;
+        padding: 5px;
+        margin: 0 auto;
+        li {
+            flex: 1;
+            flex-basis: 400px;
+            margin: 20px 0;
+        }
+    }
 }

@@ -1,27 +1,33 @@
 let categories = [
     {
-        type: "All Projects",
-        url: "/projects/all"
+        type: "ALL PROJECTS",
+        url: "/projects/all",
+        image: "/assets/images/compressed/categories/allprojects.jpg"
     },
     {
-        type: "Commercial",
-        url: "/projects/commercial"
+        type: "COMMERCIAL",
+        url: "/projects/commercial",
+        image: "/assets/images/compressed/categories/commercial.jpg"
     },
     {
-        type: "Education",
-        url: "/projects/education"
+        type: "EDUCATION",
+        url: "/projects/education",
+        image: "/assets/images/compressed/categories/education.jpg"
     },
     {
-        type: "Industrial",
-        url: "/projects/industrial"
+        type: "INDUSTRIAL",
+        url: "/projects/industrial",
+        image: "/assets/images/compressed/categories/industrial.jpg"
     },
     {
-        type: "Rain Screen",
-        url: "/projects/rain screen"
+        type: "RAINSCREEN",
+        url: "/projects/rainscreen",
+        image: "/assets/images/compressed/categories/rainscreen.jpg"
     },
     {
-        type: "Restoration",
-        url: "/projects/restoration"
+        type: "RESTORATION",
+        url: "/projects/restoration",
+        image: "/assets/images/compressed/categories/restoration.jpeg"
     }
 ];
 

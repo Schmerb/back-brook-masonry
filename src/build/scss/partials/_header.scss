@@ -8,6 +8,13 @@ header {
     color: white;
     position: relative;
     z-index: 2;
+    
+    @include mediaMax($collapse - 1) {
+        height: 60px;
+    }
+    @include mediaMin($collapse) {
+        height: 80px;
+    }
     // Needed for scroll animation to be behind header bg-image
     &::before {
         @include transitions(height 0.4s ease-in-out); 
@@ -19,15 +26,40 @@ header {
         width: 100vw;
         height: 80px;
         z-index: 1;
+        box-shadow: 0 0 20px rgba(black, 0.6);
         @include mediaMin($collapse) {
             @include transitions(height 0.4s ease-in-out); 
         }
     }
+    // - - - - - - - - - -
+    // Home Page
+    // - - - - - - - - - -
     &.landing {
+        height: 100vh;
         &::before {
             @include mediaMin($collapse) {
                 height: 140px;
             }
+        }
+    }
+    // - - - - - - - - - -
+    // Individual Pages
+    // - - - - - - - - - -
+    &.pages {
+        @include mediaMax($collapse - 1) {
+            &::before {
+                height: 60px;
+            }
+            // Needed to overlay dropdown menu on smaller viewpoints
+            .banner-backdrop {
+                height: 60px;
+                z-index: 3;
+                opacity: 1;
+            }
+        }
+        @include mediaMin($collapse) {
+            background-color: black;
+            height: 80px;
         }
     }
     &.shrink {
@@ -49,20 +81,5 @@ header {
                 opacity: 1;
             }
         }
-    }
-    // - - - - - - - - - -
-    // Homepage
-    // - - - - - - - - - -
-    &.landing {
-        height: 100vh;
-    }
-    // - - - - - - - - - -
-    // Individual Pages
-    // - - - - - - - - - -
-    &.pages {
-        @include mediaMin($collapse) {
-            background-color: black;
-            height: 80px;
-        }
-    }
+    }   
 }
