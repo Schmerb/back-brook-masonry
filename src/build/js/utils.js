@@ -75,18 +75,6 @@ function toggleHeaderBgImg() {
     }
 }
 
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-// Keeps the overview img and call to action el the same 
-// height
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-const callToActionHeightFix = () => {
-    // 1) get height of img 
-    // 2) apply to action el's
-    $('.overview .lg-img').each((i, el) => {
-        let h = $(el).find('img').height();
-        $(el).siblings('.action').height(h);
-    });
-}
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 // sets background image height on page load to avoid
@@ -109,10 +97,6 @@ function fadeOutLoadScreen() {
         $('.loading-page, .loading-page svg').addClass('fade-out');
         setTimeout(() => {
             $('body').removeClass('no-scroll');
-            // need to recalculate when scroll bar appears 
-            // and screen jumps (resize not triggered)
-            // callToActionHeightFix();
-            window.innerWidth >= 737 ? callToActionHeightFix() : null;
         }, 700);
         setTimeout(() => {
             $('.loading-page').remove();
@@ -126,7 +110,6 @@ module.exports = {
     expandNav,
     fixBanner,
     toggleHeaderBgImg,
-    callToActionHeightFix,
     setBgImgHeight,
     fadeOutLoadScreen
 };

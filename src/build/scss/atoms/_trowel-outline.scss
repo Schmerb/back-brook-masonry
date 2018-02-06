@@ -6,7 +6,7 @@
 
 .icon-trowel-outline {
     @extend %center;
-    @extend %transition;
+    @extend %default-transition;
     @include transform(rotate(-30deg));
     bottom: 40px;
     width: 45px;

@@ -5,7 +5,7 @@
 // // // // // // // // // //
 
 .employee-card {
-    @extend %transition;
+    @extend %default-transition;
     width: 100%;
     min-height: 300px;
     padding: 40px 20px;

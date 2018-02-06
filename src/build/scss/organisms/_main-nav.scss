@@ -104,7 +104,7 @@
                 justify-content: center;
             }
             a {
-                @extend %transition;
+                @extend %default-transition;
                 word-spacing: -10px; // Used for spacing on multi-word nav items
                 &:hover {
                     color: $accent;

@@ -106,7 +106,7 @@
 }
 
 .icon-email-icon {
-    @extend %transition;
+    @extend %default-transition;
     @include middleR(20px);
     width: 25px;
     height: 25px;

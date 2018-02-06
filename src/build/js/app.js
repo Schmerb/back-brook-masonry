@@ -61,7 +61,6 @@ const {
     expandNav,
     shrinkNav, 
     toggleHeaderBgImg,
-    callToActionHeightFix,
     setBgImgHeight,
     fadeOutLoadScreen
 } = require('./utils');
@@ -112,11 +111,6 @@ function checkSize() {
         // remove z-index on header for collapse nav views (<1060px)
         $('header').css('z-index', '');
     } 
-    if(width >= 737) {
-        callToActionHeightFix();
-    } else {
-        $('.action').css('height', '');
-    }
     fixBanner();
 }
 
@@ -188,7 +182,6 @@ function init() {
     state.hasTouch ? setBgImgHeight() : null;
     fadeOutLoadScreen();
     startSlideShow(4000); // starts bg image slideshow
-    // getImagesAndDisplay();
 }
 
 //================================================================================

@@ -5,7 +5,7 @@
 // // // // // // // // // //
 
 .category {
-    @extend %transition;
+    @extend %default-transition;
     @extend %project-category-card;
 }
 .category-img {

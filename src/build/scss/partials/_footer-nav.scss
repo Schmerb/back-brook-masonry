@@ -33,7 +33,7 @@
         }
         a {
             // ALL links
-            @extend %transition;
+            @extend %default-transition;
             font-size: calc(1.2em + 0.5vw);
             display: block;
             margin-bottom: 15px;
