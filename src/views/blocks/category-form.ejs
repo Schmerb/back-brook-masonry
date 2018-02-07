@@ -1,11 +1,17 @@
 <form class="category-form">
-    <select>
-        <% categories.forEach((category) => {%>
-            <option value="<%= category.slug %>" 
-                    <%= category.slug === categoryObj.slug ? 'selected':'' %>>
-                <%= category.type %>
-            </option>
-        <% }); %>
-    </select>
-    <input type="search" name="" value="" placeholder="Find A Project...">
+    <div class="select-wrap">
+        <select>
+            <% categories.forEach((category) => {%>
+                <option value="<%= category.slug %>" 
+                        <%= category.slug === categoryObj.slug ? 'selected':'' %>>
+                    <%= category.type %>
+                </option>
+            <% }); %>
+        </select>
+        <svg class="icon icon-down-carrot"><use xlink:href="#icon-down-carrot"></use></svg>
+    </div>
+    <div class="input-wrap">
+        <input type="search" name="" value="" placeholder="Find A Project...">
+        <svg class="icon icon-search-icon"><use xlink:href="#icon-search-icon"></use></svg>
+    </div>
 </form>
