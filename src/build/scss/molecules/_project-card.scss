@@ -9,6 +9,10 @@
     @extend %default-transition;
     @extend %project-category-card;
     overflow: hidden;
+    .proj-img {
+        @extend %project-category-img;
+        height: 100%; // overrides default card height
+    }
     .details {
         @extend %cover;
         @include transition(0.4s);
@@ -35,7 +39,11 @@
             @include transform(translateX(60px));
         }
     }
-    &:hover {
+}
+// Used for native tabbing
+.proj-card-anchor {
+    outline: none;
+    &:hover, &:focus {
         // Show proj details
         .details {
             opacity: 1;
@@ -51,7 +59,4 @@
         }
     }
 }
-.proj-img {
-    @extend %project-category-img;
-    height: 100%; // overrides default card height
-}
+
