@@ -152,6 +152,16 @@ function trowelClick() {
     });
 }
 
+function dropdownChange() {
+    $('.category-form select').on('change', e => {
+        e.preventDefault();
+        const category = e.target.value
+        const pathname = `/projects/${category}`;
+        location.href = pathname;
+        // window.history.pushState(state, category, pathname);
+    });
+}
+
 //================================================================================
 // Event Listener Groups
 //================================================================================
@@ -160,6 +170,10 @@ function navClicks() {
     burgerClick();
     // burgerHover();
     trowelClick();
+}
+
+function categoryForm() {
+    dropdownChange();
 }
 
 
@@ -191,6 +205,7 @@ function init() {
 $(function () {
     utils();
     navClicks();
+    categoryForm();
     init();
 });
 

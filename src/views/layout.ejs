@@ -7,10 +7,12 @@
         <!-- svg symbol defs -->
         <% include icons/symbols %>
         
-        <!-- <div class="loading-page">
-            <svg class="icon icon-five-bricks"><use xlink:href="#icon-five-bricks"></use></svg>
-            <svg class="icon icon-loading-icon"><use xlink:href="#icon-loading-icon"></use></svg>
-        </div> -->
+        <% if(!path.includes('projects/')) { %>
+            <div class="loading-page">
+                <svg class="icon icon-five-bricks"><use xlink:href="#icon-five-bricks"></use></svg>
+                <svg class="icon icon-loading-icon"><use xlink:href="#icon-loading-icon"></use></svg>
+            </div>
+        <% } %>
 
         <!-- HEADER -->
         <header role="banner" class="<%= landing ? 'landing':'pages shrink' %>">

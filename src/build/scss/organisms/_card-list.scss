@@ -9,7 +9,8 @@
     flex-wrap: wrap;
     max-width: 1300px;
     padding: 5px;
-    margin: 60px auto 0;
+    margin: 0 auto;
+    border: 1px solid green;
     li {
         flex: 1;
         flex-basis: 400px;

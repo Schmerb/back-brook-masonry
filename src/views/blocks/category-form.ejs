@@ -1,7 +1,10 @@
-<form>
+<form class="category-form">
     <select>
         <% categories.forEach((category) => {%>
-            <option value="<%= category.slug %>"><%= category.type %></option>
+            <option value="<%= category.slug %>" 
+                    <%= category.slug === categoryObj.slug ? 'selected':'' %>>
+                <%= category.type %>
+            </option>
         <% }); %>
     </select>
 </form>
