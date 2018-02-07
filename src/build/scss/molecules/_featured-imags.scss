@@ -30,25 +30,25 @@
     }
     .lg-window {
         .img {
-            background-image: url('/assets/images/compressed/projects/bbm-stbarn1.jpg');
+            background-image: url('/assets/images/compressed/projects/stbarn/stbarn-far-wide.jpg');
         }
     }
     .md-window {
         &:first-of-type {
             .img {
-                background-image: url('/assets/images/compressed/projects/bbm-stbarn2.jpg');
+                background-image: url('/assets/images/compressed/projects/stbarn/stbarn-from-bottom.jpg');
             }
         }
         &:last-of-type {
             .img {
-                background-image: url('/assets/images/compressed/projects/bbm-stbarn3.jpg');
+                background-image: url('/assets/images/compressed/projects/stbarn/stbarn-mid-shot.jpg');
             }
         }
     }
     .sm-window {
         &:first-of-type {
             .img {
-                background-image: url('/assets/images/compressed/projects/bbm-stbarn4.jpg');
+                background-image: url('/assets/images/compressed/projects/stbarn/stbarn-closeup.jpg');
             }
         }
         &:last-of-type {

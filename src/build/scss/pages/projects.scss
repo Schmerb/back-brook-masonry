@@ -14,7 +14,10 @@
         padding: 20px 0;
     }
     .category-banner {
-        background-image: url('/assets/images/compressed/projects/bbm-stbarn.jpg');
+        background-image: url('/assets/images/compressed/projects/bbm-stbarn1.jpg');
+        background-size: cover;
+        background-position: center;
+        // background-color: black;
         width: 100%;
         height: 30vh;
         border: 1px solid black;
