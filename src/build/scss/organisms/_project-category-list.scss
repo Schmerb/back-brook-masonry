@@ -9,11 +9,12 @@
     flex-wrap: wrap;
     max-width: 1300px;
     padding: 5px;
-    margin: 0 auto;
+    margin: 60px auto 0;
+    border: 1px solid black;
     li {
         flex: 1;
         flex-basis: 400px;
-        margin: 20px 0;
+        margin: 20px 5px;
         a {
             @extend %project-category-card;
             display: block;

@@ -1,13 +1,14 @@
 'use strict';
 
 // Module dependencies
-const gulp        = require('gulp'),
-	  watch       = require('gulp-watch'),
-	  sourcemaps  = require('gulp-sourcemaps'),
-	  sass        = require('gulp-sass'),
-	  sassGlob    = require('gulp-sass-glob'),
-	  uglify      = require('gulp-uglify'),
-	  rename      = require('gulp-rename');
+const gulp         = require('gulp'),
+	  watch        = require('gulp-watch'),
+	  sourcemaps   = require('gulp-sourcemaps'),
+	  autoprefixer = require('gulp-autoprefixer'),
+	  sass         = require('gulp-sass'),
+	  sassGlob     = require('gulp-sass-glob'),
+	  uglify       = require('gulp-uglify'),
+	  rename       = require('gulp-rename');
 
 const SCSS_ENTRY = 'src/build/scss/screen.scss';
 const SCSS_SRC   = 'src/build/scss/**/*.scss';
@@ -24,6 +25,7 @@ function build_scss() {
 			.pipe(sassGlob())
 			.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
 			.pipe(rename({suffix: '.min'}))
+			.pipe(autoprefixer())
 		.pipe(sourcemaps.write())
         .pipe(gulp.dest(SCSS_DEST));
 }

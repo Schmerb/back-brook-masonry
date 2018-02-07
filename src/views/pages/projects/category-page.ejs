@@ -1,9 +1,10 @@
 <% layout('layout') %>
 
 <section id="projects" class="projects-page">
-    <div class="category-banner">
+    <div class="category-banner" style="background-image: url('<%= categoryObj.image %>');">
         <div class="category-title-container">
-            <h2 class="projects-header"><%= categoryTitle %></h2>
+            <h2 class="category-header"><%= categoryTitle %></h2>
+            <p class="category-description"><%= categoryObj.description %></p>
         </div>
     </div>
     <ul class="category-list">

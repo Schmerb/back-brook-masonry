@@ -15,7 +15,7 @@ const router = express.Router();
 router.use(bodyParser.urlencoded({ extended: true }));
 
 router.get('/', projectsController.getProjectsPage);
-router.get('/:category', projectsController.getProjectCategory);
+router.get('/:categoryType', projectsController.getProjectCategory);
 
 
 module.exports = router;
