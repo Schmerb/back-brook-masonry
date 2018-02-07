@@ -6,12 +6,14 @@
 
 'use strict';
 
-const express          = require('express'),
-      morgan           = require('morgan'),
-      bodyParser       = require('body-parser'),
-      cookieParser     = require('cookie-parser'),
-      path             = require('path'),
-      engine           = require('ejs-mate');
+require('dotenv').config();
+
+const express      = require('express'),
+      morgan       = require('morgan'),
+      bodyParser   = require('body-parser'),
+      cookieParser = require('cookie-parser'),
+      path         = require('path'),
+      engine       = require('ejs-mate');
 
 const router   = require('routes');
 const { PORT } = require('./config');
