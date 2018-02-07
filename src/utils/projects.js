@@ -45,6 +45,33 @@ let categories = [
 
 let projects = [
     {
+        name: 'Lehigh Dorms',
+        industry: 'Commercial',
+        client: 'Rutgers',
+        date_completed: new Date(),
+        url: '/projects/commercial/rutgers-dorms',
+        image: '/assets/images/compressed/projects/bbm-1.jpg',
+        description: "Student dormatories for Rutgers University"
+    },
+    {
+        name: 'Rutgers Dorms',
+        industry: 'Commercial',
+        client: 'Rutgers',
+        date_completed: new Date(),
+        url: '/projects/commercial/rutgers-dorms',
+        image: '/assets/images/compressed/projects/bbm-1.jpg',
+        description: "Student dormatories for Rutgers University"
+    },
+    {
+        name: 'Rutgers Dorms',
+        industry: 'Commercial',
+        client: 'Rutgers',
+        date_completed: new Date(),
+        url: '/projects/commercial/rutgers-dorms',
+        image: '/assets/images/compressed/projects/bbm-1.jpg',
+        description: "Student dormatories for Rutgers University"
+    },
+    {
         name: 'Rutgers Dorms',
         industry: 'Commercial',
         client: 'Rutgers',
@@ -73,6 +100,51 @@ let projects = [
     },
     {
         name: 'Rutgers Dorms',
+        industry: 'Commercial',
+        client: 'Rutgers',
+        date_completed: new Date(),
+        url: '/projects/commercial/rutgers-dorms',
+        image: '/assets/images/compressed/projects/bbm-1.jpg',
+        description: "Student dormatories for Rutgers University"
+    },
+    {
+        name: 'Rutgers Dorms',
+        industry: 'Commercial',
+        client: 'Rutgers',
+        date_completed: new Date(),
+        url: '/projects/commercial/rutgers-dorms',
+        image: '/assets/images/compressed/projects/bbm-1.jpg',
+        description: "Student dormatories for Rutgers University"
+    },
+    {
+        name: 'Rutgers Dorms',
+        industry: 'Commercial',
+        client: 'Rutgers',
+        date_completed: new Date(),
+        url: '/projects/commercial/rutgers-dorms',
+        image: '/assets/images/compressed/projects/bbm-1.jpg',
+        description: "Student dormatories for Rutgers University"
+    },
+    {
+        name: 'Rutgers Dorms',
+        industry: 'Commercial',
+        client: 'Rutgers',
+        date_completed: new Date(),
+        url: '/projects/commercial/rutgers-dorms',
+        image: '/assets/images/compressed/projects/bbm-1.jpg',
+        description: "Student dormatories for Rutgers University"
+    },
+    {
+        name: 'Rutgers',
+        industry: 'Commercial',
+        client: 'Rutgers',
+        date_completed: new Date(),
+        url: '/projects/commercial/rutgers-dorms',
+        image: '/assets/images/compressed/projects/bbm-1.jpg',
+        description: "Student dormatories for Rutgers University"
+    },
+    {
+        name: 'St Barnabus',
         industry: 'Commercial',
         client: 'Rutgers',
         date_completed: new Date(),

@@ -12,6 +12,7 @@ const { categories, projects } = require('utils/projects');
 exports.getProjectsPage = (req, res) => {
     res.status(200).render('pages/projects/index', {
         categories,
+        projects,
         landing: false,
         path: 'projects'
     });
@@ -31,3 +32,7 @@ exports.getProjectCategory = (req, res) => {
         path: `projects/${categoryType}`
     });
 };
+
+exports.getAllProjects = (req, res) => {
+    res.status(200).json({ projects });
+}

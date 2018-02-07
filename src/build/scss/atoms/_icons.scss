@@ -14,4 +14,7 @@
     height: 1em;
     stroke-width: 0;
     // stroke: currentColor;
+    &.hidden {
+        display: none;
+    }
 }

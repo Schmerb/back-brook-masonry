@@ -16,6 +16,6 @@ router.use(bodyParser.urlencoded({ extended: true }));
 
 router.get('/', projectsController.getProjectsPage);
 router.get('/:categoryType', projectsController.getProjectCategory);
-
+router.get('/all/json', projectsController.getAllProjects)
 
 module.exports = router;

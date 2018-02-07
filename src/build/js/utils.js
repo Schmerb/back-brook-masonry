@@ -104,6 +104,42 @@ function fadeOutLoadScreen() {
     }, 500);
 }
 
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Checks if target exists within specified compare string
+// of obj in an array of objects
+//
+// @returns all objects whos compare string property
+//          contains target word(s)
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+function findMatches(arr, compareStr, target) {
+    let results = [];
+    for(let obj of arr) {
+        let added = false;
+        let current = obj[compareStr].toLowerCase().trim();
+        if(current.startsWith(target)) {
+            console.log('current: ', current, " starts with ", target);
+            results.push(obj);
+            added = true;
+        }
+        // if not already added, check for match within any word in name
+        if(!added) {
+            // spitting up name by words allows for search within any word in name
+            let words   = current.split(' ');
+            let targets = target.split(' ');
+            // if any words start with any targets, match
+            for(let i=0; i<targets.length && !added; i++) {
+                for(let j=0; j<words.length && !added; j++) {
+                    if(words[j].startsWith(targets[i])) {
+                        results.push(obj);
+                        added = true;
+                    }
+                }
+            }
+        }
+    }
+    return results;
+}
+
 
 module.exports = {
     shrinkNav, 
@@ -111,5 +147,6 @@ module.exports = {
     fixBanner,
     toggleHeaderBgImg,
     setBgImgHeight,
-    fadeOutLoadScreen
+    fadeOutLoadScreen,
+    findMatches
 };

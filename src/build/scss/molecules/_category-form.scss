@@ -5,9 +5,11 @@
 // // // // // // // // // //
 
 .category-form-wrap {
+    position: relative;
     max-width: 800px;
     height: 150px;
     margin: 20px auto;
+    z-index: 1;
     form {
         display: flex;
         flex-direction: column;
@@ -29,6 +31,10 @@
             width: 20px;
             height: 20px;
         }
+    }
+    .icon-clear-icon {
+        width: 25px;
+        height: 25px;
     }
     .select-wrap, .input-wrap {
         position: relative;
@@ -55,13 +61,14 @@
         padding: 0 5px;
         border: 2px solid rgba($brickred, 0.5);
         border-radius: 5px;
-        outline: none;
         appearance: none;
+        outline: none;
     }
     select {
         cursor: pointer;
     }
     input {
+        padding-right: 45px;
        &:focus {
             border-color: rgba($brickred, 0.9);
             ~ svg {

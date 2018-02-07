@@ -2,7 +2,8 @@
 
 const state = {
     isMobile: false,
-    hasTouch: false
+    hasTouch: false,
+    projects: []
 };
 
 // SELECTOR CONSTANTS
@@ -10,7 +11,10 @@ const {
     MAIN_NAV,
     BANNER,
     LOGO_WRAP,
-    TROWEL_ICON
+    TROWEL_ICON,
+    SEARCH_RESULTS,
+    SEARCH_ICON,
+    CLEAR_ICON
 } = require('./selectors');
 
 //================================================================================
@@ -18,6 +22,8 @@ const {
 //================================================================================
 
 const Obj_values = require('object.values');
+
+const { findMatches } = require('./utils');
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 // Adds hidden class to all classes passed in as args
@@ -37,6 +43,62 @@ function show() {
     });
 }
 
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Removes search results and closes results container
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+function clearResults() {
+    $(SEARCH_RESULTS).removeClass('open');
+    $(SEARCH_RESULTS).html('');
+}
+
+function showSearchIcon() {
+    // show search glass
+    show(SEARCH_ICON);
+    // hide x icon
+    hide(CLEAR_ICON);
+}
+
+function hideSearchIcon() {
+    // hide search glass
+    hide(SEARCH_ICON);
+    // display x icon
+    show(CLEAR_ICON); 
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Searches project names for matches and updates
+// the DOM with results
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+function showResults(query) {
+    query = query.toLowerCase().trim();
+    if(query === '') {
+        clearResults();
+        showSearchIcon();
+        return;
+    }
+    hideSearchIcon();
+    const { projects } = state;
+    let results = findMatches(projects, 'name', query)
+                  .map(result => {
+                    return `
+                        <li>
+                            <a href="${result.url}">${result.name}</a>
+                        </li>
+                    `;
+                });
+    
+    if(results.length > 0) {
+        // At least one match found
+        $(SEARCH_RESULTS).addClass('open')
+                         .html(results.join(''));
+        return;
+    }
+
+    // No matches remove previous results and close container
+    clearResults();
+}
+
+
 
 
 
@@ -50,7 +112,20 @@ function show() {
 // API calls
 //================================================================================
 
-
+function getAllProjects() {
+    $.ajax({
+        url: '/projects/all/json',
+        type: 'GET',
+        dataType: 'json',
+        success: res => {
+            state.projects = res.projects;
+            console.log(state.projects);
+        },
+        error: (jqXHR, textStatus, err) => {
+            console.log(err);
+        }
+    });
+}
 
 //================================================================================
 // Utility functions
@@ -145,10 +220,10 @@ function burgerClick() {
 function trowelClick() {
     $(TROWEL_ICON).on('click', e => {
         e.preventDefault();
-        smoothScroll('#overview');
+        // smoothScroll('#overview');
         // Adjust timing on banner shrink to coincide with the
         // initial smoothScroll --> avoids a delay
-        // smoothScroll('#overview', 1000, -60);
+        smoothScroll('#overview', 1000, -60);
     });
 }
 
@@ -159,6 +234,24 @@ function dropdownChange() {
         const pathname = `/projects/${category}`;
         location.href = pathname;
         // window.history.pushState(state, category, pathname);
+    });
+}
+
+function searchBarChange() {
+    $('.search-bar').on('input', e => {
+        e.preventDefault();
+        console.log('Changed!');
+        showResults(e.target.value);
+    });
+}
+
+function clearIconClick() {
+    $(CLEAR_ICON).on('click', e => {
+        e.preventDefault();
+        clearResults();
+        showSearchIcon();
+        $('.search-bar').val('')
+                        .focus();
     });
 }
 
@@ -174,6 +267,8 @@ function navClicks() {
 
 function categoryForm() {
     dropdownChange();
+    searchBarChange();
+    clearIconClick();
 }
 
 
@@ -186,6 +281,10 @@ function utils() {
     checkSizeHandler(); // checks width on resize
     checkScrollPos();   // gets user scroll y-pos to animate banner nav
     checkForTouch();    // checks if user has touch device by detecting first touch on screen
+    
+    // ES6 Polyfills
+    require('string.prototype.includes');
+    require('string.prototype.startswith'); 
 }
 
 function init() {
@@ -196,6 +295,7 @@ function init() {
     state.hasTouch ? setBgImgHeight() : null;
     fadeOutLoadScreen();
     startSlideShow(4000); // starts bg image slideshow
+    getAllProjects();
 }
 
 //================================================================================
