@@ -21,12 +21,11 @@ exports.getProjectsPage = (req, res) => {
 exports.getProjectCategory = (req, res) => {
     const { categoryType } = req.params;
     const categoryTitle = `${categoryType.slice(0,1).toUpperCase()}${categoryType.slice(1)}`;
-    let categoryObj = categories.find((category) => {
-        return category.url.includes(categoryType);
-    });
+    const categoryObj   = categories.find((category) => category.url.includes(categoryType));
     res.status(200).render('pages/projects/category-page', {
         categoryTitle,
         categoryObj,
+        categories,
         projects,
         landing: false,
         path: `projects/${categoryType}`

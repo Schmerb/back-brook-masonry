@@ -11,11 +11,17 @@
             <p class="category-description"><%= categoryObj.description %></p>
         </div>
     </div>
-    <ul class="category-list">
-        <% projects.forEach((project) => { %>
-            <li>
-                <%- partial('../../blocks/project-card', {project: project}) %>
-            </li>
-        <% }) %>
-    </ul>
+
+    <div class="category-main">
+        <div class="category-form-wrap">
+            <%- partial('../../blocks/category-form', {categories: categories}) %>
+        </div>
+        <ul class="project-list card-list">
+            <% projects.forEach((project) => { %>
+                <li>
+                    <%- partial('../../blocks/project-card', {project: project}) %>
+                </li>
+            <% }) %>
+        </ul>
+    </div>
 </section>

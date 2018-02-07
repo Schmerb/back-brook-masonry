@@ -4,13 +4,6 @@
 //
 // // // // // // // // // //
 
-html, body {
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
-    overflow-x: hidden;
-}
-
 html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -22,6 +15,38 @@ html {
 *:after {
     box-sizing: inherit;
 }
+
+html, body {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    // - - - - - - - - - - -
+    // custom scroll bars
+    // - - - - - - - - - - -
+    &::-webkit-scrollbar { // background of bar itself
+        background-color: black;
+        width: 7px;
+    }
+    &::-webkit-scrollbar-thumb { // addresses the draggable scrolling element that resizes depending on the size of the scrollable element
+        background-color: $brickred;
+        border-radius: 20px;
+    }
+    &::-webkit-scrollbar-corner { // addresses the (usually) bottom corner of the scrollable element, where two scrollbars might meet
+        background-color: transparent;
+    }
+    // IE custom scrollbar support
+    scrollbar-base-color: black;
+    scrollbar-face-color: $brickred;
+    scrollbar-3dlight-color: black;
+    scrollbar-highlight-color: black;
+    scrollbar-track-color: black;
+    scrollbar-arrow-color: $brickred;
+    scrollbar-shadow-color: black;
+    scrollbar-dark-shadow-color: black;
+}
+
+
 
 body {  
     @include transitions(font-size 0.3s ease-in-out); // avoids text flickering due to dynamic sizing

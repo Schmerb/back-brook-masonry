@@ -1,16 +1,15 @@
 // // // // // // // // // //
 //
-//   Project Category List
+//   Card List
 //
 // // // // // // // // // //
 
-.category-list {
+.card-list {
     @extend %flexbox;
     flex-wrap: wrap;
     max-width: 1300px;
     padding: 5px;
     margin: 60px auto 0;
-    border: 1px solid black;
     li {
         flex: 1;
         flex-basis: 400px;
