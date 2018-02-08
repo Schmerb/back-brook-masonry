@@ -43,6 +43,9 @@ exports.getProjectDetailPage = (req, res) => {
     const categoryObj = categories.find((category) => category.url.includes(categoryType));
     const projectObj  = projects.find((project) => project.url.includes(projectName));
     res.status(200).render('pages/projects/project-detail-page', {
+        categories,
+        projects,
+        projectObj,
         landing: false,
         path: projectObj.url
     });

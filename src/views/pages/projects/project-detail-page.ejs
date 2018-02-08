@@ -4,13 +4,15 @@
     Project Detail Page 
 <!-- -- -- -- -- -- -- -->
 
-<section id="projects" class="projects-page">
-    <h2 class="projects-header">Projects</h2>
-    <ul class="category-list card-list">
-        <% categories.forEach((category) => { %>
-            <li>
-                <%- partial('../../blocks/project-category', {category: category}) %>
-            </li>
-        <% }) %>
-    </ul>
+<section id="projects" class="projects-page project-detail-page">
+    <div class="proj-banner proj-cate-banner" style="background-image: url('<%= projectObj.image %>');">
+        <div class="proj-title-container title-container">
+            <h2 class="proj-header proj-cate-header"><%= projectObj.name %></h2>
+        </div>
+    </div>
+
+    <div class="project-main">
+        
+    </div>
+
 </section>
