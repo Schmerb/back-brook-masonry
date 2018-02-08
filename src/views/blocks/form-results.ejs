@@ -1,0 +1,14 @@
+<!-- -- -- -- -- --
+    Form Results 
+<!-- -- -- -- -- -->
+
+<ul class="category-options">
+    <% categories.forEach((category) => {%>
+        <li>
+            <a href="<%= category.url %>">
+                <%= category.type %>
+            </a>
+        </li>
+    <% }); %>
+</ul>
+<ul class="search-results"></ul>

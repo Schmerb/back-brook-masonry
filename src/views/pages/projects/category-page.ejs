@@ -13,12 +13,23 @@
     </div>
 
     <div class="category-main">
+        <!-- -- -- -- -- --
+            FORM
+        <!-- -- -- -- -- -->
         <div class="category-form-wrap">
-            <%- partial('../../blocks/category-form', {categories: categories}) %>
+            <%- partial('../../blocks/category-form') %>
         </div>
+    
+        <!-- -- -- -- -- --
+            RESULTS
+        <!-- -- -- -- -- -->
         <div class="form-results-container">
-            
+            <%- partial('../../blocks/form-results', {categories: categories}) %>
         </div>
+
+        <!-- -- -- -- -- --
+            PROJECT LIST
+        <!-- -- -- -- -- -->
         <ul class="project-list card-list">
             <% projects.forEach((project) => { %>
                 <li>
