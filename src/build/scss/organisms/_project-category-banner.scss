@@ -28,6 +28,8 @@
     height: 130px;
     bottom: -50px;
     padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(black, 0.3);
     @include mediaMin($tablet) {
         width: 75%;
         height: 150px;

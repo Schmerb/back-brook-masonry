@@ -6,7 +6,8 @@
 
 .project-detail-page {
     .proj-banner {
-        
+        // position: fixed;
+        // z-index: -1;
     }
     .proj-title-container {
         display: flex;
@@ -21,12 +22,19 @@
 }
 
 .project-main {
-    margin-top: 65px;
+    padding-top: 65px;
     // Proj Details
     .details {
-        padding-top: 25px;
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+        overflow: auto;
+        @include mediaMin($desktop + 200) {
+            max-width: 1000px;
+        }
         dl {
             padding: 0 15px;
+            margin: 0;
             dt {
                 font-size: 20px;
                 font-weight: bold;
@@ -38,8 +46,15 @@
                 padding: 0;
             }
         }
-        .highlights {
-        
+        @include mediaMin($tablet) {
+            dl {
+                width: 35%;
+                float: left;
+                &:nth-of-type(2) {
+                    width: 65%;
+                    float: right;
+                }
+            }
         }
     }
     // QUOTE 
@@ -73,6 +88,7 @@
         }
         .icon-quotation-left, 
         .icon-quotation-right { 
+            fill: #ffb20d;
             @include mediaMin($desktop + 50) {
                 width: 60px;
                 height: 60px;
