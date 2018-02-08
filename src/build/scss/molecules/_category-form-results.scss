@@ -3,6 +3,16 @@
 //   Search Results
 //
 // // // // // // // // // //
+.category-form {
+    // position: relative;
+}
+
+.form-results-container {
+    width: 100%;
+    min-height: 200px;
+    border: 1px solid red;
+}
+
 
 .search-results {
     @include transition(0.7s);

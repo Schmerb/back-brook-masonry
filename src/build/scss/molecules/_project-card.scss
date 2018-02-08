@@ -25,18 +25,20 @@
         font-weight: bolder;
         padding: 20px;
         opacity: 0;
+        .project-name,
+        .project-description,
+        .project-completion-date {
+            @include transition(0.7s);
+        }
         .project-name {
-            @include transition(0.4s);
-            @include transform(translateX(100px));
+            @include transform(translateX(15px));
             font-size: 30px;
         }
         .project-description {
-            @include transition(0.4s);
-            @include transform(translateX(80px));
+            @include transform(translateX(10px));
         }
         .project-completion-date {
-            @include transition(0.4s);
-            @include transform(translateX(60px));
+            @include transform(translateX(5px));
         }
     }
 }
