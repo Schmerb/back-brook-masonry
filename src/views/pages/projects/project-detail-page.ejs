@@ -12,7 +12,26 @@
     </div>
 
     <div class="project-main">
-        
+        <div class="details">
+            <dl>
+                <dt>Project</dt>
+                <dd><%= projectObj.name %></dd>
+
+                <dt>Client</dt>
+                <dd><%= projectObj.client %></dd>
+
+                <dt>Completion Date</dt>
+                <dd><%= projectObj.date_completed.toDateString() %></dd>
+
+                <dt>Highlights</dt>
+                <dd>
+                    <p class="proj-highlights"><%= projectObj.description %></p>
+                    <!-- Change description to highlights once it is stored in project list JSON -->
+                </dd>
+            </dl>
+        <div class="quote-block">
+            
+        </div>
     </div>
 
 </section>

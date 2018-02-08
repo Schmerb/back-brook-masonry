@@ -26,8 +26,8 @@ exports.getProjectsPage = (req, res) => {
 // All projects by category
 exports.getProjectCategory = (req, res) => {
     const { categoryType } = req.params;
-    const categoryTitle = `${categoryType.slice(0,1).toUpperCase()}${categoryType.slice(1)}`;
-    const categoryObj   = categories.find((category) => category.url.includes(categoryType));
+    const categoryTitle = `${categoryType.slice(0,1).toUpperCase()}${categoryType.slice(1)}`,
+          categoryObj   = categories.find((category) => category.url.includes(categoryType));
     res.status(200).render('pages/projects/category-page', {
         categoryTitle,
         categoryObj,
@@ -40,8 +40,8 @@ exports.getProjectCategory = (req, res) => {
 
 exports.getProjectDetailPage = (req, res) => {
     const { categoryType, projectName } = req.params;
-    const categoryObj = categories.find((category) => category.url.includes(categoryType));
-    const projectObj  = projects.find((project) => project.url.includes(projectName));
+    const categoryObj = categories.find((category) => category.url.includes(categoryType)),
+          projectObj  = projects.find((project) => project.url.includes(projectName));
     res.status(200).render('pages/projects/project-detail-page', {
         categories,
         projects,

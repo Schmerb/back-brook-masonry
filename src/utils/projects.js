@@ -49,7 +49,7 @@ let projects = [
         industry: 'Education',
         client: 'Turner Construction',
         date_completed: new Date(),
-        url: '/projects/commercial/rutgers-dorms',
+        url: '/projects/commercial/lehigh-dorms',
         image: '/assets/images/compressed/projects/bbm-1.jpg',
         description: "Student dormatories for Rutgers University"
     },

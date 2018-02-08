@@ -7,9 +7,12 @@
 .card-list {
     @extend %flexbox;
     flex-wrap: wrap;
-    max-width: 1300px;
+    max-width: 1000px;
     padding: 5px;
     margin: 0 auto;
+    @include mediaMin(1247px) {
+        max-width: 1300px;
+    }
     li {
         flex: 1;
         flex-basis: 400px;
