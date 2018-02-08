@@ -8,13 +8,18 @@
 
 const { categories, projects } = require('utils/projects');
 
+// All projects as JSON
+exports.getAllProjects = (req, res) => {
+    res.status(200).json({ projects });
+}
+
 // All Categories
 exports.getProjectsPage = (req, res) => {
     res.status(200).render('pages/projects/index', {
         categories,
         projects,
         landing: false,
-        path: 'projects'
+        path: '/projects'
     });
 };
 
@@ -29,10 +34,18 @@ exports.getProjectCategory = (req, res) => {
         categories,
         projects,
         landing: false,
-        path: `projects/${categoryType}`
+        path: categoryObj.url
     });
 };
 
-exports.getAllProjects = (req, res) => {
-    res.status(200).json({ projects });
+exports.getProjectDetailPage = (req, res) => {
+    const { categoryType, projectName } = req.params;
+    const categoryObj = categories.find((category) => category.url.includes(categoryType));
+    const projectObj  = projects.find((project) => project.url.includes(projectName));
+    res.status(200).render('pages/projects/project-detail-page', {
+        landing: false,
+        path: projectObj.url
+    });
 }
+
+

@@ -45,7 +45,7 @@
 // Used for native tabbing
 .project-card-anchor {
     outline: none;
-    &:hover, &:focus, &.active {
+    &:hover, &:focus, &.active { // .active is a class for js
         // Show proj details
         .details {
             opacity: 1;
