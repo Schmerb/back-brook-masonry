@@ -106,6 +106,8 @@ function showResults(query) {
 
 
 
+
+
 //================================================================================
 // API handlers / Display handlers
 //================================================================================
@@ -141,7 +143,8 @@ const {
     shrinkNav, 
     toggleHeaderBgImg,
     setBgImgHeight,
-    fadeOutLoadScreen
+    fadeOutLoadScreen,
+    highlightProjectCard
 } = require('./utils');
 
 
@@ -160,13 +163,15 @@ function smoothScroll(target, duration = 1200, offset = 0) {
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 function checkScrollPos() {
     $(window).scroll(e => {
-        if(location.pathname === '/') {
+        const path = location.pathname;
+        if(path === '/') {
             toggleHeaderBgImg();
             fixBanner();
+        } else if(path.includes('/projects/')) {
+            highlightProjectCard();
         }
     });
 }
-
 
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

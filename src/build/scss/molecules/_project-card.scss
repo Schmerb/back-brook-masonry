@@ -45,7 +45,7 @@
 // Used for native tabbing
 .project-card-anchor {
     outline: none;
-    &:hover, &:focus {
+    &:hover, &:focus, &.active {
         // Show proj details
         .details {
             opacity: 1;
@@ -61,4 +61,5 @@
         }
     }
 }
+
 

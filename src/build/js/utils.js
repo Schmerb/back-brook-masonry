@@ -141,6 +141,38 @@ function findMatches(arr, compareStr, target) {
 }
 
 
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// For small viewports, project card in middle of screen
+// gets active/hover styles applied
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+function highlightProjectCard() {
+    if(window.innerWidth >= 600) {
+        return;
+    }
+    $('.project-list li').each((i, el) => {
+        let elTop = $(el).offset().top,
+            elBottom = elTop + $(el).outerHeight(),
+            elMiddle = (elTop + elBottom) / 2;
+
+        let winTop    = $(window).scrollTop(),
+            winBottom = winTop + $(window).height(),
+            winMiddle = (winTop + winBottom) / 2;
+
+        let upperBound = winMiddle - $(el).height() / 2, // upperBound is lower in px value
+            lowerBound = winMiddle + $(el).height() / 2; // lowerBound is higher in px value
+
+
+        if(elMiddle > upperBound && elMiddle < lowerBound) {
+            $('.project-card-anchor').removeClass('active');
+            $(el).find('.project-card-anchor').addClass('active');
+            $(el).addClass('active');
+        } else {
+            $(el).find('.project-card-anchor').removeClass('active');
+            $(el).removeClass('active');
+        }
+    });
+}
+
 module.exports = {
     shrinkNav, 
     expandNav,
@@ -148,5 +180,6 @@ module.exports = {
     toggleHeaderBgImg,
     setBgImgHeight,
     fadeOutLoadScreen,
-    findMatches
+    findMatches,
+    highlightProjectCard
 };
