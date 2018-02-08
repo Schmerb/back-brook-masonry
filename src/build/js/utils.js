@@ -147,6 +147,7 @@ function findMatches(arr, compareStr, target) {
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 function highlightProjectCard() {
     if(window.innerWidth >= 600) {
+        $('.project-card-anchor').removeClass('active');
         return;
     }
     $('.project-list li').each((i, el) => {
