@@ -12,6 +12,7 @@
     </div>
 
     <div class="project-main">
+
         <div class="details">
             <dl>
                 <dt>Project</dt>
@@ -25,13 +26,18 @@
 
                 <dt>Highlights</dt>
                 <dd>
-                    <p class="proj-highlights"><%= projectObj.description %></p>
-                    <!-- Change description to highlights once it is stored in project list JSON -->
+                    <p class="highlights"><%= projectObj.highlight %></p>
                 </dd>
             </dl>
-        <div class="quote-block">
-            
         </div>
-    </div>
 
+        <div class="quote-block">
+            <p>
+                <svg class="icon icon-quotation-left"><use xlink:href="#icon-quotation-left"></use></svg>
+                <%= projectObj.quote %>
+                <svg class="icon icon-quotation-right"><use xlink:href="#icon-quotation-right"></use></svg>
+            </p>
+        </div>
+
+    </div>
 </section>
