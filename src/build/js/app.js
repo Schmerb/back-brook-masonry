@@ -109,11 +109,6 @@ function showResults(query) {
 
 
 
-//================================================================================
-// API handlers / Display handlers
-//================================================================================
-
-
 
 //================================================================================
 // API calls
@@ -300,6 +295,12 @@ function categoryForm() {
 // Utility and Initialization handlers
 //================================================================================
 const { startSlideShow } = require('./slideshow');
+const { 
+    initSlider, 
+    displaySlider, 
+    unslick, 
+    responsiveReslick 
+} = require('./slick-init');
 
 function utils() {
     checkSizeHandler(); // checks width on resize
@@ -322,10 +323,15 @@ function init() {
     getAllProjects();
 }
 
+
 //================================================================================
 // Entry point -- Main
 //================================================================================
+// fire immediately 
+displaySlider();
+responsiveReslick();
 
+// on load
 $(function () {
     utils();
     navClicks();

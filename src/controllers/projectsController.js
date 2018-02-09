@@ -46,6 +46,7 @@ exports.getProjectDetailPage = (req, res) => {
         categories,
         projects,
         projectObj,
+        categoryType,
         landing: false,
         path: projectObj.url
     });
