@@ -1,0 +1,15 @@
+<div class="project-slider-wrap">
+    <h3 class="slider-title">More <%= projectObj.industry %> projects</h3>
+    <!-- <div class="swipe-msg">Swipe to view</div> -->
+    <svg class="icon icon-swipe-icon"><use xlink:href="#icon-swipe-icon"></use></svg>
+    <div class="project-slider">
+        <% projects.forEach(project => { %>
+            <% if(project.name === projectObj.name) return %> <!-- Removes the current project from list  -->
+            <div class="project-slide" style="background-image: url('<%= project.image %>');">
+                <a href="<%= project.url %>#projects" class="slide-inner-wrap">
+                    <h2><%= project.name %></h2>
+                </a>
+            </div>
+        <% })  %>
+    </div>
+</div>
