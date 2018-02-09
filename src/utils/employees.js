@@ -45,11 +45,6 @@ let employees = [
         url: "/who-we-are/isabelle-rodrigues"
     },
     {
-        name: "Phyllis Schmerbeck",
-        jobTitle: "Receptionist",
-        url: "/who-we-are/phyllis-schmerbeck"
-    },
-    {
         name: "Josh Benzel",
         jobTitle: "Shop Manager",
         url: "/who-we-are/josh-benzel"

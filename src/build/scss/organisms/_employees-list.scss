@@ -27,10 +27,17 @@
         width: 100%;
         border-bottom: 1px solid rgba(black, 0.1);
         flex: 1 0 0;
+        &:nth-last-of-type(1) {
+            border-bottom: none;
+        }
         
         // apply right-borader to all cards
         @include mediaMin(700px) {
             border-right: 1px solid rgba(black, 0.1); // applies to all cards
+            &:nth-last-of-type(1),
+            &:nth-last-of-type(2) {
+                border-bottom: none;
+            }
         }
         // Remove right-border for end card of each row
         // TWO columns wide
@@ -41,7 +48,9 @@
         }
         // THREE columns Wide
         @include mediaMinMax(900px, 1099px) {
-            &:nth-last-of-type(3n + 1) {
+            max-width: 300px;
+            // right-side end cards no border
+            &:nth-of-type(5), &:nth-of-type(8) {
                 border-right: none;
             }
         }
@@ -51,32 +60,22 @@
             &:nth-of-type(6), &:nth-of-type(10) {
                 border-right: none;
             }
-        }
-        // - - - - - - - - - - - -
-        // Handles the last card
-        // - - - - - - - - - - - -
-        &:last-of-type {
-            border-bottom: none;
-            @include mediaMinMax(700px, 899px) {
-                max-width: 350.5px;
-                flex-basis: auto; /* default value */
-                flex-grow: 1;
-            }
-            @include mediaMin(1100px) {
-                max-width: 275px;
-                flex-basis: auto; /* default value */
-                flex-grow: 1;
+            &:nth-last-of-type(3), 
+            &:nth-last-of-type(4) {
+                border-bottom: none;
             }
         }
         // - - - - - - - - -
         // First Two cards
         // - - - - - - - - -
-        &:nth-of-type(1) {
-            border-right: 1px solid rgba(black, 0.1);
+        &:nth-of-type(1),
+        &:nth-of-type(2)  {
+            max-width: 9999px; // overrides li max-width of 300px
         }
         @include mediaMin(900px) {
             &:nth-of-type(1) {
                 flex-basis: 50%;
+                border-right: 1px solid rgba(black, 0.1); // applies to all cards
             }
             &:nth-of-type(2) {
                 flex-basis: 50%;
