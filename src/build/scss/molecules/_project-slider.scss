@@ -13,7 +13,12 @@
 // Slider Wrap
 // - - - - - - -
 .project-slider-wrap {
+    @extend %default-transition;
     position: relative;
+    margin-top: 50px;
+    @include mediaMin($tablet) {
+        margin-top: 200px;
+    }
     .swipe-msg,
     .icon-swipe-icon {
         @extend %default-transition;

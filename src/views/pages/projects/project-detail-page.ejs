@@ -17,13 +17,7 @@
         <%- partial('../../blocks/project-details', {projectObj: projectObj}) %>  
 
         <!-- PROJECT QUOTE -->
-        <div class="quote-block">
-            <p>
-                <svg class="icon icon-quotation-left"><use xlink:href="#icon-quotation-left"></use></svg>
-                <%= projectObj.quote %>
-                <svg class="icon icon-quotation-right"><use xlink:href="#icon-quotation-right"></use></svg>
-            </p>
-        </div>
+        <%- partial('../../blocks/project-quote', {projectObj: projectObj}) %>  
 
         <!-- PROJECTS SLIDER -->
         <%- partial('../../blocks/projects-slider', {projectObj: projectObj, projects: projects}) %>  

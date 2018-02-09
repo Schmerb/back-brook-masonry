@@ -53,7 +53,8 @@ let projects = [
         image: '/assets/images/compressed/projects/bbm-1.jpg',
         description: "Student dormatories for Rutgers University",
         highlight: "Integer elementum mi at tellus facilisis, nec iaculis metus fringilla. Curabitur tristique rutrum risus id feugiat. Phasellus in efficitur nunc, at facilisis tellus.",
-        quote: "Suspendisse convallis facilisis turpis, eget pretium ante varius eget. Etiam turpis ligula, gravida vel mauris viverra, eleifend elementum metus. "
+        quote: "Suspendisse convallis facilisis turpis, eget pretium ante varius eget. Etiam turpis ligula, gravida vel mauris viverra, eleifend elementum metus. ",
+        quoteAuthor: "Mike Schmerbeck"
     },
     {
         name: 'St. Barnabus Medical Center, Western Expansion',
@@ -64,7 +65,8 @@ let projects = [
         image: '/assets/images/compressed/projects/bbm-1.jpg',
         description: "Western Expansion for St. Barnabus Medical Center",
         highlight: "Morbi metus diam, efficitur id urna eget, hendrerit elementum orci. Etiam nec finibus nisi. Cras tincidunt varius ultrices. Etiam eget dapibus velit. Vivamus fermentum vitae dolor quis efficitur. Morbi non nunc finibus, luctus orci et, dignissim tellus. Aenean et dui convallis, dapibus odio ac, pulvinar lectus.",
-        quote: "Pellentesque volutpat lacus ut ipsum tempor scelerisque. Vestibulum rutrum congue consectetur."
+        quote: "Pellentesque volutpat lacus ut ipsum tempor scelerisque. Vestibulum rutrum congue consectetur.",
+        quoteAuthor: "Mike Schmerbeck"
     },
     {
         name: 'Rutgers Dorms',
@@ -75,7 +77,8 @@ let projects = [
         image: '/assets/images/compressed/projects/bbm-1.jpg',
         description: "Student dormatories for Rutgers University",
         highlight: "Proin enim justo, sagittis ac dictum eu, porttitor eget metus. Sed nec imperdiet eros.",
-        quote: "Curabitur consectetur eros id varius molestie."
+        quote: "Curabitur consectetur eros id varius molestie.",
+        quoteAuthor: "Mike Schmerbeck"
     },
     {
         name: 'Rutgers Dorms',
@@ -86,7 +89,8 @@ let projects = [
         image: '/assets/images/compressed/projects/bbm-1.jpg',
         description: "Student dormatories for Rutgers University",
         highlight: "In a ante vel diam efficitur eleifend sagittis ut nisi. Proin sollicitudin nulla vel lacus lobortis, ut suscipit leo scelerisque. Integer elementum mi at tellus facilisis, nec iaculis metus fringilla. Curabitur tristique rutrum risus id feugiat. Phasellus in efficitur nunc, at facilisis tellus.",
-        quote: "Morbi eros elit, aliquet vitae lacus sit amet, aliquet sollicitudin ex"
+        quote: "Morbi eros elit, aliquet vitae lacus sit amet, aliquet sollicitudin ex",
+        quoteAuthor: "Mike Schmerbeck"
     },
     {
         name: 'Rutgers Dorms',
@@ -97,7 +101,8 @@ let projects = [
         image: '/assets/images/compressed/projects/bbm-1.jpg',
         description: "Student dormatories for Rutgers University",
         highlight: "Morbi auctor euismod orci, at tempus ligula malesuada a. Vivamus consequat tristique purus laoreet scelerisque. Aliquam in sem suscipit, finibus turpis quis, dictum nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc vehicula magna at orci egestas, at ultricies metus auctor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque volutpat lacus ut ipsum tempor scelerisque. Vestibulum rutrum congue consectetur.",
-        quote: "Donec mollis dolor elit, sed tincidunt felis eleifend at."
+        quote: "Donec mollis dolor elit, sed tincidunt felis eleifend at.",
+        quoteAuthor: "Mike Schmerbeck"
     },
     {
         name: 'Rutgers Dorms',
@@ -108,7 +113,8 @@ let projects = [
         image: '/assets/images/compressed/projects/bbm-1.jpg',
         description: "Student dormatories for Rutgers University",
         highlight: "Morbi auctor euismod orci, at tempus ligula malesuada a. Vivamus consequat tristique purus laoreet scelerisque. Aliquam in sem suscipit, finibus turpis quis, dictum nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc vehicula magna at orci egestas, at ultricies metus auctor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque volutpat lacus ut ipsum tempor scelerisque. Vestibulum rutrum congue consectetur.",
-        quote: "Donec mollis dolor elit, sed tincidunt felis eleifend at."
+        quote: "Donec mollis dolor elit, sed tincidunt felis eleifend at.",
+        quoteAuthor: "Mike Schmerbeck"
     },
     {
         name: 'Rutgers Dorms',
@@ -119,7 +125,8 @@ let projects = [
         image: '/assets/images/compressed/projects/bbm-1.jpg',
         description: "Student dormatories for Rutgers University",
         highlight: "Morbi auctor euismod orci, at tempus ligula malesuada a. Vivamus consequat tristique purus laoreet scelerisque. Aliquam in sem suscipit, finibus turpis quis, dictum nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc vehicula magna at orci egestas, at ultricies metus auctor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque volutpat lacus ut ipsum tempor scelerisque. Vestibulum rutrum congue consectetur.",
-        quote: "Donec mollis dolor elit, sed tincidunt felis eleifend at."
+        quote: "Donec mollis dolor elit, sed tincidunt felis eleifend at.",
+        quoteAuthor: "Mike Schmerbeck"
     },
     {
         name: 'Rutgers Dorms',
@@ -130,7 +137,8 @@ let projects = [
         image: '/assets/images/compressed/projects/bbm-1.jpg',
         description: "Student dormatories for Rutgers University",
         highlight: "Morbi auctor euismod orci, at tempus ligula malesuada a. Vivamus consequat tristique purus laoreet scelerisque. Aliquam in sem suscipit, finibus turpis quis, dictum nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc vehicula magna at orci egestas, at ultricies metus auctor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque volutpat lacus ut ipsum tempor scelerisque. Vestibulum rutrum congue consectetur.",
-        quote: "Donec mollis dolor elit, sed tincidunt felis eleifend at."
+        quote: "Donec mollis dolor elit, sed tincidunt felis eleifend at.",
+        quoteAuthor: "Mike Schmerbeck"
     },
     {
         name: 'Rutgers Dorms',
@@ -141,7 +149,8 @@ let projects = [
         image: '/assets/images/compressed/projects/bbm-1.jpg',
         description: "Student dormatories for Rutgers University",
         highlight: "Morbi auctor euismod orci, at tempus ligula malesuada a. Vivamus consequat tristique purus laoreet scelerisque. Aliquam in sem suscipit, finibus turpis quis, dictum nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc vehicula magna at orci egestas, at ultricies metus auctor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque volutpat lacus ut ipsum tempor scelerisque. Vestibulum rutrum congue consectetur.",
-        quote: "Donec mollis dolor elit, sed tincidunt felis eleifend at."
+        quote: "Donec mollis dolor elit, sed tincidunt felis eleifend at.",
+        quoteAuthor: "Mike Schmerbeck"
     },
     {
         name: 'Rutgers Dorms',
@@ -152,7 +161,8 @@ let projects = [
         image: '/assets/images/compressed/projects/bbm-1.jpg',
         description: "Student dormatories for Rutgers University",
         highlight: "Morbi auctor euismod orci, at tempus ligula malesuada a. Vivamus consequat tristique purus laoreet scelerisque. Aliquam in sem suscipit, finibus turpis quis, dictum nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc vehicula magna at orci egestas, at ultricies metus auctor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque volutpat lacus ut ipsum tempor scelerisque. Vestibulum rutrum congue consectetur.",
-        quote: "Donec mollis dolor elit, sed tincidunt felis eleifend at."
+        quote: "Donec mollis dolor elit, sed tincidunt felis eleifend at.",
+        quoteAuthor: "Mike Schmerbeck"
     },
     {
         name: 'Rutgers',
@@ -163,7 +173,8 @@ let projects = [
         image: '/assets/images/compressed/projects/bbm-1.jpg',
         description: "Student dormatories for Rutgers University",
         highlight: "Morbi auctor euismod orci, at tempus ligula malesuada a. Vivamus consequat tristique purus laoreet scelerisque. Aliquam in sem suscipit, finibus turpis quis, dictum nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc vehicula magna at orci egestas, at ultricies metus auctor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque volutpat lacus ut ipsum tempor scelerisque. Vestibulum rutrum congue consectetur.",
-        quote: "Donec mollis dolor elit, sed tincidunt felis eleifend at."
+        quote: "Donec mollis dolor elit, sed tincidunt felis eleifend at.",
+        quoteAuthor: "Mike Schmerbeck"
     },
     {
         name: 'St Barnabus',
@@ -174,7 +185,8 @@ let projects = [
         image: '/assets/images/compressed/projects/bbm-1.jpg',
         description: "Student dormatories for Rutgers University",
         highlight: "Morbi auctor euismod orci, at tempus ligula malesuada a. Vivamus consequat tristique purus laoreet scelerisque. Aliquam in sem suscipit, finibus turpis quis, dictum nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc vehicula magna at orci egestas, at ultricies metus auctor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque volutpat lacus ut ipsum tempor scelerisque. Vestibulum rutrum congue consectetur.",
-        quote: "Donec mollis dolor elit, sed tincidunt felis eleifend at."
+        quote: "Donec mollis dolor elit, sed tincidunt felis eleifend at.",
+        quoteAuthor: "Mike Schmerbeck"
     },
 ];
 
