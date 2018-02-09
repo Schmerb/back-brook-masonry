@@ -6,8 +6,10 @@
         <% projects.forEach(project => { %>
             <% if(project.name === projectObj.name) return %> <!-- Removes the current project from list  -->
             <div class="project-slide" style="background-image: url('<%= project.image %>');">
-                <a href="<%= project.url %>#projects" class="slide-inner-wrap">
-                    <h2><%= project.name %></h2>
+                <a class="slide-inner-wrap" href="<%= project.url %>#projects">
+                    <div>
+                        <h2><%= project.name %></h2>
+                    </div>
                 </a>
             </div>
         <% })  %>
