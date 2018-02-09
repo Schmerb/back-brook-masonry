@@ -69,12 +69,11 @@
         }
         p {
             position: relative;
-            font-size: calc(1em + 1vw);
-            width: 95%;
-            max-width: 600px;
+            width: 80%;
             margin: 0 auto;
-            padding: 0 10px;
+            text-align: center;
             @include mediaMin($tablet) {
+                font-size: calc(1em + 1vw);
                 max-width: 700px;
             }
             @include mediaMin($desktop) {
@@ -85,24 +84,27 @@
         .icon-quotation-left, 
         .icon-quotation-right { 
             fill: #ffb20d;
-            @include mediaMin($desktop + 50) {
-                width: 60px;
-                height: 60px;
-            }
+            width: calc(1em + 2vw);
+            height: calc(1em + 2vw);
         }
         .icon-quotation-right {
-            @include transform(rotate(180deg));
-            @include mediaMin($desktop + 50) {
-                
-                @include middleR(-80px);
-                @include transform(translateY(-50%) rotate(180deg));
-            }
+            @include middleR(-30px);
+            @include transform(translateY(-50%) rotate(180deg));
+            @include mediaMin(500px) {
+                right: calc(-30px - 2vw);
+            }      
+            @include mediaMin(750px) {
+                right: calc(-30px - 5vw);
+            }      
         }
         .icon-quotation-left {
-            @include mediaMin($desktop + 50) {
-                
-                @include middleL(-100px);
-            }
+            @include middleL(-30px);
+            @include mediaMin(500px) {
+                left: calc(-30px - 2vw);
+            }   
+            @include mediaMin(750px) {
+                left: calc(-30px - 5vw);
+            }   
         }
     }
 }
