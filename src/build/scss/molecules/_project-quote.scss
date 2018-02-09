@@ -5,6 +5,7 @@
 // // // // // // // // // //
 
 .project-quote {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,9 +33,10 @@
         }
         footer {
             font-size: 0.8em;
-            position: absolute;
-            right: 60px;
-            top: 60px;
+            // float: right;
+            // position: absolute;
+            // right: 100px;
+            // bottom: 20px;
         }
     }
     // - - - - - - - - - - -
