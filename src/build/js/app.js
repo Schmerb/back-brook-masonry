@@ -2,7 +2,8 @@
 
 const state = {
     isMobile: false,
-    hasTouch: false
+    hasTouch: false,
+    projects: []
 };
 
 // SELECTOR CONSTANTS
@@ -10,7 +11,11 @@ const {
     MAIN_NAV,
     BANNER,
     LOGO_WRAP,
-    TROWEL_ICON
+    TROWEL_ICON,
+    RESULTS_CONTAINER,
+    SEARCH_RESULTS,
+    SEARCH_ICON,
+    CLEAR_ICON
 } = require('./selectors');
 
 //================================================================================
@@ -18,6 +23,8 @@ const {
 //================================================================================
 
 const Obj_values = require('object.values');
+
+const { findMatches } = require('./utils');
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 // Adds hidden class to all classes passed in as args
@@ -37,12 +44,69 @@ function show() {
     });
 }
 
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Removes search results and closes results container
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+function clearResults() {
+    $(RESULTS_CONTAINER).add(SEARCH_RESULTS).removeClass('open');
+    $(RESULTS_CONTAINER).height('');
+    $(SEARCH_RESULTS).html('');
+}
+
+function showSearchIcon() {
+    // show search glass
+    show(SEARCH_ICON);
+    // hide x icon
+    hide(CLEAR_ICON);
+}
+
+function hideSearchIcon() {
+    // hide search glass
+    hide(SEARCH_ICON);
+    // display x icon
+    show(CLEAR_ICON); 
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Searches project names for matches and updates
+// the DOM with results
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+function showResults(query) {    
+    query = query.toLowerCase().trim();
+    if(query === '') {
+        clearResults();
+        showSearchIcon();
+        return;
+    }
+    hideSearchIcon();
+    const { projects } = state;
+    let results = findMatches(projects, 'name', query)
+                  .map(result => {
+                    return `
+                        <li>
+                            <a href="${result.url}">${result.name}</a>
+                        </li>
+                    `;
+                });
+    $(RESULTS_CONTAINER).add(SEARCH_RESULTS).addClass('open');
+    $('.category-btn').removeClass('open'); // resets category arrow
+    $('.category-options').addClass('fadeOut');
+    
+    let len = results.length;
+    if(len > 0) {
+        // At least one match found
+        $(SEARCH_RESULTS).html(results.join(''));
+        $(RESULTS_CONTAINER).height(`${len * 35}px`);
+        return;
+    }
+    // No matches, show no match message
+    $(RESULTS_CONTAINER).height('');
+    $(SEARCH_RESULTS).html('<p class="no-match-msg">Sorry, no matches found.</p>');
+}
 
 
 
-//================================================================================
-// API handlers / Display handlers
-//================================================================================
+
 
 
 
@@ -50,7 +114,20 @@ function show() {
 // API calls
 //================================================================================
 
-
+function getAllProjects() {
+    $.ajax({
+        url: '/projects/all/json',
+        type: 'GET',
+        dataType: 'json',
+        success: res => {
+            state.projects = res.projects;
+            console.log(state.projects);
+        },
+        error: (jqXHR, textStatus, err) => {
+            console.log(err);
+        }
+    });
+}
 
 //================================================================================
 // Utility functions
@@ -62,7 +139,8 @@ const {
     shrinkNav, 
     toggleHeaderBgImg,
     setBgImgHeight,
-    fadeOutLoadScreen
+    fadeOutLoadScreen,
+    highlightProjectCard
 } = require('./utils');
 
 
@@ -81,13 +159,15 @@ function smoothScroll(target, duration = 1200, offset = 0) {
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 function checkScrollPos() {
     $(window).scroll(e => {
-        if(location.pathname === '/') {
+        const path = location.pathname;
+        if(path === '/') {
             toggleHeaderBgImg();
             fixBanner();
+        } else if(path.includes('/projects/')) {
+            highlightProjectCard();
         }
     });
 }
-
 
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -145,10 +225,52 @@ function burgerClick() {
 function trowelClick() {
     $(TROWEL_ICON).on('click', e => {
         e.preventDefault();
-        smoothScroll('#overview');
+        // smoothScroll('#overview');
         // Adjust timing on banner shrink to coincide with the
         // initial smoothScroll --> avoids a delay
-        // smoothScroll('#overview', 1000, -60);
+        smoothScroll('#overview', 1000, -60);
+    });
+}
+
+//
+// Project Category Menu
+//
+function formSubmitPrevent() {
+    $('.category-form').on('submit', e => {
+        e.preventDefault();
+    });
+}
+
+function categoryBtnClick() {
+    $('.category-btn').on('click', e => {
+        e.preventDefault();
+        console.log('clicked!');
+        $('.category-options').removeClass('fadeOut');
+        $(RESULTS_CONTAINER).height('');
+        if($(SEARCH_RESULTS).hasClass('open')) {
+            $(SEARCH_RESULTS).removeClass('open');
+            $('.form-results-container, .category-btn').addClass('open');
+        } else {    
+            $('.form-results-container, .category-btn').toggleClass('open');
+        }
+    });
+}
+
+function searchBarChange() {
+    $('.search-bar').on('input', e => {
+        e.preventDefault();
+        console.log('Changed!');
+        showResults(e.target.value);
+    });
+}
+
+function clearIconClick() {
+    $(CLEAR_ICON).on('click', e => {
+        e.preventDefault();
+        clearResults();
+        showSearchIcon();
+        $('.search-bar').val('')
+                        .focus();
     });
 }
 
@@ -158,8 +280,14 @@ function trowelClick() {
 
 function navClicks() {
     burgerClick();
-    // burgerHover();
     trowelClick();
+}
+
+function categoryForm() {
+    formSubmitPrevent();
+    categoryBtnClick();
+    searchBarChange();
+    clearIconClick();
 }
 
 
@@ -167,11 +295,21 @@ function navClicks() {
 // Utility and Initialization handlers
 //================================================================================
 const { startSlideShow } = require('./slideshow');
+const { 
+    initSlider, 
+    displaySlider, 
+    unslick, 
+    responsiveReslick 
+} = require('./slick-init');
 
 function utils() {
     checkSizeHandler(); // checks width on resize
     checkScrollPos();   // gets user scroll y-pos to animate banner nav
     checkForTouch();    // checks if user has touch device by detecting first touch on screen
+    
+    // ES6 Polyfills
+    require('string.prototype.includes');
+    require('string.prototype.startswith'); 
 }
 
 function init() {
@@ -182,15 +320,22 @@ function init() {
     state.hasTouch ? setBgImgHeight() : null;
     fadeOutLoadScreen();
     startSlideShow(4000); // starts bg image slideshow
+    getAllProjects();
 }
+
 
 //================================================================================
 // Entry point -- Main
 //================================================================================
+// fire immediately 
+displaySlider();
+responsiveReslick();
 
+// on load
 $(function () {
     utils();
     navClicks();
+    categoryForm();
     init();
 });
 

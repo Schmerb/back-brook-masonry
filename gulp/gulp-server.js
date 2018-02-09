@@ -14,7 +14,7 @@ const browserSync = require('browser-sync'),
 function browser_sync() {
 	browserSync.init(null, {
 		proxy: "http://localhost:8080",
-        files: ["public/**/*.js", "public/**/*.css", "src/views/**/*.ejs"],
+        files: ["public/**/*.js", "public/css/*.css", "src/views/**/*.ejs"],
         browser: "google chrome",
         port: 7000,
 	});

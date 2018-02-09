@@ -12,13 +12,16 @@
         "async": "^2.6.0",
         "body-parser": "^1.17.2",
         "cookie-parser": "^1.4.3",
+        "dotenv": "^5.0.0",
         "ejs": "^2.5.7",
         "ejs-mate": "^2.3.0",
         "express": "^4.15.3",
         "morgan": "^1.8.2",
         "object.values": "^1.0.4",
         "request": "^2.83.0",
-        "request-promise-native": "^1.0.5"
+        "request-promise-native": "^1.0.5",
+        "string.prototype.includes": "^1.0.0",
+        "string.prototype.startswith": "^0.2.0"
     },
     "devDependencies": {
         "babel-preset-env": "^1.6.0",
@@ -26,6 +29,7 @@
         "browser-sync": "^2.18.13",
         "browserify": "^15.1.0",
         "gulp": "^3.9.1",
+        "gulp-autoprefixer": "^4.1.0",
         "gulp-changed": "^3.2.0",
         "gulp-image": "^4.2.0",
         "gulp-image-resize": "^0.13.0",

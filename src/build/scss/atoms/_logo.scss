@@ -12,9 +12,13 @@
     height: inherit;
     width: 180px;
     z-index: 4; // needed to be in front of banner-backdrop
+    @include mediaMax(600px) {
+        left: 5px;
+    }
     @include mediaMin($collapse) {
         width: 250px;
         height: 10vw;
+        left: 20px;
         &.shrink {
             height: 80px;
         }

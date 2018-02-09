@@ -2,11 +2,13 @@
     PROJECT CARD 
 <!-- -- -- -- -- -->
 
-<a href="<%= project.url %>">
+<a class="project-card-anchor" href="<%= project.url %>">
     <div class="project-card">
         <div class="proj-img" style="background-image: url('<%= project.image %>')"></div>
         <div class="details">
             <h3 class="project-name"><%= project.name %></h3>
+            <p class="project-description"><%= project.description %></p>
+            <div class="project-completion-date">Competed: <%= project.date_completed.toDateString() %></div>
         </div>
     </div>
 </a>

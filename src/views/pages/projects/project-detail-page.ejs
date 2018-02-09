@@ -1,0 +1,26 @@
+<% layout('layout') %>
+
+<!-- -- -- -- -- -- -- --
+    Project Detail Page 
+<!-- -- -- -- -- -- -- -->
+
+<section id="projects" class="projects-page project-detail-page">
+    <div class="proj-banner proj-cate-banner" style="background-image: url('<%= projectObj.image %>');">
+        <div class="proj-title-container title-container">
+            <h2 class="proj-header proj-cate-header"><%= projectObj.name %></h2>
+        </div>
+    </div>
+
+    <div class="project-main">
+
+        <!-- PROJECT DETAILS -->
+        <%- partial('../../blocks/project-details', {projectObj: projectObj}) %>  
+
+        <!-- PROJECT QUOTE -->
+        <%- partial('../../blocks/project-quote', {projectObj: projectObj}) %>  
+
+        <!-- PROJECTS SLIDER -->
+        <%- partial('../../blocks/projects-slider', {projectObj: projectObj, projects: projects}) %>  
+
+    </div>
+</section>

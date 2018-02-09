@@ -1,16 +1,44 @@
 <% layout('layout') %>
 
+
+<!-- -- -- -- -- --
+    Category Page 
+<!-- -- -- -- -- -->
 <section id="projects" class="projects-page">
-    <div class="category-banner">
-        <div class="category-title-container">
-            <h2 class="projects-header"><%= categoryTitle %></h2>
+      
+    <div class="category-banner proj-cate-banner" style="background-image: url('<%= categoryObj.image %>');">
+        <div class="category-title-container title-container">
+            <h2 class="category-header proj-cate-header"><%= categoryTitle %></h2>
+            <p class="category-description"><%= categoryObj.description %></p>
         </div>
     </div>
-    <ul class="category-list">
-        <% projects.forEach((project) => { %>
-            <li>
-                <%- partial('../../blocks/project-card', {project: project}) %>
-            </li>
-        <% }) %>
-    </ul>
+    
+    <div class="category-main">
+        <!-- -- -- -- -- --
+        FORM
+        <!-- -- -- -- -- -->
+        <div class="category-form-wrap">
+            <%- partial('../../blocks/category-form') %>
+        </div>
+        
+        <!-- -- -- -- -- --
+        RESULTS
+        <!-- -- -- -- -- -->
+        <div class="form-results-container">
+            <%- partial('../../blocks/form-results', {categories: categories}) %>
+        </div>
+        
+        <!-- -- -- -- -- --
+        PROJECT LIST
+        <!-- -- -- -- -- -->
+        <ul class="project-list card-list">
+            <% projects.forEach((project) => { %>
+                <li>
+                    <%- partial('../../blocks/project-card', {project: project}) %>
+                </li>
+            <% }) %>
+        </ul>
+    </div>
+        
+                    
 </section>

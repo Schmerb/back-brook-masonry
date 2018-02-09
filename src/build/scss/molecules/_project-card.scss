@@ -9,29 +9,57 @@
     @extend %default-transition;
     @extend %project-category-card;
     overflow: hidden;
+    .proj-img {
+        @extend %project-category-img;
+        height: 100%; // overrides default card height
+    }
     .details {
-        @extend %default-transition;
         @extend %cover;
+        @include transition(0.4s);
         color: white;
-        background-color: rgba(black, 0.4);
+        background-color: rgba(black, 0.7);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        font-size: 20px;
+        font-weight: bolder;
         padding: 20px;
         opacity: 0;
+        .project-name,
+        .project-description,
+        .project-completion-date {
+            @include transition(0.7s);
+        }
         .project-name {
-            @extend %default-transition;
-            @include transform(translateX(100px));
+            @include transform(translateX(15px));
+            font-size: 30px;
+        }
+        .project-description {
+            @include transform(translateX(10px));
+        }
+        .project-completion-date {
+            @include transform(translateX(5px));
         }
     }
-    &:hover {
+}
+// Used for native tabbing
+.project-card-anchor {
+    outline: none;
+    &:hover, &:focus, &.active { // .active is a class for js
         // Show proj details
         .details {
             opacity: 1;
             .project-name {
-                @include transform(translateY(0));
+                @include transform(translateX(0));
+            }
+            .project-description {
+                @include transform(translateX(0));
+            }
+            .project-completion-date  {
+                @include transform(translateX(0));
             }
         }
     }
 }
-.proj-img {
-    @extend %project-category-img;
-    height: 100%; // overrides default card height
-}
+
+

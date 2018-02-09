@@ -1,0 +1,18 @@
+<div class="details">
+    <dl>
+        <dt>Project</dt>
+        <dd><%= projectObj.name %></dd>
+
+        <dt>Client</dt>
+        <dd><%= projectObj.client %></dd>
+
+        <dt>Completion Date</dt>
+        <dd><%= projectObj.date_completed.toDateString() %></dd>
+    </dl>
+    <dl>
+        <dt>Highlights</dt>
+        <dd>
+            <p class="highlights"><%= projectObj.highlight %></p>
+        </dd>
+    </dl>
+</div>

@@ -104,6 +104,75 @@ function fadeOutLoadScreen() {
     }, 500);
 }
 
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Checks if target exists within specified compare string
+// of obj in an array of objects
+//
+// @returns all objects whos compare string property
+//          contains target word(s)
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+function findMatches(arr, compareStr, target) {
+    let results = [];
+    for(let obj of arr) {
+        let added = false;
+        let current = obj[compareStr].toLowerCase().trim();
+        if(current.startsWith(target)) {
+            console.log('current: ', current, " starts with ", target);
+            results.push(obj);
+            added = true;
+        }
+        // if not already added, check for match within any word in name
+        if(!added) {
+            // spitting up name by words allows for search within any word in name
+            let words   = current.split(' ');
+            let targets = target.split(' ');
+            // if any words start with any targets, match
+            for(let i=0; i<targets.length && !added; i++) {
+                for(let j=0; j<words.length && !added; j++) {
+                    if(words[j].startsWith(targets[i])) {
+                        results.push(obj);
+                        added = true;
+                    }
+                }
+            }
+        }
+    }
+    return results;
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// For small viewports, project card in middle of screen
+// gets active/hover styles applied
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+function highlightProjectCard() {
+    if(window.innerWidth >= 600) {
+        $('.project-card-anchor').removeClass('active');
+        return;
+    }
+    $('.project-list li').each((i, el) => {
+        let elTop = $(el).offset().top,
+            elBottom = elTop + $(el).outerHeight(),
+            elMiddle = (elTop + elBottom) / 2;
+
+        let winTop    = $(window).scrollTop(),
+            winBottom = winTop + $(window).height(),
+            winMiddle = (winTop + winBottom) / 2;
+
+        let upperBound = winMiddle - $(el).height() / 2, // upperBound is lower in px value
+            lowerBound = winMiddle + $(el).height() / 2; // lowerBound is higher in px value
+
+
+        if(elMiddle > upperBound && elMiddle < lowerBound) {
+            $('.project-card-anchor').removeClass('active');
+            $(el).find('.project-card-anchor').addClass('active');
+            $(el).addClass('active');
+        } else {
+            $(el).find('.project-card-anchor').removeClass('active');
+            $(el).removeClass('active');
+        }
+    });
+}
 
 module.exports = {
     shrinkNav, 
@@ -111,5 +180,7 @@ module.exports = {
     fixBanner,
     toggleHeaderBgImg,
     setBgImgHeight,
-    fadeOutLoadScreen
+    fadeOutLoadScreen,
+    findMatches,
+    highlightProjectCard
 };

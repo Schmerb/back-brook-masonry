@@ -1,12 +1,15 @@
 // // // // // // // // // //
 //
-//     Project Category
+//   Project Category Card
 //
 // // // // // // // // // //
 
 .category {
     @extend %default-transition;
     @extend %project-category-card;
+    &:hover {
+        @include transform(translateY(-2px));
+    }
 }
 .category-img {
     @extend %project-category-img;
