@@ -19,6 +19,7 @@
     @include mediaMin($tablet) {
         margin-top: 200px;
     }
+    // SWIPE ICON
     .swipe-msg,
     .icon-swipe-icon {
         @extend %default-transition;
@@ -34,11 +35,20 @@
         top: 150px;
         width: 60px;
         height: 60px;
+        @include animation(sway 4s infinite);
+        animation-timing-function: ease-in-out;
     }
     .swipe-msg {
         top: 200px;
     }
 }
+
+@include keyframes(sway) {
+    0%   { @include transform(translateX(-50%) rotate(-15deg)) }
+    50%  { @include transform(translateX(-50%) rotate(15deg))  }
+    100% { @include transform(translateX(-50%) rotate(-15deg)) }
+}
+
 // - - - - - - -
 // Slider
 // - - - - - - -
