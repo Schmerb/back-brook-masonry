@@ -7,6 +7,8 @@
 .category {
     @extend %default-transition;
     @extend %project-category-card;
+    border-radius: 5px;
+    overflow: hidden;
     &:hover {
         @include transform(translateY(-2px));
     }
