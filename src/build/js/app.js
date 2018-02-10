@@ -301,6 +301,7 @@ const {
     unslick, 
     responsiveReslick 
 } = require('./slick-init');
+const { initMap } = require('./google-maps');
 
 function utils() {
     checkSizeHandler(); // checks width on resize
@@ -313,9 +314,12 @@ function utils() {
 }
 
 function init() {
-    if(location.pathname === '/') {
+    const path = location.pathname;
+    if(path === '/') {
         toggleHeaderBgImg();
         fixBanner();
+    } else if (path === '/contact-us') {
+        initMap();
     }
     state.hasTouch ? setBgImgHeight() : null;
     fadeOutLoadScreen();

@@ -31,6 +31,11 @@
 
         <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
         <script type="text/javascript" src="/plugins/slick-1.6.0/slick/slick.min.js"></script>
+        <% if(path === '/contact-us') { %>
+            <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=<%= GOOGLE_MAPS_API_KEY %>">
+            </script>
+        <% } %>
         <script src="https://use.fontawesome.com/3e1d7b509c.js"></script>
         <script type="text/javascript" src="/js/bundle.min.js"></script>
     </body>
