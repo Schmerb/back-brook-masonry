@@ -32,7 +32,7 @@ exports.getWhoWeAre = (req, res) => {
         res.status(200).render('pages/who-we-are', {
             employees,
             landing: false,
-            path: 'who-we-are'
+            path: '/who-we-are'
         });
     });
 };

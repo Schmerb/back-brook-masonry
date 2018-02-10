@@ -18,6 +18,8 @@
 }
 .c-bottom {
     @extend %project-category-bottom;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
     .category-type {
         @include middleL(30px);
     }

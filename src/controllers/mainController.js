@@ -18,20 +18,13 @@ exports.getIndex = (req, res) => {
 exports.getProjects = (req, res) => {
     res.status(200).render('pages/projects', {
         landing: false,
-        path: 'projects'
-    });
-};
-
-exports.getTestimonials = (req, res) => {
-    res.status(200).render('pages/trust-respect', {
-        landing: false,
-        path: 'trust-respect'
+        path: '/projects'
     });
 };
 
 exports.getContactUs = (req, res) => {
     res.status(200).render('pages/contact-us', {
         landing: false,
-        path: 'contact-us'
+        path: '/contact-us'
     });
 };

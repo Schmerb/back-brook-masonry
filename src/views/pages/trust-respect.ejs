@@ -1,5 +1,12 @@
 <% layout('layout') %>
 
-<section id="trust-respect" class="trust-respect">
+<section id="trust-respect" class="trust-respect-page">
     <h2>Testimonials</h2>
+    <ul>
+        <% testimonials.forEach((testimonial) => { %>
+            <li>
+                <%- partial('../blocks/testimonial', {testimonial: testimonial}) %>
+            </li>
+        <% }) %>
+    </ul>
 </section>

@@ -14,8 +14,9 @@ const router = express.Router();
 router.use(bodyParser.urlencoded({ extended: true }));
 
 // controllers
-const mainController     = require('controllers/mainController');
-const whoWeAreController = require('controllers/whoWeAreController');
+const mainController         = require('controllers/mainController'),
+      whoWeAreController     = require('controllers/whoWeAreController'),
+      trustRespectController = require('controllers/trustRespectController');
 
 const projectRouter = require('./projectRouter');
 
@@ -29,7 +30,7 @@ router.get('/who-we-are', whoWeAreController.getWhoWeAre);
 router.use('/projects', projectRouter);
 
 // Trust & Respect
-router.get('/trust-respect', mainController.getTestimonials);
+router.get('/trust-respect', trustRespectController.getTestimonials);
 // Contact Us
 router.get('/contact-us', mainController.getContactUs);
 
