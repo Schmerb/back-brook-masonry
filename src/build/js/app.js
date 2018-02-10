@@ -121,7 +121,7 @@ function getAllProjects() {
         dataType: 'json',
         success: res => {
             state.projects = res.projects;
-            console.log(state.projects);
+            // console.log(state.projects);
         },
         error: (jqXHR, textStatus, err) => {
             console.log(err);
