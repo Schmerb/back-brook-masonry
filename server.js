@@ -59,7 +59,7 @@ app.use(router);
 
 // fallback error message for all non-existent endpoints
 app.use('*', (req, res) => {
-    res.status(404).json({message: 'Not Found'});
+    res.status(404).render('pages/_404');
 });
 
 // * * * * * * * * * * * * * * * * * * 

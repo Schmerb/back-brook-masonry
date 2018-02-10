@@ -76,6 +76,12 @@ body {
     @include mediaMin(1600px) {
         padding-bottom: calc(1000px + 5vw);
     }
+
+    // 404 Error page @overrides
+    &._404 {
+        padding: 0;
+        min-height: 0;
+    }
 }
 
 // svg symbol defs at top of body
