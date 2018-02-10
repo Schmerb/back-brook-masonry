@@ -144,6 +144,7 @@ const {
 } = require('./utils');
 
 
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 // Gives a smooth animation to page navigation bringing the 
 // target element to the top of the window

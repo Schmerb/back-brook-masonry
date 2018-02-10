@@ -20,7 +20,23 @@ exports.initMap = () => {
     let marker = new google.maps.Marker({
       position: uluru,
       map: map,
-      icon: 'assets/images/compressed/five-bricks.png'
+      icon: {
+          url: 'assets/images/compressed/five-bricks.png'
+      }
+    });
+
+    var center;
+    google.maps.event.addDomListener(map, 'idle', () => {
+        center = map.getCenter();
+    });
+    google.maps.event.addDomListener(window, 'resize', () => {
+        map.setCenter(center);
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+    google.maps.event.addDomListener(marker, 'click', () => {
+        infowindow.setContent('<div>YOOO</div>');
+        infowindow.open(map, this);
     });
 }
 
