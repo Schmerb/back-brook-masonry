@@ -31,6 +31,7 @@ router.use('/projects', projectRouter);
 
 // Trust & Respect
 router.get('/trust-respect', trustRespectController.getTestimonials);
+
 // Contact Us
 router.get('/contact-us', mainController.getContactUs);
 
