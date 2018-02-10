@@ -1,21 +1,36 @@
 <% layout('layout') %>
 
 <section id="who-we-are" class="who-we-are-page">
-    <h2>Who We Are</h2>
     <div class="container">
-        <div class="about-bbm">
-            <p>Founded on the principal of providing masonry services in a safe and professional manner, Back Brook Masonry was formed in 2011 by two prominent construction industry professionals with more than 25 years experience working in New Jersey, New York and Pennsylvania. The President of Back Brook Masonry, Michael Schmerbeck, has dedicated the last 32 years to the masonry industry where he has earned a reputation for his professionalism, integrity, fairness and commitment to the safety of the worker. Back Brook Masonry is dedicated to providing all clients, on all projects, quality construction, on time and on budget.</p>
-        </div>
-        <div>
-            <h3>Meet Our Team</h3>
-            <ul class="employees">
-                <% employees.forEach(user => { %>
+        <div class="about-nav-container">
+            <nav class="sub-nav">
+                <ul>
                     <li>
-                        <%- partial('../blocks/employee', {user: user}) %>
+                        <a href="/who-we-are" class="<%= path === '/who-we-are' ? 'active':'' %>">
+                            <span>Who We Are</span>
+                        </a>
                     </li>
-                <% }); %>
-            </ul>
+                    <li>
+                        <a href="/who-we-are/safety" class="<%= path === '/who-we-are/safety' ? 'active':'' %>">
+                            <span>Safety</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/who-we-are/bonding" class="<%= path === '/who-we-are/bonding' ? 'active':'' %>">
+                            <span>Bonding</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
+    
+        <% if(path === '/who-we-are') { %>
+            <% include ../blocks/who-we-are-block %>
+        <% } else if(path.includes('safety')) { %>
+            <% include ../blocks/safety %>
+        <% } else if(path.includes('bonding')) { %>
+            <% include ../blocks/bonding %>
+        <% } %>
     </div>
 </section>
     

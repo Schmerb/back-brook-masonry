@@ -7,21 +7,80 @@
 
 .who-we-are-page {
     min-height: 100vh;
-    padding: 50px 0;
+    padding-bottom: 20px;
+    .container {
+        @include mediaMin($desktop) {
+            margin-top: 50px;
+        }
+    }
+    .text-container {
+        @include mediaMin($desktop) {
+            overflow: hidden;
+        }
+        a {
+            @extend %default-transition;
+            color: rgba($brickred, 0.7);
+            &:hover, &:focus {
+                color: $brickred;
+            }
+        }
+    }
     h2, h3 {
         font-size: 36px;
-        padding-top: 30px;
+        width: 90%;
+        margin: 0 auto;
+        padding-top: 5px;
         padding-bottom: 30px;
         text-align: center;
     }
     h3 {
         font-size: 32px;
     }
+    h2 {
+        position: relative;
+        padding-top: 40px;
+        &::before {
+            content: '';
+            @extend %center;
+            top: 0;
+            background-color: $brickred;
+            width: 40vw;
+            min-width: 300px;
+            max-width: 500px;
+            height: 2px;
+            @include mediaMin($desktop) {
+                display: none;
+            }
+        }
+    }
+    p {
+        font-family: Arial, Helvetica, sans-serif;
+        width: 90%;
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 0 20px;
+        text-align: justify;
+    }
     .about-bbm {
         font-family: Arial, Helvetica, sans-serif;
         max-width: 800px;
-        margin: 60px auto;
+        margin: 20px auto;
         padding: 0 20px;
         text-align: justify;
+    }
+    .safety-section, 
+    .bonding-section, {
+        @include mediaMin($desktop) {
+            margin-top: 50px;
+        }
+    }
+    .logo-img-wrap {
+        position: relative;
+        height: 100px;
+    }
+    .travelers-logo {
+        @extend %center;
+        width: 200px;
+        height: auto;
     }
 }

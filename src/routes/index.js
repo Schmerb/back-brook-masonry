@@ -15,16 +15,16 @@ router.use(bodyParser.urlencoded({ extended: true }));
 
 // controllers
 const mainController         = require('controllers/mainController'),
-      whoWeAreController     = require('controllers/whoWeAreController'),
       trustRespectController = require('controllers/trustRespectController');
 
-const projectRouter = require('./projectRouter');
+const projectRouter  = require('./projectRouter');
+const whoWeAreRouter = require('./whoWeAreRouter');
 
 // HOME
 router.get('/', mainController.getIndex);
 
 // Who We Are
-router.get('/who-we-are', whoWeAreController.getWhoWeAre);
+router.use('/who-we-are', whoWeAreRouter);
 
 // Projects
 router.use('/projects', projectRouter);

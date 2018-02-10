@@ -11,7 +11,6 @@ const async   = require('async');
 
 const { employees } = require('utils/employees');
 
-
 exports.getWhoWeAre = (req, res) => {
     const url = 'http://api.randomuser.me/';
     let myUrls = [];
@@ -37,3 +36,15 @@ exports.getWhoWeAre = (req, res) => {
     });
 };
 
+exports.getSafetyPage = (req, res) => {
+    res.status(200).render('pages/who-we-are', {
+        landing: false,
+        path: '/who-we-are/safety'
+    });
+}
+exports.getBondingPage = (req, res) => {
+    res.status(200).render('pages/who-we-are', {
+        landing: false,
+        path: '/who-we-are/bonding'
+    });
+}

@@ -4,6 +4,29 @@
 //
 // // // // // // // // // //
 
+.employees-container {
+    @extend %default-transition;
+    clear: both;
+    position: relative;
+    margin-top: 100px;
+    @include mediaMin($tablet) {
+        margin-top: 160px;
+    }
+    @include mediaMin($desktop) {
+        margin-top: 200px;
+    }
+    &::before {
+        content: '';
+        @extend %center;
+        background-color: rgba($brickred, 0.1);
+        width: 80%;
+        height: 0.6px;
+        margin: 0 auto;
+        top: -50px;
+    }
+}
+
+// ul list
 .employees {
     @extend %flexbox;
     background-color: white;
