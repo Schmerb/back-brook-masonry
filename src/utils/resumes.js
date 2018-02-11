@@ -18,7 +18,7 @@ exports.resumes = {
     "mike-wojtowicz": {
         name: "Michael Wojtowicz",
         position: "Vice President",
-        image: '/assets/images/compressed/staff/mike-schmerbeck.jpg',
+        image: '/assets/images/compressed/staff/mike-schmerbeck.png',
         items: [
             "25 years experience in the construction industry",
             "Holds a BS Degree in Electrical Engineering from Rutgers University",

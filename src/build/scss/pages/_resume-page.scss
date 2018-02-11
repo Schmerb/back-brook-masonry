@@ -6,7 +6,18 @@
 
 .resume-page {
     min-height: 100vh;
-    margin-top: 50px;
+    max-width: 1200px;
+    margin: 50px auto;
+    @include mediaMin($tablet) {
+        margin-top: 130px;
+    }
+    // Back Btn 
+    .icon-back-btn-textured {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+    
     .resume-container {
         @include mediaMin($tablet) {
             display: flex;
@@ -16,7 +27,7 @@
     // IMAGE WRAP
     .image-wrap {
         width: 300px;
-        // border: 1px solid black;
+        padding-left: 20px;
         @include mediaMax($tablet - 1) {   
             margin: 0 auto;
         }
@@ -28,17 +39,19 @@
     }
     // DESCRIPTION WRAP
     .description-wrap {
+        padding-left: 20px;
+        max-width: 600px;
         h2 {
-            text-align: center;
-            padding-top: 20px;
             padding-bottom: 30px;
+            @include mediaMax($tablet - 1) {
+                padding-top: 20px;
+            }
         }
         // RESUME
         .resume-list {
             font-family: Roboto, sans-serif;
             max-width: 800px;
             margin: 0 auto;
-            padding-left: 20px;
             li {
                 position: relative;
                 margin-bottom: 25px;
