@@ -233,9 +233,9 @@ function trowelClick() {
     });
 }
 
-//
+// - - - - - - - - - - - - -
 // Project Category Menu
-//
+// - - - - - - - - - - - - -
 function formSubmitPrevent() {
     $('.category-form').on('submit', e => {
         e.preventDefault();
@@ -245,7 +245,6 @@ function formSubmitPrevent() {
 function categoryBtnClick() {
     $('.category-btn').on('click', e => {
         e.preventDefault();
-        console.log('clicked!');
         $('.category-options').removeClass('fadeOut');
         $(RESULTS_CONTAINER).height('');
         if($(SEARCH_RESULTS).hasClass('open')) {
@@ -260,7 +259,6 @@ function categoryBtnClick() {
 function searchBarChange() {
     $('.search-bar').on('input', e => {
         e.preventDefault();
-        console.log('Changed!');
         showResults(e.target.value);
     });
 }
@@ -275,6 +273,9 @@ function clearIconClick() {
     });
 }
 
+// - - - - - - - - - -
+// Project Detail Page
+// - - - - - - - - - -
 function backBtnClick() {
     $('.back-btn-anchor').on('click', function(e) {
         e.preventDefault();

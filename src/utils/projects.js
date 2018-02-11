@@ -44,18 +44,7 @@ let categories = [
 ];
 
 let projects = [
-    {
-        name: 'Natirar Mansion Cleaning',
-        industry: 'Education',
-        client: 'Natirar',
-        date_completed: new Date(),
-        url: '/projects/commercial/natirar-mansion',
-        image: '/assets/images/compressed/projects/bbm-1.jpg',
-        description: "",
-        highlight: "When the owner of the new Virgin Spa Resort in Peapack, New Jersey needed to help restore the existing 100 year old mansion to it’s original splendor, he called on Back Brook Masonry to do the job! With the assistance of the scientist from EaCo Chem, Inc., we utilized various proprietary cleaning products and techniques to rid the exterior facebrick, limestone and granite of the dirt, grime and stains that have built up over the past century.",
-        quote: "Back Brook Masonry did an excellent job in cleaning the more than 100 year old façade of the “Mansion House” and surrounding site walls restoring the luster and charm of the masonry facades just in time for our Wedding season. A job well done! \nWe appreciate the skill, care and professionalism Back Brook masonry exercised when working on our facility to insure no damage occurred to the brick and stone facades. The results were magnificent!",
-        quoteAuthor: "Lee Chasalow, GM"
-    },
+    
     {
         name: 'Newark South Ward 5th Police Precinct',
         industry: 'Commercial',
@@ -187,6 +176,18 @@ let projects = [
         highlight: "Morbi auctor euismod orci, at tempus ligula malesuada a. Vivamus consequat tristique purus laoreet scelerisque. Aliquam in sem suscipit, finibus turpis quis, dictum nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc vehicula magna at orci egestas, at ultricies metus auctor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque volutpat lacus ut ipsum tempor scelerisque. Vestibulum rutrum congue consectetur.",
         quote: "Donec mollis dolor elit, sed tincidunt felis eleifend at.",
         quoteAuthor: "Mike Schmerbeck"
+    },
+    {
+        name: 'Natirar Mansion Cleaning',
+        industry: 'Education',
+        client: 'Natirar',
+        date_completed: new Date(),
+        url: '/projects/commercial/natirar-mansion',
+        image: '/assets/images/compressed/projects/bbm-1.jpg',
+        description: "",
+        highlight: "When the owner of the new Virgin Spa Resort in Peapack, New Jersey needed to help restore the existing 100 year old mansion to it’s original splendor, he called on Back Brook Masonry to do the job! With the assistance of the scientist from EaCo Chem, Inc., we utilized various proprietary cleaning products and techniques to rid the exterior facebrick, limestone and granite of the dirt, grime and stains that have built up over the past century.",
+        quote: "Back Brook Masonry did an excellent job in cleaning the more than 100 year old façade of the “Mansion House” and surrounding site walls restoring the luster and charm of the masonry facades just in time for our Wedding season. A job well done! \nWe appreciate the skill, care and professionalism Back Brook masonry exercised when working on our facility to insure no damage occurred to the brick and stone facades. The results were magnificent!",
+        quoteAuthor: "Lee Chasalow, GM"
     },
 ];
 
