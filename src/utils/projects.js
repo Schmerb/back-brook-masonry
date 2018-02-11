@@ -44,7 +44,6 @@ let categories = [
 ];
 
 let projects = [
-    
     {
         name: 'Newark South Ward 5th Police Precinct',
         industry: 'Commercial',
@@ -58,7 +57,7 @@ let projects = [
         quoteAuthor: "Bill Perlack, Project Manager"
     },
     {
-        name: 'Rutgers Livingston Campus Housing ',
+        name: 'Rutgers Livingston Campus Housing',
         industry: 'Education',
         client: 'Turner Construction',
         date_completed: new Date(),
@@ -79,102 +78,6 @@ let projects = [
         description: "Western Expansion for St. Barnabus Medical Center",
         highlight: "Morbi metus diam, efficitur id urna eget, hendrerit elementum orci. Etiam nec finibus nisi. Cras tincidunt varius ultrices. Etiam eget dapibus velit. Vivamus fermentum vitae dolor quis efficitur. Morbi non nunc finibus, luctus orci et, dignissim tellus. Aenean et dui convallis, dapibus odio ac, pulvinar lectus.",
         quote: "Pellentesque volutpat lacus ut ipsum tempor scelerisque. Vestibulum rutrum congue consectetur.",
-        quoteAuthor: "Mike Schmerbeck"
-    },
-    {
-        name: 'Rutgers Dorms',
-        industry: 'Education',
-        client: 'Turner Construction',
-        date_completed: new Date(),
-        url: '/projects/commercial/rutgers-dorms',
-        image: '/assets/images/compressed/projects/bbm-1.jpg',
-        description: "Student dormatories for Rutgers University",
-        highlight: "Morbi auctor euismod orci, at tempus ligula malesuada a. Vivamus consequat tristique purus laoreet scelerisque. Aliquam in sem suscipit, finibus turpis quis, dictum nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc vehicula magna at orci egestas, at ultricies metus auctor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque volutpat lacus ut ipsum tempor scelerisque. Vestibulum rutrum congue consectetur.",
-        quote: "Donec mollis dolor elit, sed tincidunt felis eleifend at.",
-        quoteAuthor: "Mike Schmerbeck"
-    },
-    {
-        name: 'Rutgers Dorms',
-        industry: 'Commercial',
-        client: 'Turner Construction',
-        date_completed: new Date(),
-        url: '/projects/commercial/rutgers-dorms',
-        image: '/assets/images/compressed/projects/bbm-1.jpg',
-        description: "Student dormatories for Rutgers University",
-        highlight: "Morbi auctor euismod orci, at tempus ligula malesuada a. Vivamus consequat tristique purus laoreet scelerisque. Aliquam in sem suscipit, finibus turpis quis, dictum nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc vehicula magna at orci egestas, at ultricies metus auctor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque volutpat lacus ut ipsum tempor scelerisque. Vestibulum rutrum congue consectetur.",
-        quote: "Donec mollis dolor elit, sed tincidunt felis eleifend at.",
-        quoteAuthor: "Mike Schmerbeck"
-    },
-    {
-        name: 'Rutgers Dorms',
-        industry: 'Commercial',
-        client: 'Turner Construction',
-        date_completed: new Date(),
-        url: '/projects/commercial/rutgers-dorms',
-        image: '/assets/images/compressed/projects/bbm-1.jpg',
-        description: "Student dormatories for Rutgers University",
-        highlight: "Morbi auctor euismod orci, at tempus ligula malesuada a. Vivamus consequat tristique purus laoreet scelerisque. Aliquam in sem suscipit, finibus turpis quis, dictum nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc vehicula magna at orci egestas, at ultricies metus auctor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque volutpat lacus ut ipsum tempor scelerisque. Vestibulum rutrum congue consectetur.",
-        quote: "Donec mollis dolor elit, sed tincidunt felis eleifend at.",
-        quoteAuthor: "Mike Schmerbeck"
-    },
-    {
-        name: 'Rutgers Dorms',
-        industry: 'Commercial',
-        client: 'Turner Construction',
-        date_completed: new Date(),
-        url: '/projects/commercial/rutgers-dorms',
-        image: '/assets/images/compressed/projects/bbm-1.jpg',
-        description: "Student dormatories for Rutgers University",
-        highlight: "Morbi auctor euismod orci, at tempus ligula malesuada a. Vivamus consequat tristique purus laoreet scelerisque. Aliquam in sem suscipit, finibus turpis quis, dictum nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc vehicula magna at orci egestas, at ultricies metus auctor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque volutpat lacus ut ipsum tempor scelerisque. Vestibulum rutrum congue consectetur.",
-        quote: "Donec mollis dolor elit, sed tincidunt felis eleifend at.",
-        quoteAuthor: "Mike Schmerbeck"
-    },
-    {
-        name: 'Rutgers Dorms',
-        industry: 'Commercial',
-        client: 'Turner Construction',
-        date_completed: new Date(),
-        url: '/projects/commercial/rutgers-dorms',
-        image: '/assets/images/compressed/projects/bbm-1.jpg',
-        description: "Student dormatories for Rutgers University",
-        highlight: "Morbi auctor euismod orci, at tempus ligula malesuada a. Vivamus consequat tristique purus laoreet scelerisque. Aliquam in sem suscipit, finibus turpis quis, dictum nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc vehicula magna at orci egestas, at ultricies metus auctor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque volutpat lacus ut ipsum tempor scelerisque. Vestibulum rutrum congue consectetur.",
-        quote: "Donec mollis dolor elit, sed tincidunt felis eleifend at.",
-        quoteAuthor: "Mike Schmerbeck"
-    },
-    {
-        name: 'Rutgers Dorms',
-        industry: 'Commercial',
-        client: 'Turner Construction',
-        date_completed: new Date(),
-        url: '/projects/commercial/rutgers-dorms',
-        image: '/assets/images/compressed/projects/bbm-1.jpg',
-        description: "Student dormatories for Rutgers University",
-        highlight: "Morbi auctor euismod orci, at tempus ligula malesuada a. Vivamus consequat tristique purus laoreet scelerisque. Aliquam in sem suscipit, finibus turpis quis, dictum nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc vehicula magna at orci egestas, at ultricies metus auctor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque volutpat lacus ut ipsum tempor scelerisque. Vestibulum rutrum congue consectetur.",
-        quote: "Donec mollis dolor elit, sed tincidunt felis eleifend at.",
-        quoteAuthor: "Mike Schmerbeck"
-    },
-    {
-        name: 'Rutgers',
-        industry: 'Commercial',
-        client: 'Turner Construction',
-        date_completed: new Date(),
-        url: '/projects/commercial/rutgers-dorms',
-        image: '/assets/images/compressed/projects/bbm-1.jpg',
-        description: "Student dormatories for Rutgers University",
-        highlight: "Morbi auctor euismod orci, at tempus ligula malesuada a. Vivamus consequat tristique purus laoreet scelerisque. Aliquam in sem suscipit, finibus turpis quis, dictum nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc vehicula magna at orci egestas, at ultricies metus auctor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque volutpat lacus ut ipsum tempor scelerisque. Vestibulum rutrum congue consectetur.",
-        quote: "Donec mollis dolor elit, sed tincidunt felis eleifend at.",
-        quoteAuthor: "Mike Schmerbeck"
-    },
-    {
-        name: 'St Barnabus',
-        industry: 'Commercial',
-        client: 'Turner Construction',
-        date_completed: new Date(),
-        url: '/projects/commercial/st-barnabus',
-        image: '/assets/images/compressed/projects/bbm-1.jpg',
-        description: "Student dormatories for Rutgers University",
-        highlight: "Morbi auctor euismod orci, at tempus ligula malesuada a. Vivamus consequat tristique purus laoreet scelerisque. Aliquam in sem suscipit, finibus turpis quis, dictum nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc vehicula magna at orci egestas, at ultricies metus auctor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque volutpat lacus ut ipsum tempor scelerisque. Vestibulum rutrum congue consectetur.",
-        quote: "Donec mollis dolor elit, sed tincidunt felis eleifend at.",
         quoteAuthor: "Mike Schmerbeck"
     },
     {

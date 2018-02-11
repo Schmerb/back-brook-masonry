@@ -84,7 +84,7 @@ const setBgImgHeight = () => {
     // trigger on 1) first touch
     //            2) on window resize when state.hasTouch === true
     let $bg = $('header');
-    $bg.css('max-height', ''); // clear max-height to handle resize and get default height
+    $bg.css('max-height', ''); // clear height to handle resize and get default height
     let h = $bg.height();
     $bg.css('max-height', h);
 }
