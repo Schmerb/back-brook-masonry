@@ -46,23 +46,32 @@ const initProjectSlider = () => {
         }
     })
 }
+
+const scrollBarWidth = require('./utils').getScrollbarWidth();
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * 
 // Model Page Slider
 // * * * * * * * * * * * * * * * * * * * * * * * * * 
 const initModelSlider = () => {
     $(MODEL_SLIDER).slick({
-        dots: false,
+        dots: true,
         arrows: true,
         nextArrow: '<svg class="icon icon-chevron-right"><use xlink:href="#icon-chevron-right"></use></svg>',
         prevArrow: '<svg class="icon icon-chevron-left"><use xlink:href="#icon-chevron-left"></use></svg>',
         infinite: false,
         speed: 1200,
-        slidesToShow: 2,
-        slidesToScroll: 2,
         variableWidth: true,
+        centerMode: true,
+        initialSlide: 1,
         responsive: [
             {
-                breakpoint: 515,
+                breakpoint: 1200,
+                settings: {
+                    initialSlide: 0
+                }
+            },
+            {
+                breakpoint: 737,
                 settings: {
                     speed: 1200,
                     arrows: false,
@@ -72,7 +81,11 @@ const initModelSlider = () => {
             }
         ]
     });
+    if(window.innerWidth < 737) {
+        $('.model-slide').css({'width': 'calc(100vw - ' + scrollBarWidth + 'px)'});
+    }
 }
+
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * 
 // Intializes slider and sets height to zero
@@ -116,9 +129,14 @@ const responsiveReslick = () => {
         }
         if (!$(MODEL_SLIDER).hasClass('slick-initialized')) {
             initModelSlider();
+        } 
+        if(window.innerWidth < 737) {
+            $('.model-slide').css({'width': 'calc(100vw - ' + scrollBarWidth + 'px)'});
         }
     });
 }
+
+
 
 module.exports = {
     initProjectSlider, 

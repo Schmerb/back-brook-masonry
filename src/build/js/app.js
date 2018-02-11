@@ -346,7 +346,7 @@ const {
 if($('#projects').length !== 0) {
     displayProjectSlider();
     responsiveReslick();
-} else if ($('.bim-model').length !== 0) {
+} else if ($('.bim-model-page').length !== 0) {
     displayModelSlider();
     responsiveReslick();
 }
