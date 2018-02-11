@@ -10,6 +10,7 @@ const request = require('request');
 const async   = require('async');
 
 const { employees } = require('utils/employees');
+const { resumes }   = require('utils/resumes');
 
 exports.getWhoWeAre = (req, res) => {
     const url = 'http://api.randomuser.me/';
@@ -46,5 +47,15 @@ exports.getBondingPage = (req, res) => {
     res.status(200).render('pages/who-we-are', {
         landing: false,
         path: '/who-we-are/bonding'
+    });
+}
+
+exports.getResumePage = (req, res) => {
+    let slug = req.params.employee;
+    let employee = resumes[slug];
+    res.status(200).render('pages/resume', {
+        employee,
+        landing: false,
+        path: `/who-we-are/${slug}`
     });
 }

@@ -1,0 +1,58 @@
+// // // // // // // // // //
+//
+//      Resume Page
+//
+// // // // // // // // // //
+
+.resume-page {
+    min-height: 100vh;
+    margin-top: 50px;
+    .resume-container {
+        @include mediaMin($tablet) {
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+    // IMAGE WRAP
+    .image-wrap {
+        width: 300px;
+        // border: 1px solid black;
+        @include mediaMax($tablet - 1) {   
+            margin: 0 auto;
+        }
+        // IMAGE
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    // DESCRIPTION WRAP
+    .description-wrap {
+        h2 {
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 30px;
+        }
+        // RESUME
+        .resume-list {
+            font-family: Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-left: 20px;
+            li {
+                position: relative;
+                margin-bottom: 25px;
+            }
+            .icon-checkmark {
+                fill: $brickred;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            p {
+                padding: 0 20px;
+                margin: 0;
+            }
+        }
+    }
+}
