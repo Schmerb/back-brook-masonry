@@ -275,6 +275,14 @@ function clearIconClick() {
     });
 }
 
+function backBtnClick() {
+    $('.back-btn-anchor').on('click', function(e) {
+        e.preventDefault();
+        let category = $(this).data('category');
+        location.href = `/projects/${category}`;
+    });
+}
+
 //================================================================================
 // Event Listener Groups
 //================================================================================
@@ -289,6 +297,10 @@ function categoryForm() {
     categoryBtnClick();
     searchBarChange();
     clearIconClick();
+}
+
+function projectDetailEvents() {
+    backBtnClick();
 }
 
 
@@ -341,6 +353,7 @@ $(function () {
     utils();
     navClicks();
     categoryForm();
+    projectDetailEvents();
     init();
 });
 
