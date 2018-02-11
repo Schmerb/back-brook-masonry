@@ -31,7 +31,7 @@ router.use('/projects', projectRouter);
 
 // BIM
 router.get('/BIM', mainController.getBIM);
-router.get('/BIM/:example', mainController.getBIMExample);
+router.get('/BIM/:model', mainController.getBIMExample);
 
 // Trust & Respect
 router.get('/trust-respect', trustRespectController.getTestimonials);

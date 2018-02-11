@@ -1,4 +1,11 @@
 <!-- BIM model -->
 <div class="bim-model-wrap">
-    <iframe src="https://gmail129142.autodesk360.com/shares/public/SH7f1edQT22b515c761e474144fe2251d5e9?mode=embed" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe>
+
+    <% if(model === 'example1') { %>
+        <iframe src="https://gmail129142.autodesk360.com/shares/public/SH7f1edQT22b515c761e474144fe2251d5e9?mode=embed" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe>
+    <% } else if(model === 'example2') { %>
+        <iframe src="https://gmail129142.autodesk360.com/shares/public/SH7f1edQT22b515c761ee9649d69568ae9a0?mode=embed" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe>
+    <% } else { %>
+        <iframe src="https://gmail129142.autodesk360.com/shares/public/SH7f1edQT22b515c761e72590b6bb6db7954?mode=embed" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe>
+    <% } %>
 </div>

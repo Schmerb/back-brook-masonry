@@ -40,8 +40,11 @@ exports.getBIM = (req, res) => {
 }
 
 exports.getBIMExample = (req, res) => {
+    const { model } = req.params;
+    console.log({model});
     res.status(200).render('pages/BIM/model', {
-        landing:  false,
+        model,
+        landing: false,
         path: '/BIM/'
     });
 }
