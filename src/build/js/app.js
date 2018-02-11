@@ -201,12 +201,10 @@ function checkSize() {
 // user has touched / can touch. 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 function checkForTouch() {
-    $(window).on('touchstart', e => {
+    if($('html').hasClass('touch')) {
         state.hasTouch = true;
         setBgImgHeight();
-        // remove listener once fired
-        $(window).off('touchstart');
-    });
+    }
 }
 
 
@@ -335,7 +333,6 @@ function init() {
     } else if (path === '/contact-us') {
         initMap();
     }
-    state.hasTouch ? setBgImgHeight() : null;
     fadeOutLoadScreen();
     startSlideShow(4000); // starts bg image slideshow
     getAllProjects();
