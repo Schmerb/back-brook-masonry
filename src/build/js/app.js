@@ -307,12 +307,6 @@ function projectDetailEvents() {
 // Utility and Initialization handlers
 //================================================================================
 const { startSlideShow } = require('./slideshow');
-const { 
-    initSlider, 
-    displaySlider, 
-    unslick, 
-    responsiveReslick 
-} = require('./slick-init');
 const { initMap } = require('./google-maps');
 
 function utils() {
@@ -342,11 +336,22 @@ function init() {
 //================================================================================
 // Entry point -- Main
 //================================================================================
-// fire immediately 
-displaySlider();
-responsiveReslick();
+const { 
+    displayProjectSlider, 
+    displayModelSlider, 
+    responsiveReslick 
+} = require('./slick-init');
 
-// on load
+// Init slick slider if on correct
+if($('#projects').length !== 0) {
+    displayProjectSlider();
+    responsiveReslick();
+} else if ($('.bim-model').length !== 0) {
+    displayModelSlider();
+    responsiveReslick();
+}
+
+// on Load
 $(function () {
     utils();
     navClicks();
@@ -354,4 +359,15 @@ $(function () {
     projectDetailEvents();
     init();
 });
+
+// $(document).ready(function() {
+//     // executes when HTML-Document is loaded and DOM is ready
+//     alert("document is ready");
+// });
+   
+   
+// $(window).on('load', (function() {
+//     // executes when complete page is fully loaded, including all frames, objects and images
+//     alert("window is loaded");
+// }));
 

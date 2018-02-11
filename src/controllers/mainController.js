@@ -30,3 +30,18 @@ exports.getContactUs = (req, res) => {
         path: '/contact-us',
     });
 };
+
+// BIM
+exports.getBIM = (req, res) => {
+    res.status(200).render('pages/BIM', {
+        landing:  false,
+        path: '/BIM'
+    });
+}
+
+exports.getBIMExample = (req, res) => {
+    res.status(200).render('pages/BIM/model', {
+        landing:  false,
+        path: '/BIM/'
+    });
+}

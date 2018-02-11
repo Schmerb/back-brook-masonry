@@ -29,6 +29,10 @@ router.use('/who-we-are', whoWeAreRouter);
 // Projects
 router.use('/projects', projectRouter);
 
+// BIM
+router.get('/BIM', mainController.getBIM);
+router.get('/BIM/:example', mainController.getBIMExample);
+
 // Trust & Respect
 router.get('/trust-respect', trustRespectController.getTestimonials);
 

@@ -3,13 +3,14 @@
 // ================================================================================
 
 // SELECTOR CONSTANTS
-const SLIDER = '.project-slider';
+const PROJECT_SLIDER = '.project-slider';
+const MODEL_SLIDER   = '.model-slider';
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * 
-// Drone banner carousel
+// Project Page Slider
 // * * * * * * * * * * * * * * * * * * * * * * * * * 
-const initSlider = () => {
-    $(SLIDER).slick({
+const initProjectSlider = () => {
+    $(PROJECT_SLIDER).slick({
         dots: false,
         arrows: true,
         nextArrow: '<svg class="icon icon-chevron-right"><use xlink:href="#icon-chevron-right"></use></svg>',
@@ -38,12 +39,39 @@ const initSlider = () => {
     if(visisted) {
         $('.icon-swipe-icon').remove();
     }
-    $(SLIDER).on('afterChange', (e, slick, currentSlide) => {
+    $(PROJECT_SLIDER).on('afterChange', (e, slick, currentSlide) => {
         $('.icon-swipe-icon').addClass('fadeOut');
         if(!visisted) {
             sessionStorage.setItem('visited', 'true');
         }
     })
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * 
+// Model Page Slider
+// * * * * * * * * * * * * * * * * * * * * * * * * * 
+const initModelSlider = () => {
+    $(MODEL_SLIDER).slick({
+        dots: false,
+        arrows: true,
+        nextArrow: '<svg class="icon icon-chevron-right"><use xlink:href="#icon-chevron-right"></use></svg>',
+        prevArrow: '<svg class="icon icon-chevron-left"><use xlink:href="#icon-chevron-left"></use></svg>',
+        infinite: false,
+        speed: 1200,
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        variableWidth: true,
+        responsive: [
+            {
+                breakpoint: 515,
+                settings: {
+                    speed: 1200,
+                    arrows: false,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * 
@@ -51,11 +79,15 @@ const initSlider = () => {
 // before and unsets height after it is 'slicked'
 // to avoid FOUC
 // * * * * * * * * * * * * * * * * * * * * * * * * * 
-const displaySlider = () => {
-    $(SLIDER).css('height', '0px');
-    initSlider();
-    $(SLIDER).css('height', '');
-    // $('.slick-list').addClass('fadeIn');
+const displayProjectSlider = () => {
+    $(PROJECT_SLIDER).css('height', '0px');
+    initProjectSlider();
+    $(PROJECT_SLIDER).css('height', '');
+}
+const displayModelSlider = () => {
+    $(MODEL_SLIDER).css('height', '0px');
+    initModelSlider();
+    $(MODEL_SLIDER).css('height', '');
 }
 
 
@@ -63,9 +95,9 @@ const displaySlider = () => {
 //          Destroys slick carousels
 // @params   Slider element to be destroyed
 // * * * * * * * * * * * * * * * * * * * * * * * * * 
-const unslick = (SLIDER) => {
-    if ($(SLIDER).hasClass('slick-initialized')) {
-        $(SLIDER).slick('unslick');
+const unslick = (slider) => {
+    if ($(slider).hasClass('slick-initialized')) {
+        $(slider).slick('unslick');
     }
 }
 
@@ -79,15 +111,20 @@ const unslick = (SLIDER) => {
 const responsiveReslick = () => {
     $(window).resize(() => {
         let width = parseInt($('body').css('width'));
-        if (!$(SLIDER).hasClass('slick-initialized')) {
-            initSlider();
+        if (!$(PROJECT_SLIDER).hasClass('slick-initialized')) {
+            initProjectSlider();
+        }
+        if (!$(MODEL_SLIDER).hasClass('slick-initialized')) {
+            initModelSlider();
         }
     });
 }
 
 module.exports = {
-    initSlider, 
-    displaySlider, 
+    initProjectSlider, 
+    initModelSlider,
+    displayProjectSlider, 
+    displayModelSlider, 
     unslick, 
     responsiveReslick 
 };
