@@ -87,15 +87,17 @@
         pointer-events: none;
     }
 }
-// LEFT
-.icon-chevron-left {
-    @include middleL(0);
-    padding-left: 20px;
-}
-// RIGHT
-.icon-chevron-right {
-    @include middleR(0);
-    padding-right: 20px;
+.project-slider {
+    // LEFT
+    .icon-chevron-left {
+        @include middleL(0);
+        padding-left: 20px;
+    }
+    // RIGHT
+    .icon-chevron-right {
+        @include middleR(0);
+        padding-right: 20px;
+    }
 }
 
 // - - - - - - - - - 
