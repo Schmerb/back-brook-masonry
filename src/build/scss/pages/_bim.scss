@@ -84,16 +84,36 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            @include mediaMin($tablet) {
+                flex-direction: row;
+            }
             li {
                 width: 96%;
+                max-width: 400px;
                 margin: 10px auto;
+                padding: 0 5px;
             }
         }
         .example-card {
-            max-width: 400px;
+            @include transition(0.2s);
+            position: relative;
+            background-color: rgba($brickred, 0.7);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             height: 250px;
-            border: 1px solid black;
-            border-radius: 5px;
+            // border-radius: 5px;
+            &:hover, &:focus {
+                &::before {
+                    background-color: rgba($brickred, 0.5);
+                }
+            }
+            &::before {
+                @extend %cover;
+                @extend %default-transition;
+                content: '';
+                background-color: rgba($brickred, 0.1);
+            }
         }
     }
 }

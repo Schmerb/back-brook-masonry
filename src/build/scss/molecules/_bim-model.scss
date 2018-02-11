@@ -33,6 +33,9 @@
         fill: black;
         width: 40px;
         height: 40px;
+        &:hover, &:focus {
+            fill: rgba($brickred, 0.9);
+        }
     }
     .icon-chevron-right.slick-arrow {
         @include middleR(20px);
@@ -59,12 +62,24 @@
         margin: 0 auto;
         .model-slide-inner {
             @include transition(0.2s);
-            background-color: cornflowerblue;
+            position: relative;
+            background-color: rgba($brickred, 0.7);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             width: 100%;
             height: 100%;
             margin: 0 auto;
             &:hover, &:focus {
-                background-color: rgba(cornflowerblue, 0.5);
+                &::before {
+                    background-color: rgba($brickred, 0.5);
+                }
+            }
+            &::before {
+                @extend %cover;
+                @extend %default-transition;
+                content: '';
+                background-color: rgba($brickred, 0.1);
             }
         }
     }
